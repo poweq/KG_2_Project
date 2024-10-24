@@ -1,0 +1,8 @@
+names:
+  0: box
+  1: red_space
+  2: blue_space
+  3: yellow_space
+test: C:\Users\shims\Desktop\github\yolo_dectect_traing\box_data\test
+train: C:\Users\shims\Desktop\github\yolo_dectect_traing\box_data\train
+val: C:\Users\shims\Desktop\github\yolo_dectect_traing\box_data\val
