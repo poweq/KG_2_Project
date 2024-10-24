@@ -13,5 +13,9 @@ ROOBOTARM_team<br>
 control_ABCpose.py<br>
 ->a,b,c.d 입력을 받으면 입력신호에 맞춰  A동작, B동작, C동작, D동작을 수행하는 코드<br>
 block_color_detect_pose.py<br>
-->빨강, 파랑, 노랑, 초록 색상의 블록을 인식해서 각 블록의 맞는 위치에 로봇암이 블록을 전달하는 코드
+->빨강, 파랑, 노랑, 초록 색상의 블록을 인식해서 각 블록의 맞는 위치에 로봇암이 블록을 전달하는 코드<br>
 
+yolov8_detect_model<br>
+yolov8_detect_model\runs\detect\train\weights\best.pt(학습시킨 모델)<br>
+assessment_webcam.py
+-> 웹캠으로 실시간으로 박스 인식 및 박스 칸 색깔인식해서 바운딩 박스 생성
