@@ -16,35 +16,35 @@ time.sleep(3)
 def move_to_position(color):
     if color == 'red':
         # 빨간색 블록 위치
-        mc.send_angles([72.07, 20.66, 69.02, -28.53, -83.93, -22.76], 20)
+        mc.send_angles([60, -50, 0, 10, 85, 60], 20)
         time.sleep(3)
-        mc.send_angles([35, 20, 78, -34, -90, 42], 20)
+        mc.send_angles([0, -50, 0, -40, 85, 0], 20)
         time.sleep(3)
-        mc.send_angles([35, 42, 78, -34, -90, 42], 20)
+        mc.send_angles([-5, -80, -17, 10, 85, 0], 20)
         time.sleep(3)
     elif color == 'blue':
         # 파란색 블록 위치
-        mc.send_angles([72.07, 20.66, 69.02, -28.53, -83.93, -22.76], 20)
+        mc.send_angles([60, -50, 0, 10, 85, 60], 20)
         time.sleep(3)
-        mc.send_angles([20.19, 30.24, 7.84, -17.39, -83.06, 24], 20)
+        mc.send_angles([38, -50, 0, -14, 90, 40], 20)
         time.sleep(3)
-        mc.send_angles([16.19, 75.24, 7.84, -17.39, -83.06, 24], 20)
+        mc.send_angles([38, -80, 0, -14, 90, 40], 20)
         time.sleep(3)
     elif color == 'yellow':
         # 노란색 블록 위치
-        mc.send_angles([72.07, 20.66, 69.02, -28.53, -83.93, -22.76], 20)
+        mc.send_angles([60, -50, 0, 10, 85, 60], 20)
         time.sleep(3)
-        mc.send_angles([3, 22, 37.84, -21.39, -90, 6.08], 20)
+        mc.send_angles([17, -50, 0, -10, 90, 20], 20)
         time.sleep(3)
-        mc.send_angles([2, 58, 38.84, -21.39, -90, 3], 20)
+        mc.send_angles([17, -80, 0, -10, 90, 20], 20)
         time.sleep(3)
     elif color == 'green':
         # 초록색 블록 위치
-        mc.send_angles([72.07, 20.66, 69.02, -28.53, -83.93, -22.76], 20)
+        mc.send_angles([60, -50, 0, 10, 85, 60], 20)
         time.sleep(3)
-        mc.send_angles([-19, 20, 1, 12, -90, -22], 20)
+        mc.send_angles([-80, -20, -30, 20, 90, 20], 20)
         time.sleep(3)
-        mc.send_angles([-19, 76, 1, 12, -90, -22], 20)
+        mc.send_angles([-80, -20, -90, 20, 90, 20], 20)
         time.sleep(3)
 
 # 색상 탐지 함수
@@ -139,7 +139,7 @@ def detect_color():
 # 작업 수행 함수
 def perform_action():
     # 초기 위치로 이동 후 색상 탐지
-    mc.send_angles([72.07, 41.66, 69.02, -28.53, -83.93, -22.76], 20)
+    mc.send_angles([60, -90, 0, 10, 85, 60], 20)
     time.sleep(3)
 
     # 색상 탐지
