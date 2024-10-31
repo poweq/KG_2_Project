@@ -16,35 +16,35 @@ time.sleep(3)
 def move_to_position(color):
     if color == 'red':
         # 빨간색 블록 위치
-        mc.send_angles([60, -50, 0, 10, 85, 60], 20)
+        mc.send_angles([60, -50, -21, 22, 79, 68], 20)
         time.sleep(3)
-        mc.send_angles([0, -50, 0, -40, 85, 0], 20)
+        mc.send_angles([-16, -16, -53, -13, 90, -17], 20)
         time.sleep(3)
-        mc.send_angles([-5, -80, -17, 10, 85, 0], 20)
+        mc.send_angles([-16, -86, -4, -2, 90, -23], 20)
         time.sleep(3)
     elif color == 'blue':
         # 파란색 블록 위치
-        mc.send_angles([60, -50, 0, 10, 85, 60], 20)
+        mc.send_angles([60, -50, -21, 22, 79, 68], 20)
         time.sleep(3)
-        mc.send_angles([38, -50, 0, -14, 90, 40], 20)
+        mc.send_angles([29, -20, -37, -29, 90, 29], 20)
         time.sleep(3)
-        mc.send_angles([38, -80, 0, -14, 90, 40], 20)
+        mc.send_angles([23, -65, -38, 14, 90, 29], 20)
         time.sleep(3)
     elif color == 'yellow':
         # 노란색 블록 위치
-        mc.send_angles([60, -50, 0, 10, 85, 60], 20)
+        mc.send_angles([60, -50, -21, 22, 79, 68], 20)
         time.sleep(3)
-        mc.send_angles([17, -50, 0, -10, 90, 20], 20)
+        mc.send_angles([13, -10, -48, -27, 90, 10], 20)
         time.sleep(3)
-        mc.send_angles([17, -80, 0, -10, 90, 20], 20)
+        mc.send_angles([6, -60, -50, 22, 90, 10], 20)
         time.sleep(3)
     elif color == 'green':
         # 초록색 블록 위치
-        mc.send_angles([60, -50, 0, 10, 85, 60], 20)
+        mc.send_angles([60, -50, -21, 22, 79, 68], 20)
         time.sleep(3)
         mc.send_angles([-80, -20, -30, 20, 90, 20], 20)
         time.sleep(3)
-        mc.send_angles([-80, -20, -90, 20, 90, 20], 20)
+        mc.send_angles([0, 50, -30, 20, 10, 10], 20)
         time.sleep(3)
 
 # 색상 탐지 함수
@@ -139,7 +139,7 @@ def detect_color():
 # 작업 수행 함수
 def perform_action():
     # 초기 위치로 이동 후 색상 탐지
-    mc.send_angles([60, -90, 0, 10, 85, 60], 20)
+    mc.send_angles([64, -82, -18, 24, 75, 68], 20)
     time.sleep(3)
 
     # 색상 탐지
