@@ -614,58 +614,66 @@ time.sleep(3)
 
 # 블록 색상 탐지
 detected_color = detect_color()
-if detected_color:
-    last_detected_color = detected_color  # 블록 색상 기억
-    print(f"탐지된 색상: {detected_color}")
-    mc.set_gripper_state(1, 20, 1)  # 블록을 잡기 위해 그리퍼 닫기
-    time.sleep(2)
-    print("블록을 성공적으로 잡았습니다!")
+# 초록색 블록 확인 및 바로 놓기
+if last_detected_color == 'green':
+    print("초록색 블록을 잡았습니다. 지정된 위치로 이동하여 블록을 놓습니다.")
+    mc.send_angles([0, 50, -30, 20, 10, 10], 20)  # 초록색 블록을 놓을 위치
+    time.sleep(3)
+    mc.set_gripper_state(0, 20, 1)  # 그리퍼 열기
+    print("초록색 블록을 놓았습니다.")
+
 else:
-    print("블록의 색상을 감지하지 못했습니다.")
+    # pose1부터 pose4까지 이동
+    poses = [
+        [60, -50, 0, 10, 85, 60],   # pose1
+        [29, -20, -37, -29, 90, 29], # pose2에서 blue_space 중심 좌표 찾기
+        [13, -10, -48, -27, 90, 10], # pose3에서 yellow_space 중심 좌표 찾기
+        [-16, -16, -53, -13, 90, -17] # pose4에서 red_space 중심 좌표 찾기
+    ]
 
-# pose1부터 pose4까지 이동
-poses = [
-    [60, -50, 0, 10, 85, 60],   # pose1
-    [29, -20, -37, -29, 90, 29], # pose2 yolo로 위치 인식 시작
-    [13, -10, -48, -27, 90, 10], # pose3 
-    [-16, -16, -53, -13, 90, -17] # pose4 yolo로 위치 인식 끝
-]
+    # 블록을 놔줄 위치 설정
+    place_positions = {
+        'blue_space': [29, -70, -34, -1, 90, 29],
+        'yellow_space': [6, -60, -50, 22, 90, 10],
+        'red_space': [-16, -86, -4, -2, 90, -23]
+    }
 
-cap = cv2.VideoCapture(1)  # 웹캠 캡처 객체 생성
+    for i, pose in enumerate(poses, start=1):
+        print(f"pose{i} 위치로 이동")
+        mc.send_angles(pose, 20)
+        time.sleep(3)  # 각 위치에서 대기 시간 조정
 
-for i, pose in enumerate(poses, start=1):
-    print(f"pose{i} 위치로 이동")
-    mc.send_angles(pose, 20)
-    time.sleep(3)  # 각 위치에서 대기 시간 조정
+        # pose2부터 pose4까지는 YOLO 모델로 객체 인식을 켜고 화면 표시
+        running_yolo = 2 <= i <= 4
 
-    if 2 <= i <= 4:  # pose2부터 pose4까지 YOLO 모델 적용
-        ret, frame = cap.read()
-        if not ret:
-            print("프레임을 읽을 수 없습니다.")
-            continue
+        if running_yolo:
+            ret, frame = cap.read()
+            if not ret:
+                print("프레임을 읽을 수 없습니다.")
+                continue
 
-        # YOLO 모델을 사용해 객체 인식
-        results = model(frame)
-        print(f"pose{i}에서 인식된 객체:")
+            # YOLO 모델을 사용해 객체 인식
+            results = model(frame)
+            print(f"pose{i}에서 인식된 객체:")
 
-        # 인식된 객체가 잡은 블록과 일치하는지 확인
-        for result in results:
-            if last_detected_color == 'red' and 'red_space' in result.names:
-                mc.send_angles([-16, -86, -4, -2, 90, -23], 20)
-                print("빨간색 블록을 지정된 위치에 내려놓습니다.")
-                break
-            elif last_detected_color == 'blue' and 'blue_space' in result.names:
-                mc.send_angles([29, -70, -34, -1, 90, 29], 20)
-                print("파란색 블록을 지정된 위치에 내려놓습니다.")
-                break
-            elif last_detected_color == 'yellow' and 'yellow_space' in result.names:
-                mc.send_angles([6, -60, -50, 22, 90, 10], 20)
-                print("노란색 블록을 지정된 위치에 내려놓습니다.")
-                break
-            elif last_detected_color == 'green':
-                mc.send_angles([0, 50, -30, 20, 10, 10], 20)
-                print("초록색 블록을 지정된 위치에 내려놓습니다.")
-                break
+            # pose별로 특정 색상의 객체 중점 계산 및 표시
+            target_name = None
+            if i == 2:
+                target_name = 'blue_space'
+            elif i == 3:
+                target_name = 'yellow_space'
+            elif i == 4:
+                target_name = 'red_space'
+
+            # 지정된 객체의 중점 찾기 및 신뢰도 확인
+            for result in results:
+                if target_name in result.names and result.confidence >= 0.8:
+                    print(f"{target_name} 객체 신뢰도 0.8 이상 탐지됨. 지정된 위치로 이동하여 블록을 놓습니다.")
+                    mc.send_angles(place_positions[target_name], 20)
+                    time.sleep(3)
+                    mc.set_gripper_state(0, 20, 1)  # 그리퍼 열기
+                    print(f"{target_name} 위치에 블록을 놓았습니다.")
+                    break  # 첫 번째로 찾은 일치하는 객체에 대해서만 실행
 
 # 작업 완료 후 pose5로 돌아가기
 mc.send_angles([0, 0, 0, 0, 0, 0], 20)

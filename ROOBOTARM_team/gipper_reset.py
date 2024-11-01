@@ -8,11 +8,11 @@ mc.set_gripper_mode(0)
 mc.init_gripper()
 mc.set_gripper_calibration()
 
-mc.set_gripper_state(0,20,1) #열기 
+mc.set_gripper_state(1,20,1) #열기 
 time.sleep(3)
-mc.set_gripper_state(1,20,1) #닫기
+mc.set_gripper_state(0,20,1) #닫기
 time.sleep(3)
-mc.set_gripper_state(0,20,1) #열기
+# mc.set_gripper_state(0,20,1) #열기
 
 #위치 제어 모드1
 # mc.set_gripper_mode(1)
