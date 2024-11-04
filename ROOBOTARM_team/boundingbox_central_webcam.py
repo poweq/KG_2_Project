@@ -1,21 +1,9 @@
-from pymycobot.mycobot import MyCobot
-import time
 import cv2
 import numpy as np
 from ultralytics import YOLO
-import threading
-
-# MyCobot 연결 설정
-mc = MyCobot('COM6', 115200)
 
 # YOLO 모델 로드
 model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_detect_model\\runs\\detect\\train2\\weights\\best.pt')
-
-# 그리퍼 모드 설정 및 초기화
-mc.set_gripper_mode(0)
-mc.init_gripper()
-mc.set_gripper_calibration()
-time.sleep(3)
 
 # 웹캠 설정
 cap = cv2.VideoCapture(1)  # 한 개의 웹캠 사용
@@ -32,6 +20,7 @@ def show_yolo_view_with_center():
     while True:
         ret, frame = cap.read()
         if not ret:
+            print("카메라에서 프레임을 가져올 수 없습니다.")
             break
 
         # YOLO 모델 적용
@@ -64,14 +53,5 @@ def show_yolo_view_with_center():
     cap.release()
     cv2.destroyAllWindows()
 
-# 스레드 실행
-yolo_thread = threading.Thread(target=show_yolo_view_with_center, daemon=True)
-yolo_thread.start()
-
-# MyCobot 동작 - 포즈 설정 및 제어
-mc.send_angles([3, -3, -1, -71, 90, 2], 20)  # pose2 위치로 이동
-time.sleep(50)  # pose2에서 50초 대기
-
-# 작업 완료 후 pose5로 돌아가기
-mc.send_angles([0, 0, 0, 0, 0, 0], 20)
-print("모든 작업을 완료하고 pose5로 복귀합니다.")
+# 함수 실행
+show_yolo_view_with_center()
