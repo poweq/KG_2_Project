@@ -2,16 +2,9 @@ from pymycobot.mycobot import MyCobot
 import time
 import cv2
 from ultralytics import YOLO
-from box_capture import detect_object_center
 
 # MyCobot 연결 설정
 mc = MyCobot('COM6', 115200)
-
-# # 그리퍼 모드 설정 및 초기화
-# mc.set_gripper_mode(0)
-# mc.init_gripper()
-# mc.set_gripper_calibration()
-# time.sleep(3)
 
 # YOLO 모델 로드
 model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_detect_model\\runs\\detect\\train2\\weights\\best.pt')
@@ -36,9 +29,6 @@ def move_to_position(x, y, z, rx, ry, rz, speed=20):
     print(f"Moving to position: x={x}, y={y}, z={z}, rx={rx}, ry={ry}, rz={rz}")
     mc.send_coords([x, y, z, rx, ry, rz], speed)
 
-current_x, current_y, centered = detect_object_center()
-print(current_x, current_y, centered)
-
 # 빨간 점 인식 후 조정하는 함수
 def detect_and_adjust_position():
     global current_x, current_y, centered, first_detection
@@ -47,9 +37,13 @@ def detect_and_adjust_position():
         print("카메라에서 프레임을 가져올 수 없습니다.")
         return
 
-    # YOLO 모델 적
+    # YOLO 모델 적용
     results = model(frame)
     frame_with_yolo = results[0].plot()
+
+    # 보정 비율 설정 (픽셀 -> 로봇 좌표 변환)
+    pixel_to_robot_x = 0.5  # 예: 픽셀 이동에 따른 x축 보정 비율
+    pixel_to_robot_y = 0.5  # 예: 픽셀 이동에 따른 y축 보정 비율
 
     # 빨간 점 인식 후 조정
     for result in results:
@@ -64,16 +58,20 @@ def detect_and_adjust_position():
 
                 # 중심점 위치 출력
                 if first_detection:
-                    print(f"중심점 위치: ({x_center}, {y_center})")
+                    print(f"중심점 위치(X좌표 , Y좌표) : ({x_center}, {y_center})")
                     first_detection = False
 
                 # 중심을 화면 중앙으로 맞추기 위해 x, y 값만 조정
-                adjust_x = (TARGET_X - x_center) * 0.1
-                adjust_y = (TARGET_Y - y_center) * -0.1
+                adjust_x = (TARGET_X - x_center) * pixel_to_robot_x
+                adjust_y = (TARGET_Y - y_center) * pixel_to_robot_y
+                print(f"조정값(X좌표 , Y좌표) : ({adjust_x}, {adjust_y})")
 
                 # 새로운 x, y 값을 계산하고 업데이트
                 current_x = pose2_coords[0] + adjust_x
                 current_y = pose2_coords[1] + adjust_y
+
+                # 로봇을 조정된 좌표로 이동
+                move_to_position(current_x, current_y, fixed_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
 
                 # 중심이 거의 중앙에 맞았다고 판단하면 centered를 True로 설정
                 if abs(x_center - TARGET_X) < 10 and abs(y_center - TARGET_Y) < 10:
@@ -102,10 +100,6 @@ def main():
     # 빨간 점을 화면 중앙으로 맞출 때까지 조정
     while not centered:
         detect_and_adjust_position()
-
-    # 중심에 맞춘 후, z축을 내림
-    # move_to_position(current_x, current_y, fixed_z - 50, 178.07, -0.15, -83.39)  # z축을 내림
-    # print("z축을 내렸습니다.")
 
     # 충분한 대기 시간
     time.sleep(10)
