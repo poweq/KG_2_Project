@@ -8,10 +8,10 @@ from ultralytics import YOLO
 mc = MyCobot('COM6', 115200)
 
 # YOLO 모델 로드
-model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_detect_model\\runs\\detect\\train2\\weights\\best.pt')
+model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_model\\runs\\detect\\train2\\weights\\best.pt')
 
 # pose2 위치 설정 (z축과 회전값 고정)
-pose2_coords = [245.6, -64.8, -40.2, 178.07, -0.15, -83.39]
+pose2_coords = [205.1, -170.28, -149.4, -2.47, 308.7, -92.15]
 fixed_z = pose2_coords[2]  # z 축 고정
 
 # 초기 위치 설정
@@ -77,8 +77,8 @@ last_detected_color = None  # 전역 변수로 블록 색상 기억
 # pose0에서 블록 색상 확인 및 잡기
 def detect_and_grab_block():
     global last_detected_color
-    mc.send_angles([71, -81, 0, 7, 83, 72], 20)  # pose0 위치로 이동
-    time.sleep(3)
+    mc.send_angles([51, -92, -3, 20, 92, -131], 20)  # pose0_1 웹캠으로 블록 확인 위치
+    time.sleep(5)
     
     # 그리퍼 초기화 및 캘리브레이션
     mc.set_gripper_mode(0)
@@ -90,18 +90,41 @@ def detect_and_grab_block():
     if detected_color:
         last_detected_color = detected_color  # 블록 색상 기억
         print(f"탐지된 색상: {detected_color}")
+
+        # 초록색 블록(불량품)일 때 예외 처리
+        if detected_color == 'green':
+            print("초록색 블록이 감지되었습니다. 지정된 위치로 이동 후 복귀합니다.")
+            mc.send_angles([49, -93, -3, 9, 92, -131], 20)  # pose0_2 그리퍼로 블록 잡는 위치
+            time.sleep(3)
+            mc.set_gripper_state(1, 20, 1)  # 그리퍼 닫기
+            time.sleep(3)
+            mc.send_angles([49, -50, 0, 0, 90, 0], 20)  # pose1
+            time.sleep(3)
+            mc.send_angles([69, 70, 14, -2, -90, 0], 20)  # 초록색 블록 놓을 위치로 이동
+            time.sleep(7)
+            mc.set_gripper_state(0, 20, 1)  # 그리퍼 열기
+            time.sleep(3)
+            mc.send_angles([0, 0, 0, 0, 0, 0], 20)  # pose3
+            print("초록색 블록 작업 완료. 복귀 중...")
+            return True  # 예외 동작을 수행했음을 알림
+
+        # 다른 색상일 경우 블록 잡기 동작 수행
+        mc.send_angles([49, -93, -3, 9, 92, -131], 20)  # pose0_2 그리퍼로 블록 잡는 위치
+        time.sleep(3)
         mc.set_gripper_state(1, 20, 1)  # 그리퍼로 블록 잡기
         time.sleep(2)
         print("블록을 성공적으로 잡았습니다!")
+        return False
     else:
         print("블록의 색상을 감지하지 못했습니다.")
+        return False
 
-# pose2에서 객체인식 후 중점(빨간 점)을 인식하고 조정
+# pose2에서 객체 인식 후 중점(빨간 점)을 인식하고 조정
 def perform_pose2_adjustments():
     global centered
     centered = False  # 조정 시작 시 centered 초기화
-    mc.send_angles([6, -13, -51, -26, 90, 2], 20)
-    time.sleep(10)
+    mc.send_angles([-16, -9, -54, -14, 90, -14], 20) #pose2
+    time.sleep(5)
 
     # 빨간 점을 화면 중앙으로 맞출 때까지 조정
     while not centered:
@@ -129,9 +152,9 @@ def detect_and_adjust_position():
 
     # 빨간 점 인식 후 조정
     while True:
-        # 15초 경과 시 함수 종료
-        if time.time() - start_time > 10:
-            print("10초가 경과하여 함수가 종료됩니다.")
+        # 20초 경과 시 함수 종료
+        if time.time() - start_time > 20:
+            print("20초가 경과하여 함수가 종료됩니다.")
             centered = True  # 타임아웃 시 중심에 도달한 것으로 처리
             return
         
@@ -184,7 +207,7 @@ def block_box_match():
     rx, ry, rz = pose2_coords[3], pose2_coords[4], pose2_coords[5]
 
     if last_detected_color == 'blue':
-        y += 150
+        y += 120
         print("블록이 파란색입니다. 왼쪽으로 150 픽셀만큼 이동합니다.")
     elif last_detected_color == 'yellow':
         y -= 0
@@ -198,21 +221,23 @@ def block_box_match():
     time.sleep(5)
 
 def main():
-    detect_and_grab_block() # pose0에서 블록 색상 확인 및 잡기
+    # detect_and_grab_block() 호출 시 초록색 블록을 감지하면 True를 반환
+    green_detected = detect_and_grab_block()
+    
+    # 초록색 블록을 감지하지 않은 경우에만 이후 동작 수행
+    if not green_detected:
+        mc.send_angles([49, -50, 0, 0, 90, 0], 20)  # pose1
+        perform_pose2_adjustments()  # pose2로 이동 후 빨간 점 인식 및 조정
+        time.sleep(5)
 
-    mc.send_angles([60, -50, 0, 10, 85, 60], 20) #pose1
+        block_box_match()  # 블록 색상에 따른 위치 조정
+        time.sleep(5)
+        
+        print("그리퍼가 열립니다.")
+        mc.set_gripper_state(0, 20, 1)  # 그리퍼 열기
+        time.sleep(5)
 
-    perform_pose2_adjustments() # pose2로 이동 후 빨간 점 인식 및 조정
-    time.sleep(5)
-
-    block_box_match()  # 블록 색상에 따른 위치 조정
-    time.sleep(5)
-    print("그리퍼가 열립니다.")
-    mc.set_gripper_state(0, 20, 1) # 그리퍼 열기
-    time.sleep(10)
-
-    mc.send_angles([0, 0, 0, 0, 0, 0], 20)# pose3 작업 완료 후 돌아가기
-    time.sleep(5)
-    print("모든 작업을 완료하고 복귀합니다.")
+        mc.send_angles([0, 0, 0, 0, 0, 0], 20)  # pose3 작업 완료 후 돌아가기
+        print("모든 작업을 완료하고 복귀합니다.")
 
 main()

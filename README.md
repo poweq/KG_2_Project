@@ -32,3 +32,6 @@ reset.py<br>
 -> 로봇암 위치 초기화 코드<br>
 gipper_reset.py<br>
 -> 그리퍼 초기화 코드<br>
+
+
+mc.send_angles([69, 70, 14, -2, -90, 0], 20)  # pose0 위치로 이동    
