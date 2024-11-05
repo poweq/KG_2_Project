@@ -208,7 +208,7 @@ def block_box_match():
 
     if last_detected_color == 'blue':
         y += 120
-        print("블록이 파란색입니다. 왼쪽으로 150 픽셀만큼 이동합니다.")
+        print("블록이 파란색입니다. 왼쪽으로 120 픽셀만큼 이동합니다.")
     elif last_detected_color == 'yellow':
         y -= 0
         print("블록이 노란색입니다. 블록을 내려놓습니다.")
