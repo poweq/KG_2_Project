@@ -9,7 +9,7 @@ import threading
 mc = MyCobot('COM6', 115200)
 
 # YOLO 모델 로드
-model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_detect_model\\runs\\detect\\train2\\weights\\best.pt')
+model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_model\\runs\\detect\\train2\\weights\\best.pt')
 
 # 그리퍼 모드 설정 및 초기화
 mc.set_gripper_mode(0)

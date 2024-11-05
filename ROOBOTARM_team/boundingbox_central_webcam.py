@@ -3,7 +3,7 @@ import numpy as np
 from ultralytics import YOLO
 
 # YOLO 모델 로드
-model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_detect_model\\runs\\detect\\train2\\weights\\best.pt')
+model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_model\\runs\\detect\\train2\\weights\\best.pt')
 
 # 웹캠 설정
 cap = cv2.VideoCapture(1)  # 한 개의 웹캠 사용

@@ -7,7 +7,7 @@ from ultralytics import YOLO
 mc = MyCobot('COM6', 115200)
 
 # YOLO 모델 로드
-model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_detect_model\\runs\\detect\\train2\\weights\\best.pt')
+model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_model\\runs\\detect\\train2\\weights\\best.pt')
 
 # pose2 위치 설정 (z축과 회전값 고정)
 pose2_coords = [245.6, -64.8, -40.2, 178.07, -0.15, -83.39]
