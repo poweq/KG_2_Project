@@ -13,6 +13,9 @@ model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\y
 pose2_coords = [204.5, -149.4, 311, -169.63, -2.75, -92.02]
 fixed_z = pose2_coords[2]  # z 축 고정
 
+# Z축을 내릴 위치 설정
+lowered_z = fixed_z - 300  # 원하는 만큼 z축을 내립니다 (예: 50mm)
+
 # 초기 위치 설정
 current_x, current_y = pose2_coords[0], pose2_coords[1]
 centered = False  # 중심 맞추기 완료 여부 확인
@@ -21,7 +24,7 @@ first_detection = True  # 처음 중심점 위치 출력 여부 확인
 # 웹캠 설정
 cap = cv2.VideoCapture(1)
 CONFIDENCE_THRESHOLD = 0.7
-TARGET_X, TARGET_Y = 300, 300
+TARGET_X, TARGET_Y = 300, 300  # 목표 좌표를 (389, 333)으로 설정
 WINDOW_NAME = "YOLO Detection View"
 
 # 지정된 좌표로 MyCobot을 이동
@@ -42,8 +45,8 @@ def detect_and_adjust_position():
     frame_with_yolo = results[0].plot()
 
     # 보정 비율 설정 (픽셀 -> 로봇 좌표 변환)
-    pixel_to_robot_x = 0.5  # 보정 비율
-    pixel_to_robot_y = 0.5
+    pixel_to_robot_x = 0.5  # 픽셀 이동에 따른 x축 보정 비율
+    pixel_to_robot_y = 0.5  # 픽셀 이동에 따른 y축 보정 비율
 
     # 빨간 점 인식 후 조정
     for result in results:
@@ -62,7 +65,7 @@ def detect_and_adjust_position():
                     first_detection = False
 
                 # 부호 반대로 적용하여 조정값 계산
-                adjust_x = (TARGET_X - x_center) * pixel_to_robot_x * (-1)  # X축 부호 반전
+                adjust_x = (TARGET_X - x_center) * pixel_to_robot_x * (1)  # X축 부호 반전
                 adjust_y = (TARGET_Y - y_center) * pixel_to_robot_y * (-1)  # Y축 부호 반전
                 print(f"조정값(X좌표 , Y좌표) : ({adjust_x}, {adjust_y})")
 
@@ -73,34 +76,49 @@ def detect_and_adjust_position():
                 # 로봇을 조정된 좌표로 이동
                 move_to_position(current_x, current_y, fixed_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
 
-                # 중심이 거의 중앙에 맞았다고 판단하면 centered를 True로 설정
+                # 중심이 목표 좌표에 근접했는지 확인
                 if abs(x_center - TARGET_X) < 10 and abs(y_center - TARGET_Y) < 10:
                     centered = True
-                    print("중심이 화면 중앙에 맞춰졌습니다.")
-                    return current_x, current_y, centered
+                    print("빨간 점이 목표 좌표 근처에 위치했습니다.")
+                    return
 
     # 실시간으로 YOLO Detection View 업데이트
     cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
     cv2.resizeWindow(WINDOW_NAME, 600, 600)
     cv2.imshow(WINDOW_NAME, frame_with_yolo)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord('q'):  # 'q' 키를 누르면 종료
         cap.release()
         cv2.destroyAllWindows()
         exit()
 
+# Z축을 내리는 함수 추가
+def lower_z():
+    global current_x, current_y, lowered_z
+    print("로봇암을 아래로 내립니다.")
+    move_to_position(current_x, current_y, lowered_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
+    time.sleep(5)  # 이동 시간 대기
 
 # MyCobot을 pose2로 이동 후, 빨간 점 인식 후 조정
 def main():
     global centered
-    
+
     # pose2로 이동
     mc.send_angles([-16, -9, -54, -14, 90, -14], 20)
-    time.sleep(10)  # pose2에서 10초 대기
+    time.sleep(5)  # pose2에서 10초 대기
 
-    # 빨간 점을 화면 중앙으로 맞출 때까지 조정
-    while not centered:
+    # 중심 맞추기 시작 시간 기록
+    start_time = time.time()
+
+    # 빨간 점을 목표 좌표로 맞출 때까지 조정 (최대 15초 동안)
+    while not centered and (time.time() - start_time) < 10:
         detect_and_adjust_position()
+
+    # 15초 경과 후 또는 중심 맞추기 완료 후 Z축 내리기
+    if not centered:
+        print("15초 내에 중심 맞추기에 실패하였습니다. 현재 위치에서 로봇 암을 내립니다.")
+
+    lower_z()
 
     # 충분한 대기 시간
     time.sleep(10)
