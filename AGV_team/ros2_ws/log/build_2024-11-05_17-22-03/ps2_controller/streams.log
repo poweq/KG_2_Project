@@ -1,0 +1,44 @@
+[0.029s] Invoking command in '/home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ysh/ros2_ws/install/my_monitoring:/home/ysh/ros2_ws/install/lidar_receiver:/opt/ros/foxy /usr/bin/cmake /home/ysh/KG_2_Project/AGV_team/ros2_ws/src/ps2_controller -DCMAKE_INSTALL_PREFIX=/home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller
+[0.144s] -- The C compiler identification is GNU 9.4.0
+[0.245s] -- The CXX compiler identification is GNU 9.4.0
+[0.253s] -- Check for working C compiler: /usr/bin/cc
+[0.399s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.401s] -- Detecting C compiler ABI info
+[0.551s] -- Detecting C compiler ABI info - done
+[0.569s] -- Detecting C compile features
+[0.570s] -- Detecting C compile features - done
+[0.573s] -- Check for working CXX compiler: /usr/bin/c++
+[0.733s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.734s] -- Detecting CXX compiler ABI info
+[0.885s] -- Detecting CXX compiler ABI info - done
+[0.904s] -- Detecting CXX compile features
+[0.905s] -- Detecting CXX compile features - done
+[0.909s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.953s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.954s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.266s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.342s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.354s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.572s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.626s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.771s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.857s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.859s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.861s] -- Looking for pthread.h
+[1.999s] -- Looking for pthread.h - found
+[1.999s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.146s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[2.147s] -- Looking for pthread_create in pthreads
+[2.269s] -- Looking for pthread_create in pthreads - not found
+[2.269s] -- Looking for pthread_create in pthread
+[2.412s] -- Looking for pthread_create in pthread - found
+[2.415s] -- Found Threads: TRUE  
+[2.649s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[2.700s] CMake Error at CMakeLists.txt:36 (install):
+[2.700s]   install TARGETS given target "agv_controller_node" which does not exist.
+[2.700s] 
+[2.700s] 
+[2.791s] -- Configuring incomplete, errors occurred!
+[2.791s] See also "/home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller/CMakeFiles/CMakeOutput.log".
+[2.791s] See also "/home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller/CMakeFiles/CMakeError.log".
+[2.802s] Invoked command in '/home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ysh/ros2_ws/install/my_monitoring:/home/ysh/ros2_ws/install/lidar_receiver:/opt/ros/foxy /usr/bin/cmake /home/ysh/KG_2_Project/AGV_team/ros2_ws/src/ps2_controller -DCMAKE_INSTALL_PREFIX=/home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller

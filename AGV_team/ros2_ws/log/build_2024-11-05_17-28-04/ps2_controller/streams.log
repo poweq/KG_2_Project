@@ -1,0 +1,31 @@
+[0.030s] Invoking command in '/home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ysh/ros2_ws/install/my_monitoring:/home/ysh/ros2_ws/install/lidar_receiver:/opt/ros/foxy /usr/bin/cmake /home/ysh/KG_2_Project/AGV_team/ros2_ws/src/ps2_controller -DCMAKE_INSTALL_PREFIX=/home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller
+[0.051s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.089s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.361s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.412s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.416s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.641s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.712s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.714s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.923s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[0.995s] CMake Error at CMakeLists.txt:8 (find_package):
+[0.995s]   By not providing "Findserial.cmake" in CMAKE_MODULE_PATH this project has
+[0.995s]   asked CMake to find a package configuration file provided by "serial", but
+[0.995s]   CMake did not find one.
+[0.996s] 
+[0.996s]   Could not find a package configuration file provided by "serial" with any
+[0.996s]   of the following names:
+[0.996s] 
+[0.996s]     serialConfig.cmake
+[0.996s]     serial-config.cmake
+[0.996s] 
+[0.997s]   Add the installation prefix of "serial" to CMAKE_PREFIX_PATH or set
+[0.997s]   "serial_DIR" to a directory containing one of the above files.  If "serial"
+[0.997s]   provides a separate development package or SDK, be sure it has been
+[0.997s]   installed.
+[0.997s] 
+[0.997s] 
+[0.998s] -- Configuring incomplete, errors occurred!
+[0.998s] See also "/home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller/CMakeFiles/CMakeOutput.log".
+[0.998s] See also "/home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller/CMakeFiles/CMakeError.log".
+[1.010s] Invoked command in '/home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ysh/ros2_ws/install/my_monitoring:/home/ysh/ros2_ws/install/lidar_receiver:/opt/ros/foxy /usr/bin/cmake /home/ysh/KG_2_Project/AGV_team/ros2_ws/src/ps2_controller -DCMAKE_INSTALL_PREFIX=/home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller

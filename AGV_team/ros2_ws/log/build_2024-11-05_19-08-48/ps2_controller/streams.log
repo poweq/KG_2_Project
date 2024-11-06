@@ -1,0 +1,26 @@
+[0.032s] Invoking command in '/home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ysh/ros2_ws/install/my_monitoring:/home/ysh/ros2_ws/install/lidar_receiver:/opt/ros/foxy /usr/bin/cmake --build /home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller -- -j12 -l12
+[0.153s] [100%] Built target ps2_controller_node
+[0.176s] Invoked command in '/home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ysh/ros2_ws/install/my_monitoring:/home/ysh/ros2_ws/install/lidar_receiver:/opt/ros/foxy /usr/bin/cmake --build /home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller -- -j12 -l12
+[0.275s] Invoking command in '/home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ysh/ros2_ws/install/my_monitoring:/home/ysh/ros2_ws/install/lidar_receiver:/opt/ros/foxy /usr/bin/cmake --install /home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller
+[0.292s] -- Install configuration: ""
+[0.293s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/lib/ps2_controller/ps2_controller_node
+[0.293s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/include/
+[0.293s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/include//ps2_controller
+[0.294s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/include//ps2_controller/ps2_controller.h
+[0.294s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/include//ps2_controller/ps2_controller_node.hpp
+[0.294s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ament_index/resource_index/package_run_dependencies/ps2_controller
+[0.295s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ament_index/resource_index/parent_prefix_path/ps2_controller
+[0.295s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ps2_controller/environment/ament_prefix_path.sh
+[0.295s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ps2_controller/environment/ament_prefix_path.dsv
+[0.295s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ps2_controller/environment/path.sh
+[0.295s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ps2_controller/environment/path.dsv
+[0.295s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ps2_controller/local_setup.bash
+[0.296s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ps2_controller/local_setup.sh
+[0.296s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ps2_controller/local_setup.zsh
+[0.296s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ps2_controller/local_setup.dsv
+[0.296s] -- Installing: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ps2_controller/package.dsv
+[0.296s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ament_index/resource_index/packages/ps2_controller
+[0.296s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ps2_controller/cmake/ps2_controllerConfig.cmake
+[0.297s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ps2_controller/cmake/ps2_controllerConfig-version.cmake
+[0.297s] -- Up-to-date: /home/ysh/KG_2_Project/AGV_team/ros2_ws/install/ps2_controller/share/ps2_controller/package.xml
+[0.300s] Invoked command in '/home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ysh/ros2_ws/install/my_monitoring:/home/ysh/ros2_ws/install/lidar_receiver:/opt/ros/foxy /usr/bin/cmake --install /home/ysh/KG_2_Project/AGV_team/ros2_ws/build/ps2_controller

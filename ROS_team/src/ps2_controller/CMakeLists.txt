@@ -1,28 +1,21 @@
 cmake_minimum_required(VERSION 3.5)
 project(ps2_controller)
 
-# Serial 설치 경로를 CMAKE_PREFIX_PATH에 추가
-#list(APPEND CMAKE_PREFIX_PATH "/usr/local")
-
 # 필요한 패키지 의존성
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
-#find_package(serial REQUIRED) # AGV 노드에 필요한 serial 라이브러리 추가
 
 # include 디렉토리 추가
 include_directories(
   include
 )
 
-# 실행 파일 생성
-#ps2 노드
+# 실행 파일 생성 (두 개의 소스 파일 포함)
 add_executable(ps2_controller_node
-  #PS2
   src/ps2_controller_node.cpp
   src/ps2_controller.cpp
 )
-
 
 # 헤더 파일 경로 설정
 target_include_directories(ps2_controller_node PUBLIC
@@ -38,7 +31,7 @@ ament_target_dependencies(ps2_controller_node
 
 # 설치 규칙
 install(TARGETS
-  ps2_controller_node  # PS2
+  ps2_controller_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
