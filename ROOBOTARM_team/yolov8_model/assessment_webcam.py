@@ -2,7 +2,7 @@ import cv2
 from ultralytics import YOLO
 
 # YOLO 모델 로드
-model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_detect_model\\runs\\detect\\train2\\weights\\best.pt')
+model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_model\\runs\\detect\\train2\\weights\\best.pt')
 
 # 웹캠 캡처 객체 생성 (1은 사용 중인 웹캠 인덱스)
 cap = cv2.VideoCapture(1)
