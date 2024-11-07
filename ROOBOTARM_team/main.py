@@ -19,7 +19,7 @@ pose2_coords = [204.5, -149.4, 311, -169.63, -2.75, -92.02]
 fixed_z = pose2_coords[2]  # z 축 고정
 
 # Z축을 내릴 위치 설정
-lowered_z = fixed_z - 300  # 원하는 만큼 z축을 내립니다 (예: 50mm)
+lowered_z = fixed_z - 280  # 원하는 만큼 z축을 내립니다 (예: 50mm)
 
 # 초기 위치 설정
 current_x, current_y = pose2_coords[0], pose2_coords[1]
