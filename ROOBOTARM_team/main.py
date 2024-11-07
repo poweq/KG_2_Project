@@ -84,8 +84,9 @@ last_detected_color = None  # 전역 변수로 블록 색상 기억
 # pose0에서 블록 색상 확인 및 잡기
 def detect_and_grab_block():
     global last_detected_color
-    mc.send_angles([51.88, -92.52, -10.03, 18.54, 88.5, -130.78], 20)  # pose0_1 웹캠으로 블록 확인 위치
-    time.sleep(5)
+    time.sleep(3)
+    mc.send_angles([50.88, -93.9, -10.03, 18.5, 88.5, -130.78], 20)  # pose0_1 웹캠으로 블록 확인 위치
+    time.sleep(8)
     
     # 그리퍼 초기화 및 캘리브레이션
     mc.set_gripper_mode(0)
