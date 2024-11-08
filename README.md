@@ -1,37 +1,23 @@
 # KG_2_Project
 KG카이로스 2기 2팀 QPT 최종 프로젝트 깃허브!!!<br>
 
-각 팀별 코드 정리
+## 설치
+모든 
 
-AGV_team<br>
+### 0. 레포지토리 클론
 
-ROS_team<br>
+먼저, GitHub 레포지토리를 클론합니다.
 
-PLC_team<br>
+```
+git clone https://github.com/poweq/KG_2_Project.git
+```
+### 1. ROS2 워크스페이스 생성(선택)
 
-ROOBOTARM_team<br>
-main.py<br>
-->2차 프로젝트 최종 코드<br>
+ AGV와 PS2 ROS 노드 사용법은 지금 디렉토리 구조를 기반으로 설명합니다.
 
-control_ABCpose.py<br>
-->a,b,c.d 입력을 받으면 입력신호에 맞춰  A동작, B동작, C동작, D동작을 수행하는 코드<br>
-block_color_detect_pose.py<br>
-->빨강, 파랑, 노랑, 초록 색상의 블록을 인식해서 각 블록의 맞는 위치에 로봇암이 블록을 전달하는 코드<br>
+```
+mkdir -p ~/ros2_ws/src
+```
 
-yolov8_model<br>
-ROOBOTARM_team\yolov8_model\runs\detect\train\weights\best.pt(박스 색깔별로 인식하는 모델)<br>
-ROOBOTARM_team\yolov8_model\runs\detect\train2\weights\best.pt(박스 전체 인식하는 모델)<br>
-
-boundingbox_central.py<br>
-->yolo 모델을 사용해 인식된 객체의 중점을 찍어주는 코드<br>
-
-assessment_webcam.py<br>
--> 웹캠으로 실시간으로 박스 인식 및 박스 칸 색깔인식해서 바운딩 박스 생성
-
-reset.py<br>
--> 로봇암 위치 초기화 코드<br>
-gipper_reset.py<br>
--> 그리퍼 초기화 코드<br>
-
-
-mc.send_angles([69, 70, 14, -2, -90, 0], 20)  # pose0 위치로 이동    
+#
+## 각 팀별로  README.md 파일을 확인해주세요.
