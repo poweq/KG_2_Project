@@ -1,6 +1,8 @@
 # AGV_team
 
-`AGV_team`는 ROS2를 기반으로 한 AGV(Automated Guided Vehicle) 제어 패키지를 포함하는 디렉토리입니다. 이 패키지는 AGV의 이동 및 제어를 위한 다양한 기능을 제공하며, Python 스크립트와 Arduino 코드를 포함하고 있습니다.
+`AGV_team`는 ROS2를 기반으로 한 AGV(Automated Guided Vehicle) 제어 패키지를 포함하는 디렉토리입니다. 
+
+AGV를 제어하는 라즈베리파이4에서 실행합니다.
 
 ## 소개
 
@@ -67,3 +69,19 @@ agv_control_py 패키지의 제어 노드를 실행합니다.
 ```
 ros2 run agv_control_py agv_controller_node
 ```
+
+### 6. 동작 예시 
+실행시 ROS_team의 ps2 컨트롤러의 신호를 대기합니다
+
+### 7. 추가 설정
+라즈베리파이와 아두이는 현재 ttyAMA1에 연결되어 있습니다.
+(tx : gpio 0, rx : gpio 1)
+이 연결도를 바꾸고 싶다면
+```
+AGV_team\ros2_ws\src\agv_control_py\agv_control_py\agv_controller_node.py
+
+
+self.serial_port = serial.Serial('/dev/ttyAMA1', 115200, timeout=1)
+```
+
+코드를 수정하면됩니다.
