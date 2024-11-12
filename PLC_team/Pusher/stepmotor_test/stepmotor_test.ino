@@ -2,7 +2,7 @@ const int enPin = 8;
 const int stepXPin = 2; // X.STEP
 const int dirXPin = 5;  // X.DIR
 
-const int stepsPerRevolution = 200; // Update this based on your stepper motor's specifications
+const int stepsPerRevolution = 200; // Update this baased on your stepper motor's specifications
 
 void setup() {
   Serial.begin(9600);  // Initialize serial communication
