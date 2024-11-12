@@ -11,6 +11,10 @@
             -esp32 camera로 나오는 영상 Web Page에서 확인(IDE 예제 코드)
             -esp32 camera로 나오는 영상 Python으로 확인
 
+    3. 웹캡과 QR코드를 활용한 Stepping Motor 제어
+        Python 코드
+            -웹캠을 통해  QR 코드로 Stepping Motor 제어 
+
 # 2. PLC와 PC간 RS-485통신 예제
     1. Python으로 PLC(XBCH, XBCE)제어
         Python 코드 and xgwx 파일
