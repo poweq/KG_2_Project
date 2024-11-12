@@ -2,21 +2,21 @@ import serial
 import time
 
 # ESP32와의 직렬 포트 설정 (포트 이름은 실제 사용 환경에 맞게 수정)
-ser = serial.Serial('COM9', 115200)  # COMx는 실제 ESP32의 포트 번호로 바꿔야 함
+ser = serial.Serial('COM4', 9600)  # COMx는 실제 ESP32의 포트 번호로 바꿔야 함
 
 def set_servo_angle(angle):
     if angle == 0:
-        ser.write(b't')  # t는 0도로 설정
+        ser.write(b'a')  # t는 0도로 설정
     elif angle == 90:
-        ser.write(b'f')  # f는 90도로 설정
+        ser.write(b'b')  # f는 90도로 설정
 
 def main():
     while True:
-        user_input = input("서보모터 각도를 설정하세요 (t: 0도, f: 90도, q: 종료): ")
+        user_input = input("서보모터 각도를 설정하세요 (a: 0도, b: 90도, q: 종료): ")
         
-        if user_input == 't':
+        if user_input == 'a':
             set_servo_angle(0)
-        elif user_input == 'f':
+        elif user_input == 'b':
             set_servo_angle(90)
         elif user_input == 'q':
             print("프로그램을 종료합니다.")

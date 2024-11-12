@@ -1,16 +1,16 @@
-import cv2  # opencv (설치필요)
+import cv2  # opencv
 import tkinter as tk
 from tkinter import Label, Checkbutton, IntVar
-from PIL import Image, ImageTk, ImageDraw, ImageFont  # Pillow모듈(설치필요)
+from PIL import Image, ImageTk, ImageDraw, ImageFont  # Pillow Module
 import datetime
 import time
-import numpy as np  # numpy 설치필요
+import numpy as np  # numpy
 
-# 전역 FPS 값 설정 (초기값: 25)
+# FPS state (first State: 25)
 FPS = 60
 
-# ESP32-CAM MJPEG 스트림 URL
-mjpeg_url = 'http://192.168.0.105:81/stream'  # 여기에 ESP32-CAM IP 주소와 포트를 입력하세요.
+# ESP32-CAM MJPEG Stream URL
+mjpeg_url = 'http://192.168.0.105:81/stream'  # ESP32-CAM IP Adrz
 
 # tkinter 윈도우를 생성합니다.
 root = tk.Tk()

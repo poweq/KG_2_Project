@@ -13,12 +13,12 @@ void loop() {
   if (Serial.available() > 0) { // 시리얼 입력이 있을 경우
     char command = Serial.read(); // 시리얼로 받은 문자 읽기
 
-    if (command == 't') { // 입력이 't'인 경우
-      myServo.write(0); // 서보 각도 0도로 설정
+    if (command == 'a') { // 입력이 't'인 경우
+      myServo.write(90); // 서보 각도 0도로 설정
       Serial.println("Servo angle set to 0 degrees");
     }
-    else if (command == 'f') { // 입력이 'f'인 경우
-      myServo.write(90); // 서보 각도 90도로 설정
+    else if (command == 'b') { // 입력이 'f'인 경우
+      myServo.write(0); // 서보 각도 90도로 설정
       Serial.println("Servo angle set to 90 degrees");
     }
   }
