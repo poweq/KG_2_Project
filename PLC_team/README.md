@@ -13,7 +13,7 @@
 
     3. 웹캡과 QR코드를 활용한 Stepping Motor 제어
         Python 코드
-            -웹캠을 통해  QR 코드로 Stepping Motor 제어 
+            -웹캠을 통해  QR 코드로 Stepping Motor 제어
 
 # 2. PLC와 PC간 RS-485통신 예제
     1. Python으로 PLC(XBCH, XBCE)제어
