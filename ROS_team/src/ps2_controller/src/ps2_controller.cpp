@@ -51,11 +51,11 @@ int ps2_map_read(int ps2_fd, ps2_map_t *map)
         // 축 이벤트 처리
         // ...
         switch(number)
-        {
+        {/*
             case PS2_AXIS_LX:
                 map->lx = value;
                 break;
-
+        */
             case PS2_AXIS_LY:
                 map->ly = value;
                 break;
@@ -63,11 +63,11 @@ int ps2_map_read(int ps2_fd, ps2_map_t *map)
             case PS2_AXIS_RX:
                 map->rx = value;
                 break;
-
+        /*
             case PS2_AXIS_RY:
                 map->ry = value;
                 break;
-
+        */
             // 나머지 축 처리
             // ...
         }
