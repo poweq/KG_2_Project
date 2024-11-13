@@ -54,7 +54,7 @@ mkdir -p ~/ros2_ws/src
 
 ```
 cd KG_2_Project/ROS_team
-cp -r ros2_ws ~/ros2_ws
+cp -r src ~/ros2_ws/src
 ```
 
 ### 3. 패키지 빌드

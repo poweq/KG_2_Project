@@ -48,7 +48,7 @@ mkdir -p ~/ros2_ws/src
 
 ```
 cd KG_2_Project/AGV_team
-cp -r ros2_ws ~/ros2_ws
+cp -r src ~/ros2_ws/src
 ```
 ### 3. 워크스페이스 빌드
 ROS2 워크스페이스를 빌드합니다.
