@@ -56,23 +56,25 @@ void PS2ControllerNode::read_loop()
             usleep(10*1000);
             continue;
         }
-
+        
         // 아날로그 스틱 값 읽기
-        int lx = map_.lx;
+        // gyro
+        int rx = map_.rx;
+        // linear
         int ly = map_.ly;
 
         // 로그 출력 (디버깅 용도)
-        RCLCPP_INFO(this->get_logger(), "Raw axis values: lx=%d, ly=%d", lx, ly);
+        RCLCPP_INFO(this->get_logger(), "Raw axis values: rx=%d, ly=%d", rx, ly);
 
         // 축 값 정규화
-        double normalized_lx = normalize_axis(lx);
+        double normalized_rx = normalize_axis(rx);
         double normalized_ly = normalize_axis(ly);
 
         // 데드존 적용
         double deadzone = 0.1;
 
-        if (fabs(normalized_lx) < deadzone)
-            normalized_lx = 0.0;
+        if (fabs(normalized_rx) < deadzone)
+            normalized_rx = 0.0;
         if (fabs(normalized_ly) < deadzone)
             normalized_ly = 0.0;
 
@@ -81,7 +83,7 @@ void PS2ControllerNode::read_loop()
 
         // 속도 계산
         double linear_x = normalized_ly * max_linear_speed;
-        double angular_z = normalized_lx * max_angular_speed;
+        double angular_z = normalized_rx * max_angular_speed;
 
         // 매우 작은 값은 0으로 처리
         if (fabs(linear_x) < 1e-3)
