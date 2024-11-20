@@ -66,8 +66,9 @@ source ~/ros2_ws/install/setup.bash
 
 ### 5. AGV 노드 실행
 agv_control_py 패키지의 제어 노드를 실행합니다.
+(agv_contorl노드는 오타가 맞지만 실행에는 문제 없습니다)
 ```
-ros2 run agv_control_py agv_control
+ros2 run agv_control_py agv_contorl
 ```
 
 ### 6. 동작 예시 
