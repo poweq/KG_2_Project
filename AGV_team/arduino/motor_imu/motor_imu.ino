@@ -216,13 +216,7 @@ void processInput(String input) {
     setMotorDirectionAndPWM('b', motorBValue);
     setMotorDirectionAndPWM('c', motorCValue);
     setMotorDirectionAndPWM('d', motorDValue);
-/*
-    // 출력값을 시리얼 0번으로 출력
-    Serial.print("모터 출력: 방향:");
-    Serial.print(direction);
-    Serial.print(" 속도:");
-    Serial.println(speed);
-    */
+
   }
 }
 
