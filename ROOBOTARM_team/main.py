@@ -13,13 +13,13 @@ model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\y
 # 픽셀-로봇 좌표 변환 비율 설정
 pixel_to_robot_x = 0.2  # X축 변환 비율
 pixel_to_robot_y = 0.2  # Y축 변환 비율
-
-# pose2 위치 설정 (z축과 회전값 고정)
-pose2_coords = [204.5, -149.4, 311, -169.63, -2.75, -92.02]
+    
+# pose2 위치(Coordination Control) 설정 (z축과 회전값 고정)
+pose2_coords = [30.9, -327.5, 261.9, -170.94, 0.15, 170]
 fixed_z = pose2_coords[2]  # z 축 고정
 
 # Z축을 내릴 위치 설정
-lowered_z = fixed_z - 280  # 원하는 만큼 z축을 내립니다 (예: 50mm)
+lowered_z = fixed_z - 100  # 원하는 만큼 z축을 내립니다 (예: 50mm)
 
 # 초기 위치 설정
 current_x, current_y = pose2_coords[0], pose2_coords[1]
@@ -85,7 +85,7 @@ last_detected_color = None  # 전역 변수로 블록 색상 기억
 def detect_and_grab_block():
     global last_detected_color
     time.sleep(3)
-    mc.send_angles([50.88, -93.9, -10.03, 18.5, 88.5, -130.78], 20)  # pose0_1 웹캠으로 블록 확인 위치
+    mc.send_angles([-15, 65, 16, 0, -90, 0], 20)  # pose0_1 웹캠으로 블록 확인 위치
     time.sleep(8)
     
     # 그리퍼 초기화 및 캘리브레이션
@@ -102,13 +102,13 @@ def detect_and_grab_block():
         # 초록색 블록(불량품)일 때 예외 처리
         if detected_color == 'green':
             print("초록색 블록이 감지되었습니다. 지정된 위치로 이동 후 복귀합니다.")
-            mc.send_angles([53, -87, -11, 9, 89, -131], 20)  # pose0_2 그리퍼로 블록 잡는 위치
+            mc.send_angles([-15, 74, 11, 0, -90, 0], 20)  # pose0_2 그리퍼로 블록 잡는 위치
             time.sleep(3)
             mc.set_gripper_state(1, 20, 1)  # 그리퍼 닫기
             time.sleep(3)
-            mc.send_angles([49, -50, 0, 0, 90, 0], 20)  # pose1
+            mc.send_angles([-15, 30, 11, 0, -90, 0], 20)  # pose1
             time.sleep(3)
-            mc.send_angles([69, 70, 14, -2, -90, 0], 20)  # 초록색 블록 놓을 위치로 이동
+            mc.send_angles([-90, 60, 11, 22, -90, 0], 20)  # 초록색 블록 놓을 위치로 이동
             time.sleep(7)
             mc.set_gripper_state(0, 20, 1)  # 그리퍼 열기
             time.sleep(5)
@@ -118,7 +118,7 @@ def detect_and_grab_block():
             return True  # 예외 동작을 수행했음을 알림
 
         # 다른 색상일 경우 블록 잡기 동작 수행
-        mc.send_angles([53, -87, -11, 9, 89, -131], 20)  # pose0_2 그리퍼로 블록 잡는 위치
+        mc.send_angles([-15, 74, 11, 0, -90, 0], 20)  # pose0_2 그리퍼로 블록 잡는 위치
         time.sleep(3)
         mc.set_gripper_state(1, 20, 1)  # 그리퍼로 블록 잡기
         time.sleep(2)
@@ -132,7 +132,7 @@ def detect_and_grab_block():
 def perform_pose2_adjustments():
     global centered
     centered = False  # 조정 시작 시 centered 초기화
-    mc.send_angles([-16, -9, -54, -14, 90, -14], 20)  # pose2
+    mc.send_angles([80, 50, 11, 22, -90, 0], 20)  # pose2
     time.sleep(5)
 
     # 중심 맞추기 시작 시간 기록
@@ -244,7 +244,7 @@ def main():
     
     # 초록색 블록을 감지하지 않은 경우에만 이후 동작 수행
     if not green_detected:
-        mc.send_angles([49, -50, 0, 0, 90, 0], 20)  # pose1
+        mc.send_angles([-15, 30, 11, 0, -90, 0], 20)  # pose1
         time.sleep(5)
         perform_pose2_adjustments()  # pose2로 이동 후 빨간 점 인식 및 조정
         time.sleep(5)
