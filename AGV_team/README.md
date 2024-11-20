@@ -48,7 +48,7 @@ mkdir -p ~/ros2_ws/src
 
 ```
 cd KG_2_Project/AGV_team
-cp -r src ~/ros2_ws/src
+cp -r AGV_team/src ~/ros2_ws/src
 ```
 ### 3. 워크스페이스 빌드
 ROS2 워크스페이스를 빌드합니다.
@@ -67,7 +67,7 @@ source ~/ros2_ws/install/setup.bash
 ### 5. AGV 노드 실행
 agv_control_py 패키지의 제어 노드를 실행합니다.
 ```
-ros2 run agv_control_py agv_controller_node
+ros2 run agv_control_py agv_control
 ```
 
 ### 6. 동작 예시 
