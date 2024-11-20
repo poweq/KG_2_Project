@@ -218,6 +218,33 @@ void processInput(String input) {
     setMotorDirectionAndPWM('d', motorDValue);
 
   }
+  else if (input.startsWith("242")) { // 0xf2의 10진수 표현인 242로 시작하는지 확인
+    char direction = input[3]; // 세 번째 문자 가져오기
+    int speed = 100;           // 좌우 이동 시 기본 속도 설정
+
+    if (direction == 'l') {
+      // 좌측 이동
+      motorAValue = -speed; // 모터 A 후진
+      motorBValue = speed;  // 모터 B 전진
+      motorCValue = speed;  // 모터 C 전진
+      motorDValue = -speed; // 모터 D 후진
+    } else if (direction == 'r') {
+      // 우측 이동
+      motorAValue = speed;  // 모터 A 전진
+      motorBValue = -speed; // 모터 B 후진
+      motorCValue = -speed; // 모터 C 후진
+      motorDValue = speed;  // 모터 D 전진
+    } else {
+      Serial.println("유효하지 않은 방향입니다: " + String(direction));
+      return;
+    }
+
+    // 모터의 방향 및 PWM 값 설정
+    setMotorDirectionAndPWM('a', motorAValue);
+    setMotorDirectionAndPWM('b', motorBValue);
+    setMotorDirectionAndPWM('c', motorCValue);
+    setMotorDirectionAndPWM('d', motorDValue);
+  }
 }
 
 void sendIMUData() {
