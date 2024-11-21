@@ -49,6 +49,7 @@ class AGVController(Node):
 
         # linear.x 값과 angular.z 값을 추출
         linear_x = msg.linear.x
+        linear_y = msg.linear.y
         angular_z = msg.angular.z
 
         # 모터 속도 리스트 초기화
@@ -76,15 +77,15 @@ class AGVController(Node):
 
             # angular_z에 따라 감속 및 가속 조정
             if angular_z < 0:
-                motor_command[1] -= reduction  # c 감속
-                motor_command[2] -= reduction  # d 감속
-                motor_command[3] += boost  # a 가속
-                motor_command[4] += boost  # b 가속
+                motor_command[1] -= reduction  # a
+                motor_command[2] -= reduction  # b 감속
+                motor_command[3] += boost  # c 가속
+                motor_command[4] += boost  # d 가속
             elif angular_z > 0:
-                motor_command[1] += boost  # c 가속
-                motor_command[2] += boost  # d 가속
-                motor_command[3] -= reduction  # a 감속
-                motor_command[4] -= reduction  # b 감속
+                motor_command[1] += boost  # a 가속
+                motor_command[2] += boost  # b 가속
+                motor_command[3] -= reduction  # c 감속
+                motor_command[4] -= reduction  # d 감속
 
             # 후진 시 부호 반전
             if linear_x < 0:
@@ -93,13 +94,31 @@ class AGVController(Node):
                 motor_command[3] = -motor_command[3]
                 motor_command[4] = -motor_command[4]
 
+
+            # linear_y 처리 추가
+            if linear_y != 0:
+                lateral_speed = max(min(int(abs(linear_y) * self.limit_speed), self.limit_speed), -self.limit_speed)
+
+                if linear_y > 0:
+                    # linear_y가 양수일 때
+                    motor_command[1] = -lateral_speed  # a
+                    motor_command[2] = lateral_speed  # b
+                    motor_command[3] = lateral_speed  # c
+                    motor_command[4] = -lateral_speed  # d
+                elif linear_y < 0:
+                    # linear_y가 음수일 때
+                    motor_command[1] = lateral_speed  # a
+                    motor_command[2] = -lateral_speed  # b
+                    motor_command[3] = -lateral_speed  # c
+                    motor_command[4] = lateral_speed  # d
+
         # 리스트 기반으로 명령 문자열 생성 및 전송
         motor_command_str = ','.join(map(str, motor_command)) + '\n'
         self.serial_port.write(motor_command_str.encode())
 
         # 로그에 리스트와 각 모터에 전송되는 명령을 출력
         self.get_logger().info(
-            f"Linear X: {linear_x}, Angular Z: {angular_z}\n"
+            f"Linear X: {linear_x},Linear Y: {linear_y} , Angular Z: {angular_z}\n"
             f"Adjusted Motor Command List: {motor_command}\n"
             f"Commands sent to motors: {motor_command}"
         )
@@ -120,7 +139,7 @@ class AGVController(Node):
                             break
 
                         # 패킷의 시작 바이트 찾기
-                        start_index = buffer.find(b'\xf2')
+                        start_index = buffer.find(b'\xf3')
                         if start_index == -1:
                             # 시작 바이트가 없으면 버퍼 초기화
                             buffer = bytearray()
@@ -141,7 +160,7 @@ class AGVController(Node):
                 break
 
     def parse_packet(self, packet):
-        if packet[0] != 0xf2:
+        if packet[0] != 0xf3:
             self.get_logger().error(f"Invalid packet start byte: {packet[0]}")
             return
 
