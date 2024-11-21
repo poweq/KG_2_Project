@@ -5,10 +5,10 @@ import numpy as np
 from ultralytics import YOLO
 
 # MyCobot 연결 설정
-mc = MyCobot('COM6', 115200)
+mc = MyCobot('/dev/ttyACM0', 115200)
 
 # YOLO 모델 로드
-model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_model\\runs\\detect\\train2\\weights\\best.pt')
+model = YOLO('/home/shim/github/KG_2_Project/ROOBOTARM_team/yolov8_model/runs/detect/train2/weights/best.pt')
 
 # 픽셀-로봇 좌표 변환 비율 설정
 pixel_to_robot_x = 0.2  # X축 변환 비율
@@ -27,7 +27,7 @@ centered = False  # 중심 맞추기 완료 여부 확인
 first_detection = True  # 처음 중심점 위치 출력 여부 확인
 
 # 웹캠 설정
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(2)
 CONFIDENCE_THRESHOLD = 0.7
 TARGET_X, TARGET_Y = 300, 300
 WINDOW_NAME = "YOLO Detection View"

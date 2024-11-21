@@ -1,7 +1,7 @@
 from pymycobot.mycobot import MyCobot
 import time
 
-mc = MyCobot('COM6', 115200)
+mc = MyCobot('/dev/ttyACM0', 115200)
 
 mc.set_gripper_mode(0)
 mc.init_gripper()
