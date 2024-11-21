@@ -8,32 +8,52 @@ from ultralytics import YOLO
 mc = MyCobot('COM6', 115200)
 
 # YOLO 모델 로드
-model = YOLO('C:\\Users\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_model\\runs\\detect\\train2\\weights\\best.pt')
+model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_model\\runs\\detect\\train2\\weights\\best.pt')
 
 # 픽셀-로봇 좌표 변환 비율 설정
 pixel_to_robot_x = 0.2  # X축 변환 비율
 pixel_to_robot_y = 0.2  # Y축 변환 비율
 
-# pose2 위치(Coordination Control) 설정 (z축과 회전값 고정)
+# pose2 위치 (z축과 회전값 고정)
 pose2_coords = [30.9, -327.5, 261.9, -170.94, 0.15, 170]
 fixed_z = pose2_coords[2]  # z축 고정
 
 # Z축을 내릴 위치 설정
-lowered_z = fixed_z - 150  # 원하는 만큼 z축을 내립니다 (단위: mm)
+lowered_z = fixed_z - 230  # 원하는 만큼 z축을 내립니다 (단위: mm)
 
 # 초기 위치 설정
+cap = cv2.VideoCapture(1)  # 웹캠 열기
 current_x, current_y = pose2_coords[0], pose2_coords[1]
 centered = False  # 중심 맞추기 완료 여부 확인
 first_detection = True  # 처음 중심점 위치 출력 여부 확인
 
-# 웹캠 설정 (전역 변수)
-cap = cv2.VideoCapture(1)  # 전역 변수로 선언
 CONFIDENCE_THRESHOLD = 0.7
 TARGET_X, TARGET_Y = 300, 300
-WINDOW_NAME = "QR Code Detection"
+WINDOW_NAME = "YOLO Detection View"
+
+# QR 코드 데이터 저장
+last_detected_qr = None
+
+# 웹캠 초기화 및 해제 함수
+def init_camera():
+    cap = cv2.VideoCapture(1)  # 웹캠 열기
+    if not cap.isOpened():
+        print("웹캠을 열 수 없습니다.")
+        return None
+    return cap
+
+def release_camera(cap):
+    if cap:
+        cap.release()
+    cv2.destroyAllWindows()  # OpenCV 창 닫기
 
 # QR 코드 인식 함수
-def detect_qr_code(frame):
+def detect_qr_code(cap):
+    ret, frame = cap.read()
+    if not ret:
+        print("카메라에서 프레임을 가져올 수 없습니다.")
+        return None
+
     detector = cv2.QRCodeDetector()
     data, points, _ = detector.detectAndDecode(frame)
     if points is not None and data:
@@ -41,47 +61,48 @@ def detect_qr_code(frame):
         return data
     return None
 
-last_detected_qr = None  # 전역 변수로 QR 코드 기억
-
-# pose0에서 QR 코드 인식 후 블록 잡기
+# pose0에서 QR 코드 인식
 def detect_and_grab_block():
     global last_detected_qr
-    global cap  # 전역 변수 cap 사용
-    time.sleep(3)
-    mc.send_angles([-15, 65, 16, 0, -90, 0], 20)  # pose0_1 웹캠으로 블록 확인 위치
+
+    # pose0로 이동
+    mc.send_angles([-15, 60, 17, 5, -90, -14], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
     time.sleep(5)
 
-    # 그리퍼 초기화 및 캘리브레이션
-    mc.set_gripper_mode(0)
-    mc.init_gripper()
-    mc.set_gripper_calibration()
-    time.sleep(2)
+    # 웹캠 시작
+    cap = init_camera()
+    if not cap:
+        return False
 
-    detected_qr = detect_qr_code()
+    detected_qr = detect_qr_code(cap)
+    release_camera(cap)
+
     if detected_qr:
-        last_detected_qr = detected_qr  # QR 코드 데이터 저장
+        last_detected_qr = detected_qr
         print(f"탐지된 QR 코드: {detected_qr}")
 
         # 블록 잡기
-        mc.send_angles([-15, 74, 11, 0, -90, 0], 20)  # pose0_2 그리퍼로 블록 잡는 위치
+        mc.send_angles([-13, 83, -2, -6, -90, -14], 20)  # pose0_2 그리퍼로 블록 잡는 위치
         time.sleep(3)
+        mc.set_gripper_mode(0)
+        mc.init_gripper()
         mc.set_gripper_state(1, 20, 1)  # 그리퍼로 블록 잡기
         time.sleep(3)
-
         print("블록을 성공적으로 잡았습니다!")
         return True
     else:
         print("QR 코드를 감지하지 못했습니다.")
         return False
 
+# pose2에서 객체 인식 후 중점(빨간 점)을 인식하고 조정
 def perform_pose2_adjustments():
     global centered
     centered = False  # 조정 시작 시 centered 초기화
-    mc.send_angles([80, 50, 11, 22, -90, 0], 20)  # pose2
+    mc.send_angles([80, 50, 11, 22, -90, -12], 20)  # pose2
     time.sleep(5)
 
     # 중심 맞추기 시작 시간 기록
-    start_time = time.time()
+    start_time = time.time()        
     time_limit = 10  # 10초 제한
 
     # 빨간 점을 화면 중앙으로 맞출 때까지 조정 (최대 10초 동안)
@@ -94,11 +115,9 @@ def perform_pose2_adjustments():
     else:
         print("빨간 점이 목표 좌표 근처에 위치했습니다.")
 
-# 특정 좌표로 이동
 def move_to_position(x, y, z, rx, ry, rz, speed=20):
     print(f"Moving to position: x={x}, y={y}, z={z}, rx={rx}, ry={ry}, rz={rz}")
     mc.send_coords([x, y, z, rx, ry, rz], speed)
-    time.sleep(5)
 
 def detect_and_adjust_position():
     global current_x, current_y, centered, first_detection
@@ -159,57 +178,71 @@ def detect_and_adjust_position():
         cv2.destroyAllWindows()
         exit()
 
+def lower_z():
+    global current_x, current_y, lowered_z
+    print("로봇암을 아래로 내립니다.")
+    move_to_position(current_x, current_y, lowered_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
+    time.sleep(5)  # 이동 시간 대기
+
 # QR 코드에 따라 블록 놓기
 def block_box_match():
     x, y = current_x, current_y
     z = mc.get_coords()[2]  # 현재 z축 위치 가져오기
     rx, ry, rz = pose2_coords[3], pose2_coords[4], pose2_coords[5]
 
+    # QR 코드 데이터에 따라 블록 배치
     if last_detected_qr == 'https://site.naver.com/patient/A_1':
-        y += 120
+        x += 50
+        y += 50
         print("A_1 블록: 왼쪽 아래로 이동합니다.")
     elif last_detected_qr == 'https://site.naver.com/patient/A_2':
+        y += 50
         print("A_2 블록: 중앙 아래로 이동합니다.")
     elif last_detected_qr == 'https://site.naver.com/patient/A_3':
-        y -= 120
+        x -= 50
+        y += 50
         print("A_3 블록: 오른쪽 아래로 이동합니다.")
     elif last_detected_qr == 'https://site.naver.com/patient/B_1':
-        y += 120
-        print("B_1 블록: 왼쪽 위로로 이동합니다.")
+        x += 50
+        y -= 50
+        print("B_1 블록: 왼쪽 위로 이동합니다.")
     elif last_detected_qr == 'https://site.naver.com/patient/B_2':
-        print("B_2 블록: 중앙 위로로 이동합니다.")
+        y -= 50
+        print("B_2 블록: 중앙 위로 이동합니다.")        
     elif last_detected_qr == 'https://site.naver.com/patient/B_3':
-        y -= 120
+        x -= 50
+        y -= 50
         print("B_3 블록: 오른쪽 위로 이동합니다.")
-    
-    print(f"블록을 놓는 위치로 이동: x={x}, y={y}, z={z}, rx={rx}, ry={ry}, rz={rz}")
+        
+    # 블록 배치 이동
+    print(f"블록을 놓는 위치로 이동: x={x}, y={y}, z={z}, rx={rx}, ry={rz}")
     move_to_position(x, y, z, rx, ry, rz)
 
-def lower_z():
-    global lowered_z
-    print("로봇암을 아래로 내립니다.")
-    move_to_position(current_x, current_y, lowered_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
-
+# 메인 작업
 def main():
-    detect_and_grab_block()
-    mc.send_angles([-15, 30, 11, 0, -90, 0], 20)  # pose1
-    time.sleep(5)
-    perform_pose2_adjustments()  # pose2로 이동 후 빨간 점 인식 및 조정
-    time.sleep(5)
-    lower_z()        # Z축 내리기
-    time.sleep(5)
-    block_box_match() # QR 코드에 따라 위치 이동
-    time.sleep(5)
+    qr_detected = detect_and_grab_block()
+    if qr_detected:
+        mc.send_angles([-15, 30, 11, 0, -90, 0], 20)  # pose1
+        time.sleep(5)
+        perform_pose2_adjustments()  # pose2로 이동 후 객체 탐지 및 조정
+        time.sleep(5)
+        lower_z()  # Z축 내리기
+        time.sleep(5)
+        block_box_match()  # QR 코드에 따라 블록 배치
+        time.sleep(5)
+        mc.set_gripper_state(0, 20, 1)  # 그리퍼 열기
+        time.sleep(3)
+        print("그리퍼가 열립니다")
 
-    print("그리퍼가 열립니다")
-    mc.set_gripper_state(0, 20, 1)  # 그리퍼 열기
-    time.sleep(3)
-
-    mc.send_angles([0, 0, 0, 0, 0, 0], 20)  # 초기 위치
-    time.sleep(5)
-    print("모든 작업을 완료하고 복귀합니다.")
+        mc.send_angles([0, 0, 0, 0, 0, 0], 20)  # 초기 위치
+        time.sleep(5)
+        print("모든 작업을 완료하고 복귀합니다.")
+    else:
+        mc.send_angles([0, 0, 0, 0, 0, 0], 20)  # 초기 위치
+        time.sleep(5)
+        print("QR 코드가 감지되지 않아 복귀합니다.")
 
 # 실행 루프
-for i in range(4):
+for i in range(6):
     main()
     print(f"{i+1}번째 작업 완료")

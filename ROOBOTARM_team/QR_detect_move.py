@@ -3,10 +3,19 @@ import time
 import cv2
 
 # MyCobot 연결 설정
-mc = MyCobot('/dev/ttyACM0', 115200)
+try:
+    mc = MyCobot('COM6', 115200)
+    print("MyCobot 연결 성공!")
+except Exception as e:
+    print(f"MyCobot 연결 실패: {e}")
+    exit()
 
 # 웹캠 설정
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(1)
+if not cap.isOpened():
+    print("카메라를 열 수 없습니다. 연결 상태를 확인하세요.")
+    exit()
+
 WINDOW_NAME = "QR Code Detection"
 
 # QR 코드 인식 함수
@@ -22,9 +31,12 @@ def detect_qr_code(frame):
 def move_to_position_based_on_qr(qr_data):
     # QR 코드 내용에 따라 목표 각도 설정
     angles = {
-        "A": [0, 20, 30, 0, 0, 0],  # 예제 위치 A
-        "B": [20, -20, 30, 0, 0, 0], # 예제 위치 B
-        "C": [10, 15, 30, 0, 0, 0]   # 예제 위치 C
+        "https://site.naver.com/patient/A_1": [0, 20, 30, 0, 0, 0],   # 예제 위치 A_1
+        "https://site.naver.com/patient/A_2": [20, -20, 30, 0, 0, 0], # 예제 위치 A_2
+        "https://site.naver.com/patient/A_3": [10, 15, 30, 0, 0, 0],  # 예제 위치 A_3
+        "https://site.naver.com/patient/B_1": [30, 15, 30, 0, 0, 0],  # 예제 위치 B_1
+        "https://site.naver.com/patient/B_2": [50, 15, 30, 0, 0, 0],  # 예제 위치 B_2
+        "https://site.naver.com/patient/B_3": [70, 15, 30, 0, 0, 0],  # 예제 위치 B_3
     }
 
     if qr_data in angles:
@@ -66,8 +78,12 @@ def detect_and_process_qr_code():
 if __name__ == "__main__":
     # 초기 위치로 이동
     print("초기 위치로 이동 중...")
-    mc.send_angles([-15, 65, 16, 0, -90, 0], 20)
-    time.sleep(5)  # 초기 위치로 이동 후 대기
+    try:
+        mc.send_angles([-16, 47, 24, 7, -88, -6], 20)
+        time.sleep(5)  # 초기 위치로 이동 후 대기
+    except Exception as e:
+        print(f"초기 위치로 이동 실패: {e}")
+        exit()
 
     # 초기 위치에서 QR 코드 확인
     print("QR 코드 확인 중...")
