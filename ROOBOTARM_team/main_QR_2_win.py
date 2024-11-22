@@ -20,7 +20,7 @@ pose2_coords = [30.9, -327.5, 261.9, -170.94, 0.15, 170]
 fixed_z = pose2_coords[2]  # z축 고정
 
 # Z축을 내릴 위치 설정
-lowered_z = fixed_z - 230  # 원하는 만큼 z축을 내립니다 (단위: mm)
+lowered_z = fixed_z - 100  # 원하는 만큼 z축을 내립니다 (단위: mm)
 
 # 초기 위치 설정
 cap = None
@@ -97,7 +97,7 @@ def detect_and_grab_block():
 def perform_pose2_adjustments():
     global centered
     centered = False  # 조정 시작 시 centered 초기화
-    mc.send_angles([80, 50, 11, 22, -90, -12], 20)  # pose2
+    mc.send_angles([90, 5, 0, 57, -90, 0], 20)  # pose2
     time.sleep(5)
 
     # 중심 맞추기 시작 시간 기록
@@ -188,7 +188,7 @@ def block_box_match():
 
     # QR 코드 데이터에 따라 블록 배치 위치 설정
     if last_detected_qr == 'https://site.naver.com/patient/A_1':
-        x += 50
+        x += 100
         y += 50
         print("A_1 블록: 왼쪽 아래로 이동합니다.")
     elif last_detected_qr == 'https://site.naver.com/patient/A_2':
