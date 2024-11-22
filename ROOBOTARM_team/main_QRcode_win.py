@@ -64,7 +64,7 @@ def detect_qr_code():
     data, points, _ = detector.detectAndDecode(frame)
     if points is not None and data:
         print(f"QR 코드 인식됨! 내용: {data}")
-        return data
+        return data.split("/patient/")[-1] if "/patient/" in data else "알 수 없음"
     return None
 
 # pose0에서 QR 코드 인식
@@ -187,26 +187,26 @@ def block_box_match():
     rx, ry, rz = pose2_coords[3], pose2_coords[4], pose2_coords[5]
 
     # QR 코드 데이터에 따라 블록 배치 위치 설정
-    if last_detected_qr == 'https://site.naver.com/patient/A_1':
+    if last_detected_qr == 'A_1':
         x += 100
         y += 50
         print("A_1 블록: 왼쪽 아래로 이동합니다.")
-    elif last_detected_qr == 'https://site.naver.com/patient/A_2':
+    elif last_detected_qr == 'A_2':
         y += 50
         print("A_2 블록: 중앙 아래로 이동합니다.")
-    elif last_detected_qr == 'https://site.naver.com/patient/A_3':
-        x -= 50
+    elif last_detected_qr == 'A_3':
+        x -= 100
         y += 50
         print("A_3 블록: 오른쪽 아래로 이동합니다.")
-    elif last_detected_qr == 'https://site.naver.com/patient/B_1':
-        x += 50
+    elif last_detected_qr == 'B_1':
+        x += 100
         y -= 50
         print("B_1 블록: 왼쪽 위로 이동합니다.")
-    elif last_detected_qr == 'https://site.naver.com/patient/B_2':
+    elif last_detected_qr == 'B_2':
         y -= 50
         print("B_2 블록: 중앙 위로 이동합니다.")        
-    elif last_detected_qr == 'https://site.naver.com/patient/B_3':
-        x -= 50
+    elif last_detected_qr == 'B_3':
+        x -= 100
         y -= 50
         print("B_3 블록: 오른쪽 위로 이동합니다.")
         
