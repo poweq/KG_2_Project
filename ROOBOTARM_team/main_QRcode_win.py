@@ -37,7 +37,7 @@ last_detected_qr = None
 
 # 웹캠 초기화 및 해제 함수
 def init_camera():
-    cap = cv2.VideoCapture(1)  # 웹캠 열기
+    cap = cv2.VideoCapture(2)  # 웹캠 열기
     if not cap.isOpened():
         print("웹캠을 열 수 없습니다.")
         return None
@@ -244,6 +244,13 @@ def main():
     
     release_camera(cap)
 
-for i in range(6):
-    main()
-    print(f"{i+1}번째 작업 완료")
+# 사용자 입력에 따라 main 함수 반복 실행
+while True:
+    start_code = input("코드를 실행하려면 1을 입력하고 Enter를 누르세요 (종료하려면 'q'를 입력하세요): ")
+    if start_code == "1":
+        main()  # main 함수 호출
+    elif start_code.lower() == "q":
+        print("프로그램을 종료합니다.")
+        break  # 루프 종료
+    else:
+        print("잘못된 입력입니다. 1 또는 'q'를 입력하세요.")
