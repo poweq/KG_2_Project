@@ -1,3 +1,0 @@
-[console_scripts]
-camera_subscriber = camera_udp_communication.camera_subscriber:main
-

@@ -1,4 +1,0 @@
-source;share/ps2_controller/local_setup.bash
-source;share/ps2_controller/local_setup.dsv
-source;share/ps2_controller/local_setup.sh
-source;share/ps2_controller/local_setup.zsh

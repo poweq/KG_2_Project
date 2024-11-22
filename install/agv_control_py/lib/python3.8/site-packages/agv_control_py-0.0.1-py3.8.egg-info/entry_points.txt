@@ -1,3 +1,0 @@
-[console_scripts]
-agv_contorl = agv_control_py.agv_controller_node:main
-
