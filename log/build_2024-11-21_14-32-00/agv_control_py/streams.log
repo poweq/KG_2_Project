@@ -1,0 +1,37 @@
+[4.626s] Invoking command in '/home/pi/KG_2_Project/AGV_team/ros2_ws/src/agv_control_py': PYTHONPATH=/home/pi/KG_2_Project/build/agv_control_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../../build/agv_control_py build --build-base /home/pi/KG_2_Project/build/agv_control_py/build install --record /home/pi/KG_2_Project/build/agv_control_py/install.log --install-scripts $base/lib/agv_control_py --single-version-externally-managed install_data
+[5.945s] running egg_info
+[5.949s] creating ../../../../build/agv_control_py/agv_control_py.egg-info
+[5.949s] writing ../../../../build/agv_control_py/agv_control_py.egg-info/PKG-INFO
+[5.950s] writing dependency_links to ../../../../build/agv_control_py/agv_control_py.egg-info/dependency_links.txt
+[5.951s] writing entry points to ../../../../build/agv_control_py/agv_control_py.egg-info/entry_points.txt
+[5.952s] writing requirements to ../../../../build/agv_control_py/agv_control_py.egg-info/requires.txt
+[5.953s] writing top-level names to ../../../../build/agv_control_py/agv_control_py.egg-info/top_level.txt
+[5.958s] writing manifest file '../../../../build/agv_control_py/agv_control_py.egg-info/SOURCES.txt'
+[6.107s] reading manifest file '../../../../build/agv_control_py/agv_control_py.egg-info/SOURCES.txt'
+[6.111s] writing manifest file '../../../../build/agv_control_py/agv_control_py.egg-info/SOURCES.txt'
+[6.113s] running build
+[6.113s] running build_py
+[6.114s] creating /home/pi/KG_2_Project/build/agv_control_py/build
+[6.115s] creating /home/pi/KG_2_Project/build/agv_control_py/build/lib
+[6.116s] creating /home/pi/KG_2_Project/build/agv_control_py/build/lib/agv_control_py
+[6.117s] copying agv_control_py/agv_controller_node.py -> /home/pi/KG_2_Project/build/agv_control_py/build/lib/agv_control_py
+[6.118s] copying agv_control_py/__init__.py -> /home/pi/KG_2_Project/build/agv_control_py/build/lib/agv_control_py
+[6.119s] running install
+[6.121s] running install_lib
+[6.126s] creating /home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages/agv_control_py
+[6.127s] copying /home/pi/KG_2_Project/build/agv_control_py/build/lib/agv_control_py/agv_controller_node.py -> /home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages/agv_control_py
+[6.127s] copying /home/pi/KG_2_Project/build/agv_control_py/build/lib/agv_control_py/__init__.py -> /home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages/agv_control_py
+[6.129s] byte-compiling /home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages/agv_control_py/agv_controller_node.py to agv_controller_node.cpython-38.pyc
+[6.139s] byte-compiling /home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages/agv_control_py/__init__.py to __init__.cpython-38.pyc
+[6.140s] running install_data
+[6.142s] copying package.xml -> /home/pi/KG_2_Project/install/agv_control_py/share/agv_control_py
+[6.143s] creating /home/pi/KG_2_Project/install/agv_control_py/share/ament_index
+[6.144s] creating /home/pi/KG_2_Project/install/agv_control_py/share/ament_index/resource_index
+[6.145s] creating /home/pi/KG_2_Project/install/agv_control_py/share/ament_index/resource_index/packages
+[6.145s] copying resource/agv_control_py -> /home/pi/KG_2_Project/install/agv_control_py/share/ament_index/resource_index/packages
+[6.146s] running install_egg_info
+[6.151s] Copying ../../../../build/agv_control_py/agv_control_py.egg-info to /home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages/agv_control_py-0.0.1-py3.8.egg-info
+[6.158s] running install_scripts
+[6.265s] Installing agv_contorl script to /home/pi/KG_2_Project/install/agv_control_py/lib/agv_control_py
+[6.268s] writing list of installed files to '/home/pi/KG_2_Project/build/agv_control_py/install.log'
+[6.406s] Invoked command in '/home/pi/KG_2_Project/AGV_team/ros2_ws/src/agv_control_py' returned '0': PYTHONPATH=/home/pi/KG_2_Project/build/agv_control_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../../build/agv_control_py build --build-base /home/pi/KG_2_Project/build/agv_control_py/build install --record /home/pi/KG_2_Project/build/agv_control_py/install.log --install-scripts $base/lib/agv_control_py --single-version-externally-managed install_data

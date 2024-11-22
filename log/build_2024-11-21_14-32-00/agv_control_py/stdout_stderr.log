@@ -1,0 +1,35 @@
+running egg_info
+creating ../../../../build/agv_control_py/agv_control_py.egg-info
+writing ../../../../build/agv_control_py/agv_control_py.egg-info/PKG-INFO
+writing dependency_links to ../../../../build/agv_control_py/agv_control_py.egg-info/dependency_links.txt
+writing entry points to ../../../../build/agv_control_py/agv_control_py.egg-info/entry_points.txt
+writing requirements to ../../../../build/agv_control_py/agv_control_py.egg-info/requires.txt
+writing top-level names to ../../../../build/agv_control_py/agv_control_py.egg-info/top_level.txt
+writing manifest file '../../../../build/agv_control_py/agv_control_py.egg-info/SOURCES.txt'
+reading manifest file '../../../../build/agv_control_py/agv_control_py.egg-info/SOURCES.txt'
+writing manifest file '../../../../build/agv_control_py/agv_control_py.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/pi/KG_2_Project/build/agv_control_py/build
+creating /home/pi/KG_2_Project/build/agv_control_py/build/lib
+creating /home/pi/KG_2_Project/build/agv_control_py/build/lib/agv_control_py
+copying agv_control_py/agv_controller_node.py -> /home/pi/KG_2_Project/build/agv_control_py/build/lib/agv_control_py
+copying agv_control_py/__init__.py -> /home/pi/KG_2_Project/build/agv_control_py/build/lib/agv_control_py
+running install
+running install_lib
+creating /home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages/agv_control_py
+copying /home/pi/KG_2_Project/build/agv_control_py/build/lib/agv_control_py/agv_controller_node.py -> /home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages/agv_control_py
+copying /home/pi/KG_2_Project/build/agv_control_py/build/lib/agv_control_py/__init__.py -> /home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages/agv_control_py
+byte-compiling /home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages/agv_control_py/agv_controller_node.py to agv_controller_node.cpython-38.pyc
+byte-compiling /home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages/agv_control_py/__init__.py to __init__.cpython-38.pyc
+running install_data
+copying package.xml -> /home/pi/KG_2_Project/install/agv_control_py/share/agv_control_py
+creating /home/pi/KG_2_Project/install/agv_control_py/share/ament_index
+creating /home/pi/KG_2_Project/install/agv_control_py/share/ament_index/resource_index
+creating /home/pi/KG_2_Project/install/agv_control_py/share/ament_index/resource_index/packages
+copying resource/agv_control_py -> /home/pi/KG_2_Project/install/agv_control_py/share/ament_index/resource_index/packages
+running install_egg_info
+Copying ../../../../build/agv_control_py/agv_control_py.egg-info to /home/pi/KG_2_Project/install/agv_control_py/lib/python3.8/site-packages/agv_control_py-0.0.1-py3.8.egg-info
+running install_scripts
+Installing agv_contorl script to /home/pi/KG_2_Project/install/agv_control_py/lib/agv_control_py
+writing list of installed files to '/home/pi/KG_2_Project/build/agv_control_py/install.log'

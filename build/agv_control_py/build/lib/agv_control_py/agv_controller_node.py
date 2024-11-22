@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 
 import rclpy
@@ -99,7 +98,7 @@ class AGVController(Node):
             # linear_y 처리 추가
             if linear_y != 0:
                 lateral_speed = max(min(int(abs(linear_y) * self.limit_speed), self.limit_speed), -self.limit_speed)
-                lateral_speed = lateral_speed * 0.5
+
                 if linear_y > 0:
                     # linear_y가 양수일 때
                     motor_command[1] = -lateral_speed  # a
@@ -135,7 +134,7 @@ class AGVController(Node):
                     buffer += data
 
                     while True:
-                        if len(buffer) < 20:
+                        if len(buffer) < 19:
                             # 패킷 크기 미달 시 대기
                             break
 
@@ -145,13 +144,13 @@ class AGVController(Node):
                             # 시작 바이트가 없으면 버퍼 초기화
                             buffer = bytearray()
                             break
-                        elif len(buffer) - start_index < 20:
+                        elif len(buffer) - start_index < 19:
                             # 전체 패킷을 아직 받지 못함
                             break
                         else:
                             # 패킷 추출
-                            packet = buffer[start_index:start_index + 20]
-                            buffer = buffer[start_index + 20:]
+                            packet = buffer[start_index:start_index + 19]
+                            buffer = buffer[start_index + 19:]
 
                             # 패킷 파싱
                             self.parse_packet(packet)
@@ -161,54 +160,61 @@ class AGVController(Node):
                 break
 
     def parse_packet(self, packet):
+        if packet[0] != 0xf3:
+            self.get_logger().error(f"Invalid packet start byte: {packet[0]}")
+            return
 
         try:
             # 나머지 18바이트를 9개의 int16_t로 파싱 (리틀엔디안 가정)
             # 자이로 x, y, z; 가속도 x, y, z; 지자계 x, y, z
-            data = struct.unpack('<H9h', packet)
-
-
-            # 센서 값 추출
-            gyro_x, gyro_y, gyro_z = data[1], data[2], data[3]
-            acc_x, acc_y, acc_z = data[4], data[5], data[6]
-            mag_x, mag_y, mag_z = data[7], data[8], data[9]
-
-            # 변환: 자이로스코프 (raw -> rad/s)
-            gyro_scale = 131.0
-            angular_velocity_x = (gyro_x / gyro_scale) * (math.pi / 180.0) *100
-            angular_velocity_y = (gyro_y / gyro_scale) * (math.pi / 180.0) *100
-            angular_velocity_z = (gyro_z / gyro_scale) * (math.pi / 180.0) *100
-
-            # 변환: 가속도계 (raw -> m/s²)
-            accel_scale = 16384.0
-            linear_acceleration_x = (acc_x / accel_scale) * 9.8 *100
-            linear_acceleration_y = (acc_y / accel_scale) * 9.8 *100
-            linear_acceleration_z = (acc_z / accel_scale) * 9.8 *100
+            data = struct.unpack('<hhhhhhhhh', packet[1:19])
+            gyro_x, gyro_y, gyro_z, accel_x, accel_y, accel_z, mag_x, mag_y, mag_z = data
 
             # IMU 메시지 생성
             imu_msg = Imu()
             imu_msg.header.stamp = self.get_clock().now().to_msg()
-            imu_msg.header.frame_id = "imu_link"
+            imu_msg.header.frame_id = "imu_link"  # 실제 IMU 프레임 ID로 수정
 
-            imu_msg.angular_velocity.x = angular_velocity_x
-            imu_msg.angular_velocity.y = angular_velocity_y
-            imu_msg.angular_velocity.z = angular_velocity_z
+            # Orientation 설정 (쿼터니언)
+            # 쿼터니언 데이터를 제공받지 않으므로, 단위 쿼터니언 사용
+            imu_msg.orientation.x = 0.0
+            imu_msg.orientation.y = 0.0
+            imu_msg.orientation.z = 0.0
+            imu_msg.orientation.w = 1.0
 
-            imu_msg.linear_acceleration.x = linear_acceleration_x
-            imu_msg.linear_acceleration.y = linear_acceleration_y
-            imu_msg.linear_acceleration.z = linear_acceleration_z
+            # Angular velocity (자이로스코프 데이터)
+            # 단위: rad/s (예: 도 단위를 rad로 변환)
+            imu_msg.angular_velocity.x = gyro_x * (math.pi / 180.0)
+            imu_msg.angular_velocity.y = gyro_y * (math.pi / 180.0)
+            imu_msg.angular_velocity.z = gyro_z * (math.pi / 180.0)
+
+            # Linear acceleration (가속도계 데이터)
+            # 단위: m/s² (예: 센서 스케일에 맞게 조정)
+            imu_msg.linear_acceleration.x = accel_x * 0.1  # 예시 스케일링 값
+            imu_msg.linear_acceleration.y = accel_y * 0.1
+            imu_msg.linear_acceleration.z = accel_z * 0.1
+
+            # Covariance 설정 (신뢰도에 따라 조정)
+            imu_msg.orientation_covariance = [0.0] * 9
+            imu_msg.angular_velocity_covariance = [
+                0.01, 0.0, 0.0,
+                0.0, 0.01, 0.0,
+                0.0, 0.0, 0.01
+            ]
+            imu_msg.linear_acceleration_covariance = [
+                0.1, 0.0, 0.0,
+                0.0, 0.1, 0.0,
+                0.0, 0.0, 0.1
+            ]
 
             # IMU 메시지 퍼블리시
             self.imu_publisher.publish(imu_msg)
-            
+
+            # 디버그 로그
             self.get_logger().debug(
-                f"IMU Data - Gyro (raw): ({gyro_x}, {gyro_y}, {gyro_z}), "
-                f"Accel (raw): ({acc_x}, {acc_y}, {acc_z}), "
-                f"Mag (raw): ({mag_x}, {mag_y}, {mag_z})"
-            )
-            self.get_logger().debug(
-                f"IMU Data - Gyro (rad/s): ({angular_velocity_x:.3f}, {angular_velocity_y:.3f}, {angular_velocity_z:.3f}), "
-                f"Accel (m/s²): ({linear_acceleration_x:.3f}, {linear_acceleration_y:.3f}, {linear_acceleration_z:.3f})"
+                f"IMU Data - Gyro: ({gyro_x}, {gyro_y}, {gyro_z}), "
+                f"Accel: ({accel_x}, {accel_y}, {accel_z}), "
+                f"Mag: ({mag_x}, {mag_y}, {mag_z})"
             )
 
         except struct.error as e:
@@ -228,4 +234,3 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-
