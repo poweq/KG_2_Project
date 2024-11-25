@@ -5,11 +5,10 @@
 # video_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 # video_sock.bind(("192.168.0.182", video_receive_port))
 
-
 import socket
 
 # 서버 설정
-server_ip = "127.0.0.1"  # 클라이언트(로봇)의 IP 주소로 변경
+server_ip = "192.168.0.182"  # 클라이언트(로봇)의 IP 주소로 변경
 server_port = 7000  # 클라이언트와 동일한 포트 번호
 
 # UDP 소켓 생성
