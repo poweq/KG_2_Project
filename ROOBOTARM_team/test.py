@@ -5,8 +5,8 @@ import pickle
 import time
 
 # UDP 설정
-pc_ip = "192.168.0.162"  # Windows PC의 IP 주소
-video_send_port = 5005  # 영상 데이터를 송신할 포트 번호
+pc_ip = "192.168.0.162"  # 서버의 IP 주소
+video_send_port = 5005  # 서버로 영상 데이터를 송신할 포트 번호
 
 # 영상 송신을 위한 소켓 생성
 video_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -21,10 +21,10 @@ if not cap.isOpened():
     print("카메라를 열 수 없습니다. 프로그램을 종료합니다.")
     exit(1)
 
-print("카메라 데이터 송신 중... (Ctrl + C로 종료)")
+print(f"카메라 데이터 송신 중... (Ctrl + C로 종료)")
 
 try:
-    # 메인 송신 루프
+    # 메인 송신 루프 (카메라 데이터 송신)
     while True:
         # 카메라로부터 프레임 읽기
         ret, frame = cap.read()
@@ -41,6 +41,7 @@ try:
         # 인코딩된 프레임을 직렬화하여 UDP로 전송
         try:
             data = pickle.dumps(buffer)  # 직렬화
+            # 데이터 크기를 먼저 보내고, 그 뒤에 실제 데이터를 전송
             video_sock.sendto(struct.pack("Q", len(data)) + data, (pc_ip, video_send_port))
             print("프레임을 성공적으로 전송하였습니다.")
         except Exception as e:
