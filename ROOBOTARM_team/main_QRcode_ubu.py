@@ -213,13 +213,31 @@ def block_box_match():
     print(f"블록을 놓는 위치로 이동: x={x}, y={y}, z={z}, rx={rx}, ry={rz}")
     move_to_position(x, y, z, rx, ry, rz)
 
+# 초기화 함수
+def reset_robot():
+    global waiting
+    waiting = False
+    print("로봇 초기화 중...")
+    mc.send_angles([0, 0, 0, 0, 0, 0], 20)  # 초기 위치로 리셋
+    time.sleep(5)
+    print("초기화 완료!")
+
+# 대기 상태 함수
+def wait_mode():
+    global waiting
+    waiting = True
+    print("로봇 대기 상태에 들어갑니다. 'r'을 눌러 리셋하거나, '1'을 눌러 작업을 시작하세요.")
+
+# 대기 상태 해제
+waiting = False  
+
 def main():
-    global cap
+    global cap, waiting
     cap = init_camera()
     if not cap:
         print("카메라 초기화 실패")
         return
-
+    
     qr_detected = detect_and_grab_block()
     if qr_detected:
         mc.send_angles([-15, 30, 11, 0, -90, 0], 20)  # pose1
@@ -246,11 +264,17 @@ def main():
 
 # 사용자 입력에 따라 main 함수 반복 실행
 while True:
-    start_code = input("코드를 실행하려면 1을 입력하고 Enter를 누르세요 (종료하려면 'q'를 입력하세요): ")
+    start_code = input("1: 실행, 0: 대기, r: 리셋, q: 종료\n 버튼을 입력하고 Enter를 누르세요 (종료하려면 'q'를 입력하세요): ")
     if start_code == "1":
+        if waiting:
+            print("대기 상태를 해제하고 작업을 시작합니다.")
         main()  # main 함수 호출
+    elif start_code == "0":
+        wait_mode()  # 대기 상태로 전환
+    elif start_code.lower() == "r":
+        reset_robot()  # 초기화
     elif start_code.lower() == "q":
         print("프로그램을 종료합니다.")
         break  # 루프 종료
     else:
-        print("잘못된 입력입니다. 1 또는 'q'를 입력하세요.")
+        print("잘못된 입력입니다. 1, 0, r, 또는 'q'를 입력하세요.")
