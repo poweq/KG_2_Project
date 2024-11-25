@@ -10,6 +10,8 @@ mc = MyCobot('/dev/ttyACM0', 115200)
 
 # YOLO 모델 로드
 model = YOLO('/home/shim/github/KG_2_Project/ROOBOTARM_team/yolov8_model/runs/detect/train2/weights/best.pt')
+# COM6
+# model = YOLO('C:\\Users\\shims\\Desktop\\github\\KG_2_Project\\ROOBOTARM_team\\yolov8_model\\runs\\detect\\train2\\weights\\best.pt')
 
 # 픽셀-로봇 좌표 변환 비율 설정
 pixel_to_robot_x = 0.2  # X축 변환 비율

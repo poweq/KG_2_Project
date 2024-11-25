@@ -7,13 +7,13 @@ import threading  # 스레드를 사용하여 각도 데이터 수신 병렬 처
 import time
 
 # UDP 설정
-pc_ip = "172.30.1.42"  # 심승환 PC의 IP 주소 (환경에 맞게 설정)  # 심승환 PC의 IP 주소 (환경에 맞게 설정)
+pc_ip = "192.168.0.162"  # 윤성혁 PC의 IP 주소 (환경에 맞게 설정)  # 윤성혁 PC의 IP 주소 (환경에 맞게 설정)
 video_send_port = 5005  # Windows PC로 영상 데이터를 송신할 포트 번호
 angle_receive_port = 6000  # Windows PC로부터 각도 데이터를 수신할 포트 번호
 
 # 아두이노 시리얼 통신 설정
-arduino_port = '/dev/ttyAMA1'  # 아두이노와 연결된 시리얼 포트
-baud_rate = 9600  # 통신 속도
+arduino_port = '/dev/ttyACM0'  # 아두이노와 연결된 시리얼 포트
+baud_rate = 115200  # 통신 속도
 ser = serial.Serial(arduino_port, baud_rate, timeout=1)  # 시리얼 포트 열기
 
 # 영상 송신을 위한 소켓 생성
