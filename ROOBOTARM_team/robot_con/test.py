@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 
 # MyCobot 연결 설정
-mc = MyCobot('COM6', 115200)
+mc = MyCobot('/dev/ttyACM0', 115200)
 
 # 그리퍼 모드 설정 및 초기화
 mc.set_gripper_mode(0)
