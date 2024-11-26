@@ -4,6 +4,7 @@ import cv2
 import numpy as np
 from ultralytics import YOLO
 import socket
+import threading
 
 # MyCobot 연결 설정
 mc = MyCobot('/dev/ttyACM0', 115200)
@@ -21,11 +22,17 @@ def check_robot_connection():
 # YOLO 모델 로드
 model = YOLO('/home/shim/github/KG_2_Project/ROOBOTARM_team/yolov8_model/runs/detect/train2/weights/best.pt')
 
+# 글로벌 변수(전역 변수) 선언
+running = False            # 로봇 작업 진행 상태
+signal_received = None # 신호 상태
+task_thread = None  # 로봇 작업 스레드
+should_exit = False        # 프로그램 종료 플래그 추가
+
 # UDP 설정
 signal_port = 7000
 signal_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 signal_sock.bind(("0.0.0.0", signal_port))
-signal_sock.settimeout(5.0)
+signal_sock.settimeout(1.0)
 
 # 픽셀-로봇 좌표 변환 비율 설정
 pixel_to_robot_x = 0.2
@@ -114,6 +121,93 @@ def detect_and_grab_block():
     else:
         print("QR 코드를 감지하지 못했습니다.")
         return False
+
+
+###########################################################################
+# 비동기적으로 신호를 수신하는 함수
+def listen_for_signal():
+    global signal_received, should_exit
+    while not should_exit:
+        try:
+            print("신호 대기 중...")
+            signal, addr = signal_sock.recvfrom(1024)
+            signal = signal.decode().strip()
+            print(f"수신된 신호: {signal}")
+            signal_received = signal  # 전역 변수에 신호 저장
+        except socket.timeout:
+            continue  # 타임아웃 발생 시 다시 대기
+        except Exception as e:
+            print(f"신호 수신 중 오류 발생: {e}")
+            continue
+
+# 로봇 작업 함수 (별도의 스레드에서 실행)
+def robot_task():
+    global running, last_detected_qr, should_exit
+    try:
+        # 작업 시작
+        if not running or should_exit:
+            return  # 실행 중단
+        if detect_and_grab_block():
+            if not running or should_exit:
+                return  # 실행 중단
+            print("객체 중심 맞추기...")
+            perform_pose2_adjustments()
+            if not running or should_exit:
+                return  # 실행 중단
+            print("Z축 내리기...")
+            lower_z()
+            if not running or should_exit:
+                return  # 실행 중단
+            print("블록 배치...")
+            block_box_match()
+            if not running or should_exit:
+                return  # 실행 중단
+            print("그리퍼 열기...")
+            mc.set_gripper_state(0, 20, 1)
+            time.sleep(3)
+            reset_robot()
+        else:
+            print("QR 코드 감지 실패 또는 블록 잡기 실패. 작업을 종료합니다.")
+            reset_robot()
+    finally:
+        running = False  # 작업 종료 표시
+
+# 신호 처리 함수
+def process_signal():
+    global signal_received, running, task_thread, should_exit
+    while not should_exit:
+        if signal_received:
+            signal = signal_received
+            signal_received = None  # 신호 초기화
+
+            if signal == "1":
+                if not running:
+                    print("작업을 시작합니다.")
+                    running = True
+                    # 로봇 작업 스레드 시작
+                    task_thread = threading.Thread(target=robot_task)
+                    task_thread.start()
+                else:
+                    print("이미 작업이 진행 중입니다.")
+            elif signal == "0":
+                if running:
+                    print("작업을 중단합니다.")
+                    mc.stop()  # 로봇 동작 중단
+                    running = False
+                else:
+                    print("작업이 진행 중이 아닙니다.")
+            elif signal.lower() == "r":
+                print("로봇 초기화 중...")
+                reset_robot()
+            elif signal.lower() == "q":
+                print("프로그램 종료")
+                reset_robot()
+                should_exit = True  # 프로그램 종료 플래그 설정
+            else:
+                print("잘못된 신호 수신.")
+        time.sleep(0.1)  # CPU 사용량을 낮추기 위해 약간 대기
+
+##########################################################################
 
 # pose2에서 객체 인식 후 조정
 def perform_pose2_adjustments():
@@ -238,49 +332,14 @@ def block_box_match():
     print(f"블록을 놓는 위치로 이동: x={x}, y={y}, z={z}, rx={rx}, ry={rz}")
     move_to_position(x, y, z, rx, ry, rz)
 
-# 신호 대기 및 처리
-def wait_for_signal():
-    while True:
-        try:
-            print("신호 대기 중...")
-            signal, addr = signal_sock.recvfrom(1024)
-            signal = signal.decode().strip()
-            print(f"수신된 신호: {signal}")
-            return signal
-        except socket.timeout:
-            print("신호 수신 대기 타임아웃 발생")
-            # 계속 신호를 기다림
-        except Exception as e:
-            print(f"신호 수신 중 오류 발생: {e}")
-            # 계속 신호를 기다림
-
-def process_signal(signal):
-    if signal == "1":
-        print("작업을 시작합니다.")
-        return True
-    elif signal == "0":
-        print("대기 상태로 전환합니다.")
-        return False
-    elif signal.lower() == "r":
-        print("로봇 초기화 중...")
-        reset_robot()
-        return False
-    elif signal.lower() == "q":
-        print("프로그램 종료")
-        reset_robot()
-        exit()
-    else:
-        print("잘못된 신호 수신.")
-        return False
-
 def reset_robot():
     mc.send_angles([0, 0, 0, 0, 0, 0], 20)
     time.sleep(5)
     print("로봇이 초기 위치로 돌아갔습니다.")
 
-# 메인 작업 흐름
+# 메인 루프
 def main():
-    global cap
+    global cap, should_exit
     try:
         if not check_robot_connection():
             print("MyCobot 연결 실패. 프로그램을 종료합니다.")
@@ -291,40 +350,33 @@ def main():
         time.sleep(2)
         print("초기화 완료.")
 
-        if cap is None:
-            cap = init_camera()
-            if not cap:
-                print("카메라 초기화 실패")
-                return
+        cap = init_camera()
+        if not cap:
+            print("카메라 초기화 실패")
+            return
 
-        while True:
-            # 신호를 기다림
-            signal = wait_for_signal()
-            if process_signal(signal):
-                # 작업 시작
-                if detect_and_grab_block():
-                    print("객체 중심 맞추기...")
-                    perform_pose2_adjustments()
-                    print("Z축 내리기...")
-                    lower_z()
-                    print("블록 배치...")
-                    block_box_match()
-                    print("그리퍼 열기...")
-                    mc.set_gripper_state(0, 20, 1)
-                    time.sleep(3)
-                    reset_robot()
-                else:
-                    print("QR 코드 감지 실패 또는 블록 잡기 실패. 작업을 종료합니다.")
-                    reset_robot()
-            else:
-                # 대기 상태 또는 프로그램 종료
-                continue
+        # 신호 수신 스레드 시작
+        signal_thread = threading.Thread(target=listen_for_signal, daemon=True)
+        signal_thread.start()
+
+        # 신호 처리 루프 시작
+        process_signal_thread = threading.Thread(target=process_signal, daemon=True)
+        process_signal_thread.start()
+
+        # 메인 스레드는 다른 작업을 수행하거나 대기
+        while not should_exit:
+            time.sleep(1)  # 메인 스레드는 대기 상태를 유지
 
     finally:
         if cap:
             release_camera(cap)
             cap = None
         print("프로그램 종료.")
+        # 프로그램 종료를 위해 모든 스레드가 종료될 때까지 대기
+        signal_thread.join()
+        process_signal_thread.join()
+        if task_thread and task_thread.is_alive():
+            task_thread.join()
 
 if __name__ == "__main__":
     main()
