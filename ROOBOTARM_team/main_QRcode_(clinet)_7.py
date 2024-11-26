@@ -27,8 +27,6 @@ running = False            # 로봇 작업 진행 상태
 signal_received = None # 신호 상태
 task_thread = None  # 로봇 작업 스레드
 should_exit = False        # 프로그램 종료 플래그 추가
-cap = None # 카메라를 전역변수로 선언
-camera_lock = threading.Lock() # 카메라 접근 허용을 위한 lock 생성
 
 # UDP 설정
 signal_port = 7000
@@ -46,6 +44,7 @@ fixed_z = pose2_coords[2]
 lowered_z = fixed_z - 100
 
 # 초기 변수 설정
+cap = None
 current_x, current_y = pose2_coords[0], pose2_coords[1]
 centered = False # 중심 맞추기 완료 여부 확인
 first_detection = True  # 처음 중심점 위치 출력 여부 확인
@@ -59,52 +58,65 @@ last_detected_qr = None
 
 # 카메라 초기화 및 해제 함수
 def init_camera():
-    with camera_lock:
-        cap = cv2.VideoCapture(0)
-        if not cap.isOpened():
-            print("웹캠을 열 수 없습니다.")
-            return None
+    cap = cv2.VideoCapture(0)
+    if not cap.isOpened():
+        print("웹캠을 열 수 없습니다.")
+        return None
+    else:
+        print("카메라가 성공적으로 초기화되었습니다.")
+        print("cap 객체 상태:", cap)
+        print("카메라가 열려 있는지 확인:", cap.isOpened())
     return cap
 
+
 def release_camera(cap):
-    with camera_lock:
-        if cap:
-            cap.release()
+    if cap:
+        cap.release()
     cv2.destroyAllWindows()
 
 # QR 코드 인식 함수
 def detect_qr_code():
     global cap
-    with camera_lock:
+    if cap is None or not cap.isOpened():
+        print("카메라가 초기화되지 않았습니다. 카메라를 다시 초기화합니다.")
+        cap = init_camera()
         if cap is None:
-            cap = init_camera()
-            if cap is None:
-                print("카메라를 초기화할 수 없습니다.")
-                return None
+            print("카메라를 다시 초기화할 수 없습니다.")
+            return None
 
+    ret, frame = cap.read()
+    if not ret:
+        print("카메라에서 프레임을 가져올 수 없습니다. 카메라를 다시 초기화합니다.")
+        cap.release()
+        cap = init_camera()
+        if not cap or not cap.isOpened():
+            print("카메라를 다시 초기화할 수 없습니다.")
+            return None
         ret, frame = cap.read()
         if not ret:
             print("카메라에서 프레임을 가져올 수 없습니다.")
             return None
+        else:
+            print("프레임을 성공적으로 가져왔습니다.")
 
-        print("QR 코드 감지 시도 중...")
+    print("QR 코드 감지 시도 중...")
 
-        # 밝기 및 대비 조정
-        for alpha in [1.0, 1.2, 1.5]:
-            for beta in [0, 30, 60]:
-                adjusted_frame = cv2.convertScaleAbs(frame, alpha=alpha, beta=beta)
-                detector = cv2.QRCodeDetector()
-                data, points, _ = detector.detectAndDecode(adjusted_frame)
-                if points is not None and data:
-                    print(f"QR 코드 인식 성공: {data}")
-                    return data
+    # 밝기 및 대비 조정
+    for alpha in [1.0, 1.2, 1.5]:
+        for beta in [0, 30, 60]:
+            adjusted_frame = cv2.convertScaleAbs(frame, alpha=alpha, beta=beta)
+            detector = cv2.QRCodeDetector()
+            data, points, _ = detector.detectAndDecode(adjusted_frame)
+            if points is not None and data:
+                print(f"QR 코드 인식 성공: {data}")
+                return data
 
     print("QR 코드 감지 실패")
     return None
 
 # pose0에서 QR 코드 인식 및 블록 잡기
 def detect_and_grab_block():
-    global last_detected_qr, cap
+    global last_detected_qr
 
     # pose0로 이동
     mc.send_angles([-15, 60, 17, 5, -90, -14], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
@@ -128,6 +140,7 @@ def detect_and_grab_block():
         print("QR 코드를 감지하지 못했습니다.")
         return False
 
+
 ###########################################################################
 # 비동기적으로 신호를 수신하는 함수
 def listen_for_signal():
@@ -147,40 +160,46 @@ def listen_for_signal():
 
 # 로봇 작업 함수 (별도의 스레드에서 실행)
 def robot_task():
-    global running, last_detected_qr, should_exit, first_detection, centered, current_x, current_y
-    # 변수 초기화
-    first_detection = True
-    centered = False
-    current_x, current_y = pose2_coords[0], pose2_coords[1]
-    last_detected_qr = None
+    global running, last_detected_qr, should_exit, cap
     try:
-        # 작업 시작
-        if not running or should_exit:
-            return  # 실행 중단
-        if detect_and_grab_block():
-            if not running or should_exit:
-                return  # 실행 중단
-            print("객체 중심 맞추기...")
-            perform_pose2_adjustments()
-            if not running or should_exit:
-                return  # 실행 중단
-            print("Z축 내리기...")
-            lower_z()
-            if not running or should_exit:
-                return  # 실행 중단
-            print("블록 배치...")
-            block_box_match()
-            if not running or should_exit:
-                return  # 실행 중단
-            print("그리퍼 열기...")
-            mc.set_gripper_state(0, 20, 1)
-            time.sleep(3)
-            reset_robot()
+        # 작업 시작 시 카메라 상태 출력
+        print("로봇 작업을 시작합니다.")
+        if cap is None:
+            print("cap은 현재 None입니다.")
         else:
-            print("QR 코드 감지 실패 또는 블록 잡기 실패. 작업을 종료합니다.")
-            reset_robot()
+            print("cap 객체 상태:", cap)
+            print("카메라가 열려 있는지 확인:", cap.isOpened())
+
+        if not running or should_exit:
+            return
+
+        # 카메라 초기화 확인 및 재초기화
+        if cap is None or not cap.isOpened():
+            print("카메라가 열려 있지 않습니다. 카메라를 초기화합니다.")
+            cap = init_camera()
+            if cap is None:
+                print("카메라 초기화에 실패했습니다.")
+                running = False
+                return
+        else:
+            print("카메라가 이미 열려 있습니다.")
+
+        if detect_and_grab_block():
+            # 나머지 작업 진행...
+            pass
+
+        # 작업 후 카메라 상태 출력 및 해제
+        if cap:
+            print("작업 후 카메라 상태:")
+            print("cap 객체 상태:", cap)
+            print("카메라가 열려 있는지 확인:", cap.isOpened())
+            release_camera(cap)
+            cap = None
+
     finally:
-        running = False  # 작업 종료 표시
+        running = False
+        print("로봇 작업이 종료되었습니다.")
+
 
 # 신호 처리 함수
 def process_signal():
@@ -249,21 +268,34 @@ def move_to_position(x, y, z, rx, ry, rz, speed=20):
 
 def detect_and_adjust_position():
     global current_x, current_y, centered, first_detection, cap
-    if cap is None:
-        print("카메라가 초기화되지 않았습니다.")
-        return
+    if cap is None or not cap.isOpened():
+        print("카메라가 초기화되지 않았습니다. 카메라를 다시 초기화합니다.")
+        cap = init_camera()
+        if cap is None:
+            print("카메라를 다시 초기화할 수 없습니다.")
+            return
 
-    with camera_lock:
+    ret, frame = cap.read()
+    if not ret:
+        print("카메라에서 프레임을 가져올 수 없습니다. 카메라를 다시 초기화합니다.")
+        return
+    else:
+        print("프레임을 성공적으로 가져왔습니다.")
+
+        cap.release()
+        cap = init_camera()
+        if not cap or not cap.isOpened():
+            print("카메라를 다시 초기화할 수 없습니다.")
+            return
         ret, frame = cap.read()
         if not ret:
             print("카메라에서 프레임을 가져올 수 없습니다.")
             return
 
-        # YOLO 모델 적용
-        results = model(frame[..., ::-1])  # BGR → RGB 변환
-        frame_with_yolo = results[0].plot()
+    # YOLO 모델 적용
+    results = model(frame[..., ::-1])  # BGR → RGB 변환
+    frame_with_yolo = results[0].plot()
 
-    # YOLO 결과 처리는 Lock 밖에서 수행
     for result in results:
         for box in result.boxes:
             if box.conf.item() >= CONFIDENCE_THRESHOLD:
@@ -291,7 +323,7 @@ def detect_and_adjust_position():
                 # 로봇을 조정된 좌표로 이동
                 move_to_position(current_x, current_y, fixed_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
 
-                # 중심이 목표 좌표에 근접했는지 확인  
+                # 중심이 목표 좌표에 근접했는지 확인
                 if abs(x_center - TARGET_X) < 10 and abs(y_center - TARGET_Y) < 10:
                     centered = True
                     print("빨간 점이 목표 좌표 근처에 위치했습니다.")
@@ -301,7 +333,6 @@ def detect_and_adjust_position():
     cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
     cv2.resizeWindow(WINDOW_NAME, 600, 600)
     cv2.imshow(WINDOW_NAME, frame_with_yolo)
-    cv2.destroyAllWindows()
 
     if cv2.waitKey(1) & 0xFF == ord('q'):  # 'q' 키를 누르면 종료
         release_camera(cap)
@@ -346,65 +377,60 @@ def block_box_match():
     move_to_position(x, y, z, rx, ry, rz)
 
 def reset_robot():
-    global first_detection, last_detected_qr, centered, current_x, current_y
     mc.send_angles([0, 0, 0, 0, 0, 0], 20)
     time.sleep(5)
     print("로봇이 초기 위치로 돌아갔습니다.")
-    # 전역 변수 초기화
-    first_detection = True
-    last_detected_qr = None
-    centered = False
-    current_x, current_y = pose2_coords[0], pose2_coords[1]
-    # 카메라 해제
-    with camera_lock:
-        if cap:
-            release_camera(cap)
-            cap = None
 
 # 메인 루프
 def main():
     global cap, should_exit
-    signal_thread = None
-    process_signal_thread = None
     try:
         if not check_robot_connection():
             print("MyCobot 연결 실패. 프로그램을 종료합니다.")
             return
 
         print("MyCobot 초기화 중...")
-        
-        cap = init_camera()
-        if not cap:
-            print("카메라 초기화 실패")
-            return
-
         reset_robot()
         time.sleep(2)
         print("초기화 완료.")
+
+        cap = init_camera()
+        if not cap:
+            print("카메라 초기화 실패.")
+            return
+        else:
+            print("메인 함수에서 초기화된 카메라 상태:")
+            print("cap 객체 상태:", cap)
+            print("카메라가 열려 있는지 확인:", cap.isOpened())
 
         # 신호 수신 스레드 시작
         signal_thread = threading.Thread(target=listen_for_signal, daemon=True)
         signal_thread.start()
 
-        # 신호 처리 루프 시작
+        # 신호 처리 스레드 시작
         process_signal_thread = threading.Thread(target=process_signal, daemon=True)
         process_signal_thread.start()
 
         # 메인 스레드는 다른 작업을 수행하거나 대기
         while not should_exit:
-            time.sleep(1)  # 메인 스레드는 대기 상태를 유지
+            # 주기적으로 카메라 상태 확인
+            if cap:
+                print("메인 루프에서 카메라 상태 확인:")
+                print("cap 객체 상태:", cap)
+                print("카메라가 열려 있는지 확인:", cap.isOpened())
+            time.sleep(5)  # 5초마다 상태 확인
 
     finally:
-        with camera_lock:
-            if cap:
-                release_camera(cap)
-                cap = None
+        if cap:
+            release_camera(cap)
+            cap = None
         print("프로그램 종료.")
         # 프로그램 종료를 위해 모든 스레드가 종료될 때까지 대기
         signal_thread.join()
         process_signal_thread.join()
         if task_thread and task_thread.is_alive():
             task_thread.join()
-            
+
+
 if __name__ == "__main__":
     main()
