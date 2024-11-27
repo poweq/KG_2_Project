@@ -143,8 +143,7 @@ def detect_and_grab_block():
     print("QR 코드를 감지하지 못했습니다. 작업 실패.")
     return False
 
-
-###########################################################################
+###################################################################################################
 # 비동기적으로 신호를 수신하는 함수
 def listen_for_signal():
     global signal_received, should_exit
@@ -168,25 +167,27 @@ def robot_task():
         # 작업 시작
         if not running or should_exit:
             return  # 실행 중단
+####################################### 1 단계 #######################################
         if detect_and_grab_block():
             if not running or should_exit:
                 return  # 실행 중단
+####################################### 2단계 #######################################
+            perform_pose2_adjustments()  # 10초 동안 감지 후 다음 단계로 진행
             print("객체 중심 맞추기...")
-            perform_pose2_adjustments()  # 감지 실패해도 종료 후 다음 단계로 진행
             if not running or should_exit:
                 return  # 실행 중단
-            print("Z축 내리기...")
+####################################### 3단계 #######################################
             lower_z()
+            print("Z축 내리기...")
             if not running or should_exit:
                 return  # 실행 중단
-            print("블록 배치...")
+####################################### 4단계 #######################################            
             block_box_match()
+            print("블록 배치...")
+            
             if not running or should_exit:
                 return  # 실행 중단
-            # time.sleep(2)
-            # mc.set_gripper_state(0, 20, 1)
-            # print("그리퍼 열기...")
-            
+####################################### 5단계 ####################################### 
             reset_robot()
             time.sleep(3)
         else:
@@ -230,7 +231,7 @@ def process_signal():
                 print("잘못된 신호 수신.")
         time.sleep(0.1)  # CPU 사용량을 낮추기 위해 약간 대기
 
-##########################################################################
+###################################################################################################
 
 # pose2에서 객체 인식 후 조정
 def perform_pose2_adjustments():
@@ -321,7 +322,6 @@ def detect_and_adjust_position():
     if not detection_made:
         print("YOLO 모델이 객체를 감지하지 못했습니다. 감지 없이 다음 단계로 진행합니다.")
         return False  # 감지 실패
-
 
 def lower_z():
     global current_x, current_y, lowered_z
