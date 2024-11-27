@@ -159,7 +159,7 @@ def listen_for_signal():
         except Exception as e:
             print(f"신호 수신 중 오류 발생: {e}")
             continue
-
+ 
 # 로봇 작업 함수 (별도의 스레드에서 실행)
 def robot_task():
     global running, last_detected_qr, should_exit
