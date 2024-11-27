@@ -1,9 +1,5 @@
-# # UDP 설정
-# video_receive_port = 5005  # Raspberry Pi에서 영상 데이터를 수신할 포트 번호
-
-# # 소켓 생성 및 바인딩
-# video_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-# video_sock.bind(("192.168.0.182", video_receive_port))
+# server_url = "ws://192.168.0.200:9090"
+# publish_message = { "op": "publish", "topic": "/robot_arm", "msg": { "data": "Hello from robot arm" } }
 
 import socket
 

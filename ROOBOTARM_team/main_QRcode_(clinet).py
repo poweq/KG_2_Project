@@ -56,7 +56,7 @@ WINDOW_NAME = "YOLO Detection View"
 # QR 코드 데이터 저장
 last_detected_qr = None
 
-# 카메라 초기화 및 해제 함수
+# 카메라 초기화함수
 def init_camera():
     global cap
     if cap is not None and cap.isOpened():
@@ -72,7 +72,6 @@ def init_camera():
         cap = None
         return None
 
-    
 def release_camera():
     global cap
     if cap is not None:
@@ -91,7 +90,7 @@ def detect_qr_code():
             print("카메라 재초기화 실패.")
             return None
 
-    for attempt in range(10):  # QR 코드 감지를 최대 3회 시도
+    for attempt in range(10):  # QR 코드 감지를 최대 10회 시도
         ret, frame = cap.read()
         if not ret:
             print("카메라에서 프레임을 가져올 수 없습니다. 다시 시도 중...")
@@ -184,10 +183,12 @@ def robot_task():
             block_box_match()
             if not running or should_exit:
                 return  # 실행 중단
-            print("그리퍼 열기...")
-            mc.set_gripper_state(0, 20, 1)
-            time.sleep(3)
+            # time.sleep(2)
+            # mc.set_gripper_state(0, 20, 1)
+            # print("그리퍼 열기...")
+            
             reset_robot()
+            time.sleep(3)
         else:
             print("QR 코드 감지 실패 또는 블록 잡기 실패. 작업을 종료합니다.")
             reset_robot()
@@ -359,10 +360,13 @@ def block_box_match():
         
     print(f"블록을 놓는 위치로 이동: x={x}, y={y}, z={z}, rx={rx}, ry={rz}")
     move_to_position(x, y, z, rx, ry, rz)
+    mc.set_gripper_state(0, 20, 1) #그리퍼 열기
+    print("그리퍼 열기...")
+    time.sleep(3)
 
 def reset_robot():
     mc.send_angles([0, 0, 0, 0, 0, 0], 20)
-    mc.set_gripper_state(1, 20, 1)  # 그리퍼 열기
+    mc.set_gripper_state(0, 20, 1)  # 그리퍼 열기
     time.sleep(5)
     print("로봇이 초기 위치로 돌아갔습니다.")
 
@@ -422,7 +426,6 @@ def main():
             process_signal_thread.join()
         if task_thread and task_thread.is_alive():
             task_thread.join()
-
 
 if __name__ == "__main__":
     main()
