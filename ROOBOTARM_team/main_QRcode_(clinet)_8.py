@@ -58,60 +58,60 @@ last_detected_qr = None
 
 # 카메라 초기화 및 해제 함수
 def init_camera():
+    global cap
+    if cap is not None and cap.isOpened():
+        print("카메라가 이미 초기화되어 있습니다.")
+        return cap
+
     cap = cv2.VideoCapture(0)
-    if not cap.isOpened():
-        print("웹캠을 열 수 없습니다.")
-        return None
+    if cap.isOpened():
+        print("카메라 초기화 성공.")
+        return cap
     else:
-        print("카메라가 성공적으로 초기화되었습니다.")
-        print("cap 객체 상태:", cap)
-        print("카메라가 열려 있는지 확인:", cap.isOpened())
-    return cap
+        print("카메라 초기화 실패.")
+        cap = None
+        return None
 
-
-def release_camera(cap):
-    if cap:
-        cap.release()
-    cv2.destroyAllWindows()
+    
+def release_camera():
+    global cap
+    if cap is not None:
+        cap.release()  # 카메라 리소스 해제
+        cv2.destroyAllWindows()
+        cap = None
+        print("카메라가 닫혔습니다.")
 
 # QR 코드 인식 함수
 def detect_qr_code():
     global cap
     if cap is None or not cap.isOpened():
-        print("카메라가 초기화되지 않았습니다. 카메라를 다시 초기화합니다.")
+        print("카메라가 초기화되지 않았습니다. 다시 초기화 시도 중...")
         cap = init_camera()
         if cap is None:
-            print("카메라를 다시 초기화할 수 없습니다.")
+            print("카메라 재초기화 실패.")
             return None
 
-    ret, frame = cap.read()
-    if not ret:
-        print("카메라에서 프레임을 가져올 수 없습니다. 카메라를 다시 초기화합니다.")
-        cap.release()
-        cap = init_camera()
-        if not cap or not cap.isOpened():
-            print("카메라를 다시 초기화할 수 없습니다.")
-            return None
+    for attempt in range(10):  # QR 코드 감지를 최대 3회 시도
         ret, frame = cap.read()
         if not ret:
-            print("카메라에서 프레임을 가져올 수 없습니다.")
-            return None
-        else:
-            print("프레임을 성공적으로 가져왔습니다.")
+            print("카메라에서 프레임을 가져올 수 없습니다. 다시 시도 중...")
+            cap = init_camera()
+            continue
 
-    print("QR 코드 감지 시도 중...")
+        print("QR 코드 감지 시도 중...")
+        detector = cv2.QRCodeDetector()
 
-    # 밝기 및 대비 조정
-    for alpha in [1.0, 1.2, 1.5]:
-        for beta in [0, 30, 60]:
-            adjusted_frame = cv2.convertScaleAbs(frame, alpha=alpha, beta=beta)
-            detector = cv2.QRCodeDetector()
-            data, points, _ = detector.detectAndDecode(adjusted_frame)
-            if points is not None and data:
-                print(f"QR 코드 인식 성공: {data}")
-                return data
+        # 밝기 및 대비 조정
+        for alpha in [1.0, 1.2, 1.5]:
+            for beta in [0, 30, 60]:
+                adjusted_frame = cv2.convertScaleAbs(frame, alpha=alpha, beta=beta)
+                data, points, _ = detector.detectAndDecode(adjusted_frame)
+                if points is not None and data:
+                    print(f"QR 코드 인식 성공: {data}")
+                    return data
 
-    print("QR 코드 감지 실패")
+        print("QR 코드 감지 실패, 재시도...")
+    print("QR 코드 감지 실패. 모든 시도 종료.")
     return None
 
 # pose0에서 QR 코드 인식 및 블록 잡기
@@ -122,23 +122,27 @@ def detect_and_grab_block():
     mc.send_angles([-15, 60, 17, 5, -90, -14], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
     time.sleep(5)
 
-    detected_qr = detect_qr_code()
-    if detected_qr:
-        last_detected_qr = detected_qr
-        print(f"탐지된 QR 코드: {detected_qr}")
+    for attempt in range(3):  # QR 코드 감지를 최대 3회 시도
+        detected_qr = detect_qr_code()
+        if detected_qr:
+            last_detected_qr = detected_qr
+            print(f"탐지된 QR 코드: {detected_qr}")
 
-        # 블록 잡기
-        mc.send_angles([-13, 83, -2, -6, -90, -14], 20)  # pose0_2 그리퍼로 블록 잡는 위치
-        time.sleep(3)
-        mc.set_gripper_mode(0)
-        mc.init_gripper()
-        mc.set_gripper_state(1, 20, 1)  # 그리퍼로 블록 잡기
-        time.sleep(3)
-        print("블록을 성공적으로 잡았습니다!")
-        return True
-    else:
-        print("QR 코드를 감지하지 못했습니다.")
-        return False
+            # 블록 잡기
+            mc.send_angles([-13, 83, -2, -6, -90, -14], 20)  # pose0_2 그리퍼로 블록 잡는 위치
+            time.sleep(3)
+            mc.set_gripper_mode(0)
+            mc.init_gripper()
+            mc.set_gripper_state(1, 20, 1)  # 그리퍼로 블록 잡기
+            time.sleep(3)
+            print("블록을 성공적으로 잡았습니다!")
+            return True
+
+        print(f"QR 코드 감지 실패, {attempt + 1}/3 시도 완료.")
+        time.sleep(2)  # 재시도 전 대기
+
+    print("QR 코드를 감지하지 못했습니다. 작업 실패.")
+    return False
 
 
 ###########################################################################
@@ -160,46 +164,35 @@ def listen_for_signal():
 
 # 로봇 작업 함수 (별도의 스레드에서 실행)
 def robot_task():
-    global running, last_detected_qr, should_exit, cap
+    global running, last_detected_qr, should_exit
     try:
-        # 작업 시작 시 카메라 상태 출력
-        print("로봇 작업을 시작합니다.")
-        if cap is None:
-            print("cap은 현재 None입니다.")
-        else:
-            print("cap 객체 상태:", cap)
-            print("카메라가 열려 있는지 확인:", cap.isOpened())
-
+        # 작업 시작
         if not running or should_exit:
-            return
-
-        # 카메라 초기화 확인 및 재초기화
-        if cap is None or not cap.isOpened():
-            print("카메라가 열려 있지 않습니다. 카메라를 초기화합니다.")
-            cap = init_camera()
-            if cap is None:
-                print("카메라 초기화에 실패했습니다.")
-                running = False
-                return
-        else:
-            print("카메라가 이미 열려 있습니다.")
-
+            return  # 실행 중단
         if detect_and_grab_block():
-            # 나머지 작업 진행...
-            pass
-
-        # 작업 후 카메라 상태 출력 및 해제
-        if cap:
-            print("작업 후 카메라 상태:")
-            print("cap 객체 상태:", cap)
-            print("카메라가 열려 있는지 확인:", cap.isOpened())
-            release_camera(cap)
-            cap = None
-
+            if not running or should_exit:
+                return  # 실행 중단
+            print("객체 중심 맞추기...")
+            perform_pose2_adjustments()  # 감지 실패해도 종료 후 다음 단계로 진행
+            if not running or should_exit:
+                return  # 실행 중단
+            print("Z축 내리기...")
+            lower_z()
+            if not running or should_exit:
+                return  # 실행 중단
+            print("블록 배치...")
+            block_box_match()
+            if not running or should_exit:
+                return  # 실행 중단
+            print("그리퍼 열기...")
+            mc.set_gripper_state(0, 20, 1)
+            time.sleep(3)
+            reset_robot()
+        else:
+            print("QR 코드 감지 실패 또는 블록 잡기 실패. 작업을 종료합니다.")
+            reset_robot()
     finally:
-        running = False
-        print("로봇 작업이 종료되었습니다.")
-
+        running = False  # 작업 종료 표시
 
 # 신호 처리 함수
 def process_signal():
@@ -241,23 +234,32 @@ def process_signal():
 # pose2에서 객체 인식 후 조정
 def perform_pose2_adjustments():
     global centered
-    centered = False  # 조정 시작 시 centered 초기화
-    mc.send_angles([90, 5, 0, 57, -90, 0], 20)  # pose2
+    centered = False  # 조정 시작 시 초기화
+    mc.send_angles([90, 5, 0, 57, -90, 0], 20)  # pose2 위치로 이동
     time.sleep(5)
 
     # 중심 맞추기 시작 시간 기록
     start_time = time.time()
     time_limit = 10  # 10초 제한
+    attempts = 0  # 감지 시도 횟수
+    max_attempts = 5  # 감지 최대 시도 횟수
 
-    # 빨간 점을 화면 중앙으로 맞출 때까지 조정 (최대 10초 동안)
+    print("객체 중심 맞추기를 시작합니다.")
+
     while not centered and (time.time() - start_time) < time_limit:
-        detect_and_adjust_position()
+        detection_success = detect_and_adjust_position()
+        attempts += 1
 
-    # 10초 경과 후 또는 중심 맞추기 완료 후 처리
-    if not centered:
-        print(f"{time_limit}초 내에 현재 위치에서 로봇 암을 내립니다.")
-    else:
-        print("빨간 점이 목표 좌표 근처에 위치했습니다.")
+        if detection_success:
+            print("객체 감지 및 중심 맞추기에 성공했습니다.")
+            return  # 루프 종료
+
+        if attempts >= max_attempts:
+            print(f"최대 감지 시도 횟수 {max_attempts}에 도달했습니다. 감지 실패로 루프를 종료합니다.")
+            break
+
+    print("중심 맞추기 단계 종료: 감지 실패 또는 시간 초과.")
+    centered = True  # 강제로 다음 단계로 진행
 
 def move_to_position(x, y, z, rx, ry, rz, speed=20):
     print(f"Moving to position: x={x}, y={y}, z={z}, rx={rx}, ry={ry}, rz={rz}")
@@ -266,77 +268,59 @@ def move_to_position(x, y, z, rx, ry, rz, speed=20):
     coords = mc.get_coords()
     print(f"현재 로봇 위치: {coords}")
 
+# 객체 감지 및 위치 조정 함수
 def detect_and_adjust_position():
-    global current_x, current_y, centered, first_detection, cap
+    global cap, centered
     if cap is None or not cap.isOpened():
-        print("카메라가 초기화되지 않았습니다. 카메라를 다시 초기화합니다.")
-        cap = init_camera()
-        if cap is None:
-            print("카메라를 다시 초기화할 수 없습니다.")
-            return
+        print("카메라가 초기화되지 않았습니다.")
+        return False
 
     ret, frame = cap.read()
     if not ret:
-        print("카메라에서 프레임을 가져올 수 없습니다. 카메라를 다시 초기화합니다.")
-        return
-    else:
-        print("프레임을 성공적으로 가져왔습니다.")
-
-        cap.release()
-        cap = init_camera()
-        if not cap or not cap.isOpened():
-            print("카메라를 다시 초기화할 수 없습니다.")
-            return
-        ret, frame = cap.read()
-        if not ret:
-            print("카메라에서 프레임을 가져올 수 없습니다.")
-            return
+        print("카메라에서 프레임을 가져올 수 없습니다.")
+        return False
 
     # YOLO 모델 적용
     results = model(frame[..., ::-1])  # BGR → RGB 변환
     frame_with_yolo = results[0].plot()
 
+    detection_made = False  # 감지 여부 플래그
+
     for result in results:
         for box in result.boxes:
             if box.conf.item() >= CONFIDENCE_THRESHOLD:
+                detection_made = True
                 # 바운딩 박스의 중심 계산
                 x_min, y_min, x_max, y_max = map(int, box.xyxy[0])
                 x_center = (x_min + x_max) // 2
                 y_center = (y_min + y_max) // 2
 
-                cv2.circle(frame_with_yolo, (x_center, y_center), 5, (0, 0, 255), -1)
+                print(f"감지된 객체 중심: ({x_center}, {y_center})")
 
-                # 중심점 위치 출력
-                if first_detection:
-                    print(f"중심점 위치(X좌표 , Y좌표) : ({x_center}, {y_center})")
-                    first_detection = False
-
-                # 부호 반대로 적용하여 조정값 계산
+                # 조정값 계산
                 adjust_x = (TARGET_X - x_center) * pixel_to_robot_x
                 adjust_y = (TARGET_Y - y_center) * pixel_to_robot_y * -1
-                print(f"조정값(X좌표 , Y좌표) : ({adjust_x}, {adjust_y})")
 
-                # 새로운 x, y 값을 계산하고 업데이트
-                current_x = pose2_coords[0] + adjust_x
-                current_y = pose2_coords[1] + adjust_y
+                print(f"조정값(X좌표 , Y좌표): ({adjust_x}, {adjust_y})")
 
-                # 로봇을 조정된 좌표로 이동
-                move_to_position(current_x, current_y, fixed_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
-
-                # 중심이 목표 좌표에 근접했는지 확인
+                # 로봇을 새로운 위치로 이동
+                move_to_position(pose2_coords[0] + adjust_x,
+                                 pose2_coords[1] + adjust_y,
+                                 fixed_z,
+                                 pose2_coords[3],
+                                 pose2_coords[4],
+                                 pose2_coords[5])
+                
+                # 목표 중심 근처에 도달하면 루프 종료
                 if abs(x_center - TARGET_X) < 10 and abs(y_center - TARGET_Y) < 10:
                     centered = True
-                    print("빨간 점이 목표 좌표 근처에 위치했습니다.")
-                    return
+                    print("객체가 중심에 위치했습니다.")
+                    return True  # 감지 성공
 
-    # 실시간으로 YOLO Detection View 업데이트
-    cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
-    cv2.resizeWindow(WINDOW_NAME, 600, 600)
-    cv2.imshow(WINDOW_NAME, frame_with_yolo)
+    if not detection_made:
+        print("YOLO 모델이 객체를 감지하지 못했습니다. 감지 없이 다음 단계로 진행합니다.")
+        return False  # 감지 실패
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):  # 'q' 키를 누르면 종료
-        release_camera(cap)
-        exit()
 
 def lower_z():
     global current_x, current_y, lowered_z
@@ -378,13 +362,17 @@ def block_box_match():
 
 def reset_robot():
     mc.send_angles([0, 0, 0, 0, 0, 0], 20)
+    mc.set_gripper_state(1, 20, 1)  # 그리퍼 열기
     time.sleep(5)
     print("로봇이 초기 위치로 돌아갔습니다.")
 
 # 메인 루프
 def main():
-    global cap, should_exit
+    global cap, should_exit, signal_received
+    signal_thread = None
+    process_signal_thread = None
     try:
+        # MyCobot 연결 확인
         if not check_robot_connection():
             print("MyCobot 연결 실패. 프로그램을 종료합니다.")
             return
@@ -394,42 +382,47 @@ def main():
         time.sleep(2)
         print("초기화 완료.")
 
+        # 카메라 초기화
         cap = init_camera()
-        if not cap:
-            print("카메라 초기화 실패.")
+        if cap is None:  # 초기화 실패 시 종료
+            print("카메라 초기화 실패. 프로그램을 종료합니다.")
             return
-        else:
-            print("메인 함수에서 초기화된 카메라 상태:")
-            print("cap 객체 상태:", cap)
-            print("카메라가 열려 있는지 확인:", cap.isOpened())
 
         # 신호 수신 스레드 시작
         signal_thread = threading.Thread(target=listen_for_signal, daemon=True)
         signal_thread.start()
 
-        # 신호 처리 스레드 시작
+        # 신호 처리 루프 시작
         process_signal_thread = threading.Thread(target=process_signal, daemon=True)
         process_signal_thread.start()
 
-        # 메인 스레드는 다른 작업을 수행하거나 대기
+        # 메인 루프: 신호 처리 및 프로그램 종료 대기
+        print("서버 신호를 기다리는 중입니다.")
         while not should_exit:
-            # 주기적으로 카메라 상태 확인
-            if cap:
-                print("메인 루프에서 카메라 상태 확인:")
-                print("cap 객체 상태:", cap)
-                print("카메라가 열려 있는지 확인:", cap.isOpened())
-            time.sleep(5)  # 5초마다 상태 확인
+            if signal_received:  # 새로운 신호가 수신된 경우
+                if signal_received.lower() == 'q':  # 'q' 신호로 종료
+                    print("서버로부터 종료 신호(q)를 수신했습니다.")
+                    should_exit = True
+                else:
+                    print(f"수신된 신호 처리 중: {signal_received}")
+                signal_received = None  # 신호 초기화
+            time.sleep(1)  # CPU 과부하 방지를 위한 대기
 
     finally:
+        # 카메라 및 리소스 해제
         if cap:
             release_camera(cap)
             cap = None
         print("프로그램 종료.")
-        # 프로그램 종료를 위해 모든 스레드가 종료될 때까지 대기
-        signal_thread.join()
-        process_signal_thread.join()
+
+        # 모든 스레드 종료 대기
+        if signal_thread:
+            signal_thread.join()
+        if process_signal_thread:
+            process_signal_thread.join()
         if task_thread and task_thread.is_alive():
             task_thread.join()
+
 
 if __name__ == "__main__":
     main()

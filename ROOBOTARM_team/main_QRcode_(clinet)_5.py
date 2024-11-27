@@ -290,9 +290,9 @@ def detect_and_adjust_position():
     cv2.resizeWindow(WINDOW_NAME, 600, 600)
     cv2.imshow(WINDOW_NAME, frame_with_yolo)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):  # 'q' 키를 누르면 종료
-        release_camera(cap)
-        exit()
+#    if cv2.waitKey(1) & 0xFF == ord('q'):  # 'q' 키를 누르면 종료
+#        release_camera(cap)
+#        exit()
 
 def lower_z():
     global current_x, current_y, lowered_z
@@ -334,7 +334,7 @@ def block_box_match():
 
 def reset_robot():
     mc.send_angles([0, 0, 0, 0, 0, 0], 20)
-    time.sleep(5)
+    time.sleep(5)       
     print("로봇이 초기 위치로 돌아갔습니다.")
 
 # 메인 루프
