@@ -28,10 +28,10 @@ def generate_launch_description():
     rviz_config_file = os.path.join(aseembly_share_dir, 'urdf.rviz')
 
     # 노드 정의
-    joint_state_publisher_gui_node = Node(
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui',
-        name='joint_state_publisher_gui'
+    joint_state_publisher_node = Node(
+        package='joint_state_publisher',
+        executable='joint_state_publisher',
+        name='joint_state_publisher'
     )
 
     robot_state_publisher_node = Node(
@@ -48,10 +48,35 @@ def generate_launch_description():
         arguments=['-d', rviz_config_file]
     )
 
+    # TF 변환 추가
+    static_transform_map_to_odom = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'],
+        name='static_transform_map_to_odom'
+    )
+
+    static_transform_odom_to_base_link = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'odom', 'base_link'],
+        name='static_transform_odom_to_base_link'
+    )
+
+    static_transform_base_link_to_base_laser = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=['0.1', '0.0', '0.05', '0.0', '0.0', '0.0', 'base_link', 'base_laser'],
+        name='static_transform_base_link_to_base_laser'
+    )
+
     # LaunchDescription에 모든 요소 추가
     return LaunchDescription([
         model_arg,
-        joint_state_publisher_gui_node,
+        joint_state_publisher_node,
         robot_state_publisher_node,
         rviz_node
+        static_transform_map_to_odom,
+        static_transform_odom_to_base_link,
+        static_transform_base_link_to_base_laser
     ])
