@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로봇 모니터링 및 제어</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Socket.IO 클라이언트 라이브러리 로드 (integrity 및 crossorigin 속성 제거) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>로봇 모니터링 및 제어 페이지</h1>
+
+    <div class="robot-control">
+        <h2>로봇 암 제어</h2>
+        <button onclick="sendRobotArmCommand('start')">시작</button>
+        <button onclick="sendRobotArmCommand('stop')">정지</button>
+        <p>상태: <span id="robot-arm-status">대기 중</span></p>
+    </div>
+
+    <div class="robot-control">
+        <h2>AGV 제어</h2>
+        <button onclick="sendAgvCommand('start')">시작</button>
+        <button onclick="sendAgvCommand('stop')">정지</button>
+        <p>상태: <span id="agv-status">대기 중</span></p>
+    </div>
+
+    <script>
+        // 서버 주소를 명시적으로 지정
+        var socket = io('http://192.168.0.200:5000');
+
+        function sendRobotArmCommand(command) {
+            console.log('Sending robot arm command:', command);
+            socket.emit('robot_arm_command', {'command': command});
+        }
+
+        function sendAgvCommand(command) {
+            console.log('Sending AGV command:', command);
+            socket.emit('agv_command', {'command': command});
+        }
+
+        socket.on('robot_arm_status', function(data) {
+            console.log('Received robot arm status:', data.status);
+            document.getElementById('robot-arm-status').innerText = data.status;
+        });
+
+        socket.on('agv_status', function(data) {
+            console.log('Received agv status:', data.status);
+            document.getElementById('agv-status').innerText = data.status;
+        });
+    </script>
+</body>
+</html>
