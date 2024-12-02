@@ -7,8 +7,8 @@ import socket
 import threading
 
 # MyCobot 연결 설정
-mc = MyCobot('/dev/ttyACM0', 115200)
-
+mc = MyCobot('COM6', 115200)
+# /dev/ttyACM0
 # 로봇 연결 확인 함수
 def check_robot_connection():
     try:
@@ -20,7 +20,8 @@ def check_robot_connection():
         return False
 
 # YOLO 모델 로드
-model = YOLO('/home/shim/github/KG_2_Project/ROOBOTARM_team/yolov8_model/runs/detect/train2/weights/best.pt')
+model = YOLO('C://Users//shims//Desktop//github//KG_2_Project//ROOBOTARM_team//best.pt')
+#/home/shim/github/KG_2_Project/ROOBOTARM_team/yolov8_model/runs/detect/train2/weights/best.pt
 
 # 글로벌 변수(전역 변수) 선언
 running = False            # 로봇 작업 진행 상태
@@ -63,7 +64,7 @@ def init_camera():
         print("카메라가 이미 초기화되어 있습니다.")
         return cap
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)
     if cap.isOpened():
         print("카메라 초기화 성공.")
         return cap
@@ -351,7 +352,7 @@ def block_box_match():
         y -= 50
         print("B_1 블록: 왼쪽 위로 이동합니다.")
     elif last_detected_qr == 'B_2':
-        y -= 50
+        y -= 55
         print("B_2 블록: 중앙 위로 이동합니다.")        
     elif last_detected_qr == 'B_3':
         x -= 100
