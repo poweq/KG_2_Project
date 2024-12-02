@@ -40,9 +40,9 @@ pixel_to_robot_x = 0.2
 pixel_to_robot_y = 0.2
 
 # pose2 위치 (z축 고정)
-pose2_coords = [30.9, -327.5, 261.9, -170.94, 0.15, 170]
+pose2_coords = [55.4, -195.1, 372.9, -167.79, -1.59, 177.18]
 fixed_z = pose2_coords[2]
-lowered_z = fixed_z - 100
+lowered_z = fixed_z - 200
 
 # 초기 변수 설정
 cap = None
@@ -238,7 +238,7 @@ def process_signal():
 def perform_pose2_adjustments():
     global centered
     centered = False  # 조정 시작 시 초기화
-    mc.send_angles([90, 5, 0, 57, -90, 0], 20)  # pose2 위치로 이동
+    mc.send_angles([80, 13, 6, 56, -90, -7], 20)  # pose2 위치로 이동
     time.sleep(5)
 
     # 중심 맞추기 시작 시간 기록
