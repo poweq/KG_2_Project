@@ -8,7 +8,7 @@ import threading
 
 # MyCobot 연결 설정
 mc = MyCobot('COM6', 115200)
-# /dev/ttyACM0
+
 # 로봇 연결 확인 함수
 def check_robot_connection():
     try:
@@ -20,8 +20,7 @@ def check_robot_connection():
         return False
 
 # YOLO 모델 로드
-model = YOLO('C://Users//shims//Desktop//github//KG_2_Project//ROOBOTARM_team//best.pt')
-#/home/shim/github/KG_2_Project/ROOBOTARM_team/yolov8_model/runs/detect/train2/weights/best.pt
+model = YOLO('C://Users//shims//Desktop//github//KG_2_Project//ROOBOTARM_team//yolov8_model//runs//detect//train5//weights//best.pt')
 
 # 글로벌 변수(전역 변수) 선언
 running = False            # 로봇 작업 진행 상태
@@ -42,7 +41,7 @@ pixel_to_robot_y = 0.2
 # pose2 위치 (z축 고정)
 pose2_coords = [55.4, -195.1, 372.9, -167.79, -1.59, 177.18]
 fixed_z = pose2_coords[2]
-lowered_z = fixed_z - 200
+# lowered_z = fixed_z - 100
 
 # 초기 변수 설정
 cap = None
@@ -53,7 +52,6 @@ first_detection = True  # 처음 중심점 위치 출력 여부 확인
 CONFIDENCE_THRESHOLD = 0.7
 TARGET_X, TARGET_Y = 300, 300
 WINDOW_NAME = "YOLO Detection View"
-
 # QR 코드 데이터 저장
 last_detected_qr = None
 
@@ -119,10 +117,11 @@ def detect_and_grab_block():
     global last_detected_qr
 
     # pose0로 이동
-    mc.send_angles([-15, 60, 17, 5, -90, -14], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
+    mc.send_angles([-15, 57, 17, 5, -90, -14], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
+    #-15, 60, 17, 5, -90, -14
     time.sleep(5)
 
-    for attempt in range(3):  # QR 코드 감지를 최대 3회 시도
+    for attempt in range(5):  # QR 코드 감지를 최대 5회 시도
         detected_qr = detect_qr_code()
         if detected_qr:
             last_detected_qr = detected_qr
@@ -325,9 +324,12 @@ def detect_and_adjust_position():
         return False  # 감지 실패
 
 def lower_z():
-    global current_x, current_y, lowered_z
+    global current_x, current_y, lowered_z, lowered_y
+    lowered_z = fixed_z - 230
+    lowered_y = current_y - 80
+
     print("로봇암을 아래로 내립니다.")
-    move_to_position(current_x, current_y, lowered_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
+    move_to_position(current_x, lowered_y, lowered_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
     time.sleep(5)
 
 def block_box_match():
@@ -352,7 +354,7 @@ def block_box_match():
         y -= 50
         print("B_1 블록: 왼쪽 위로 이동합니다.")
     elif last_detected_qr == 'B_2':
-        y -= 55
+        y -= 50
         print("B_2 블록: 중앙 위로 이동합니다.")        
     elif last_detected_qr == 'B_3':
         x -= 100
