@@ -1,3 +1,4 @@
+#yolo 부분에 웹캠 켜지는 코드
 from pymycobot.mycobot import MyCobot
 import time
 import cv2
@@ -20,7 +21,7 @@ def check_robot_connection():
         return False
 
 # YOLO 모델 로드
-model = YOLO('C://Users//shims//Desktop//github//KG_2_Project//ROOBOTARM_team//yolov8_model//runs//detect//train5//weights//best.pt')
+model = YOLO('C://Users//shims//Desktop//github//kairos//final_project//best.pt')
 
 # 글로벌 변수(전역 변수) 선언
 running = False            # 로봇 작업 진행 상태
@@ -39,7 +40,7 @@ pixel_to_robot_x = 0.2
 pixel_to_robot_y = 0.2
 
 # pose2 위치 (z축 고정)
-pose2_coords = [55.4, -195.1, 372.9, -167.79, -1.59, 177.18]
+pose2_coords = [82.6, -263.7, 324.6, -169.28, 0.44, 176.97]
 fixed_z = pose2_coords[2]
 # lowered_z = fixed_z - 100
 
@@ -117,18 +118,18 @@ def detect_and_grab_block():
     global last_detected_qr
 
     # pose0로 이동
-    mc.send_angles([-15, 57, 17, 5, -90, -14], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
+    mc.send_angles([-30, 33, 65.26, -5, -90, -30.1], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
     #-15, 60, 17, 5, -90, -14
     time.sleep(5)
 
-    for attempt in range(5):  # QR 코드 감지를 최대 5회 시도
+    for attempt in range(10):  # QR 코드 감지를 최대 10회 시도
         detected_qr = detect_qr_code()
         if detected_qr:
             last_detected_qr = detected_qr
             print(f"탐지된 QR 코드: {detected_qr}")
 
             # 블록 잡기
-            mc.send_angles([-13, 83, -2, -6, -90, -14], 20)  # pose0_2 그리퍼로 블록 잡는 위치
+            mc.send_angles([-30, 44, 77.26, -36.83, -90, -30.1], 20)  # pose0_2 그리퍼로 블록 잡는 위치
             time.sleep(3)
             mc.set_gripper_mode(0)
             mc.init_gripper()
@@ -143,23 +144,147 @@ def detect_and_grab_block():
     print("QR 코드를 감지하지 못했습니다. 작업 실패.")
     return False
 
+# pose2에서 객체 인식 후 조정
+def perform_pose2_adjustments():
+    global centered
+    centered = False  # 조정 시작 시 초기화
+    mc.send_angles([89, 29, 17, 31, -90, 2], 20)  # pose2 위치로 이동
+    time.sleep(5)
+
+    # 중심 맞추기 시작 시간 기록
+    start_time = time.time()
+    time_limit = 10  # 10초 제한
+
+    print("객체 중심 맞추기를 시작합니다.")
+
+    while not centered and (time.time() - start_time) < time_limit:
+        detect_and_adjust_position()
+
+    if not centered:
+        print(f"{time_limit}초 내에 현재 위치에서 로봇 암을 내립니다.")
+    else:
+        print("빨간 점이 목표 좌표 근처에 위치했습니다.")
+
+def move_to_position(x, y, z, rx, ry, rz, speed=20):
+    print(f"Moving to position: x={x}, y={y}, z={z}, rx={rx}, ry={ry}, rz={rz}")
+    mc.send_coords([x, y, z, rx, ry, rz], speed)
+    time.sleep(2)  # 명령 실행 시간을 줌
+    coords = mc.get_coords()
+    print(f"현재 로봇 위치: {coords}")
+
+# 객체 감지 및 위치 조정 함수
+def detect_and_adjust_position():
+    global current_x, current_y, centered, first_detection
+    ret, frame = cap.read()
+    if not ret:
+        print("카메라에서 프레임을 가져올 수 없습니다.")
+        return
+
+    # YOLO 모델 적용
+    results = model(frame)
+    frame_with_yolo = results[0].plot()
+
+    # 보정 비율 설정 (픽셀 -> 로봇 좌표 변환)
+    pixel_to_robot_x = 0.5  # 픽셀 이동에 따른 x축 보정 비율
+    pixel_to_robot_y = 0.5  # 픽셀 이동에 따른 y축 보정 비율
+
+    # 빨간 점 인식 후 조정
+    for result in results:
+        for box in result.boxes:
+            if box.conf >= CONFIDENCE_THRESHOLD:
+                # 바운딩 박스의 중심 계산
+                x_min, y_min, x_max, y_max = map(int, box.xyxy[0])
+                x_center = (x_min + x_max) // 2
+                y_center = (y_min + y_max) // 2
+
+                cv2.circle(frame_with_yolo, (x_center, y_center), 5, (0, 0, 255), -1)
+
+                # 중심점 위치 출력
+                if first_detection:
+                    print(f"중심점 위치(X좌표 , Y좌표) : ({x_center}, {y_center})")
+                    first_detection = False
+
+                # 부호 반대로 적용하여 조정값 계산
+                adjust_x = (TARGET_X - x_center) * pixel_to_robot_x * (1)  # X축 부호 반전
+                adjust_y = (TARGET_Y - y_center) * pixel_to_robot_y * (-1)  # Y축 부호 반전
+                print(f"조정값(X좌표 , Y좌표) : ({adjust_x}, {adjust_y})")
+
+                # 새로운 x, y 값을 계산하고 업데이트
+                current_x = pose2_coords[0] + adjust_x
+                current_y = pose2_coords[1] + adjust_y
+
+                # 로봇을 조정된 좌표로 이동
+                move_to_position(current_x, current_y, fixed_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
+
+                # 중심이 목표 좌표에 근접했는지 확인
+                if abs(x_center - TARGET_X) < 10 and abs(y_center - TARGET_Y) < 10:
+                    centered = True
+                    print("빨간 점이 목표 좌표 근처에 위치했습니다.")
+                    return
+
+    # 실시간으로 YOLO Detection View 업데이트
+    cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
+    cv2.resizeWindow(WINDOW_NAME, 600, 600)
+    cv2.imshow(WINDOW_NAME, frame_with_yolo)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):  # 'q' 키를 누르면 종료
+        cap.release()
+        cv2.destroyAllWindows()
+        exit()
+
+def lower_z():
+    global current_x, current_y, lowered_z, lowered_y
+    lowered_z = fixed_z - 200
+    lowered_y = current_y - 26
+
+    print("로봇암을 아래로 내립니다.")
+    move_to_position(current_x, lowered_y, lowered_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
+    time.sleep(5)
+
+def block_box_match():
+    x, y = current_x, lowered_y
+    z = mc.get_coords()[2]  # 현재 z축 위치 가져오기
+    rx, ry, rz = pose2_coords[3], pose2_coords[4], pose2_coords[5]
+
+    print(f"디버깅: 감지된 QR 코드 = {last_detected_qr}")
+
+    # QR 코드 데이터에 따라 블록 배치 위치 설정
+    if last_detected_qr == 'https://site.naver.com/patient/A_1':
+        x += 30
+        y -= 60
+        print("A_1 블록: 왼쪽 위로 이동합니다.")
+    elif last_detected_qr == 'https://site.naver.com/patient/A_2':
+        x += 60
+        print("A_2 블록: 왼쪽으로 이동합니다.")
+    elif last_detected_qr == 'https://site.naver.com/patient/A_3':
+        x -= 30
+        y += 80
+        print("A_3 블록: 왼쪽 아래로 이동합니다.")
+    elif last_detected_qr == 'https://site.naver.com/patient/B_1':
+        x -= 30
+        y -= 60
+        print("B_1 블록: 오른쪽 위로 이동합니다.")
+    elif last_detected_qr == 'https://site.naver.com/patient/B_2':
+        x -= 60
+        print("B_2 블록: 중앙 위로 이동합니다.")        
+    elif last_detected_qr == 'https://site.naver.com/patient/B_3':
+        x -= 30
+        y += 80
+        print("B_3 블록: 오른쪽 위로 이동합니다.")
+        
+    print(f"블록을 놓는 위치로 이동: x={x}, y={y}, z={z}, rx={rx}, ry={rz}")
+    move_to_position(x, y, z, rx, ry, rz)
+    mc.set_gripper_state(0, 20, 1) #그리퍼 열기
+    print("그리퍼 열기...")
+    time.sleep(3)
+
+def reset_robot():
+    mc.send_angles([0, 0, 0, 0, 0, 0], 20)
+    mc.set_gripper_state(0, 20, 1)  # 그리퍼 열기
+    time.sleep(5)
+    print("로봇이 초기 위치로 돌아갔습니다.")
+
 ###################################################################################################
-# 비동기적으로 신호를 수신하는 함수
-def listen_for_signal():
-    global signal_received, should_exit
-    while not should_exit:
-        try:
-            print("신호 대기 중...")
-            signal, addr = signal_sock.recvfrom(1024)
-            signal = signal.decode().strip()
-            print(f"수신된 신호: {signal}")
-            signal_received = signal  # 전역 변수에 신호 저장
-        except socket.timeout:
-            continue  # 타임아웃 발생 시 다시 대기
-        except Exception as e:
-            print(f"신호 수신 중 오류 발생: {e}")
-            continue
- 
 # 로봇 작업 함수 (별도의 스레드에서 실행)
 def robot_task():
     global running, last_detected_qr, should_exit
@@ -181,13 +306,12 @@ def robot_task():
             print("Z축 내리기...")
             if not running or should_exit:
                 return  # 실행 중단
-####################################### 4단계 #######################################            
+####################################### 4단계 #######################################
             block_box_match()
             print("블록 배치...")
-            
             if not running or should_exit:
                 return  # 실행 중단
-####################################### 5단계 ####################################### 
+####################################### 5단계 #######################################
             reset_robot()
             time.sleep(3)
         else:
@@ -196,6 +320,22 @@ def robot_task():
     finally:
         running = False  # 작업 종료 표시
 
+# 비동기적으로 신호를 수신하는 함수
+def listen_for_signal():
+    global signal_received, should_exit
+    while not should_exit:
+        try:
+            print("신호 대기 중...")
+            signal, addr = signal_sock.recvfrom(1024)
+            signal = signal.decode().strip()
+            print(f"수신된 신호: {signal}")
+            signal_received = signal  # 전역 변수에 신호 저장
+        except socket.timeout:
+            continue  # 타임아웃 발생 시 다시 대기
+        except Exception as e:
+            print(f"신호 수신 중 오류 발생: {e}")
+            continue
+ 
 # 신호 처리 함수
 def process_signal():
     global signal_received, running, task_thread, should_exit
@@ -233,146 +373,6 @@ def process_signal():
 
 ###################################################################################################
 
-# pose2에서 객체 인식 후 조정
-def perform_pose2_adjustments():
-    global centered
-    centered = False  # 조정 시작 시 초기화
-    mc.send_angles([80, 13, 6, 56, -90, -7], 20)  # pose2 위치로 이동
-    time.sleep(5)
-
-    # 중심 맞추기 시작 시간 기록
-    start_time = time.time()
-    time_limit = 10  # 10초 제한
-    attempts = 0  # 감지 시도 횟수
-    max_attempts = 5  # 감지 최대 시도 횟수
-
-    print("객체 중심 맞추기를 시작합니다.")
-
-    while not centered and (time.time() - start_time) < time_limit:
-        detection_success = detect_and_adjust_position()
-        attempts += 1
-
-        if detection_success:
-            print("객체 감지 및 중심 맞추기에 성공했습니다.")
-            return  # 루프 종료
-
-        if attempts >= max_attempts:
-            print(f"최대 감지 시도 횟수 {max_attempts}에 도달했습니다. 감지 실패로 루프를 종료합니다.")
-            break
-
-    print("중심 맞추기 단계 종료: 감지 실패 또는 시간 초과.")
-    centered = True  # 강제로 다음 단계로 진행
-
-def move_to_position(x, y, z, rx, ry, rz, speed=20):
-    print(f"Moving to position: x={x}, y={y}, z={z}, rx={rx}, ry={ry}, rz={rz}")
-    mc.send_coords([x, y, z, rx, ry, rz], speed)
-    time.sleep(2)  # 명령 실행 시간을 줌
-    coords = mc.get_coords()
-    print(f"현재 로봇 위치: {coords}")
-
-# 객체 감지 및 위치 조정 함수
-def detect_and_adjust_position():
-    global cap, centered
-    if cap is None or not cap.isOpened():
-        print("카메라가 초기화되지 않았습니다.")
-        return False
-
-    ret, frame = cap.read()
-    if not ret:
-        print("카메라에서 프레임을 가져올 수 없습니다.")
-        return False
-
-    # YOLO 모델 적용
-    results = model(frame[..., ::-1])  # BGR → RGB 변환
-    frame_with_yolo = results[0].plot()
-
-    detection_made = False  # 감지 여부 플래그
-
-    for result in results:
-        for box in result.boxes:
-            if box.conf.item() >= CONFIDENCE_THRESHOLD:
-                detection_made = True
-                # 바운딩 박스의 중심 계산
-                x_min, y_min, x_max, y_max = map(int, box.xyxy[0])
-                x_center = (x_min + x_max) // 2
-                y_center = (y_min + y_max) // 2
-
-                print(f"감지된 객체 중심: ({x_center}, {y_center})")
-
-                # 조정값 계산
-                adjust_x = (TARGET_X - x_center) * pixel_to_robot_x
-                adjust_y = (TARGET_Y - y_center) * pixel_to_robot_y * -1
-
-                print(f"조정값(X좌표 , Y좌표): ({adjust_x}, {adjust_y})")
-
-                # 로봇을 새로운 위치로 이동
-                move_to_position(pose2_coords[0] + adjust_x,
-                                 pose2_coords[1] + adjust_y,
-                                 fixed_z,
-                                 pose2_coords[3],
-                                 pose2_coords[4],
-                                 pose2_coords[5])
-                
-                # 목표 중심 근처에 도달하면 루프 종료
-                if abs(x_center - TARGET_X) < 10 and abs(y_center - TARGET_Y) < 10:
-                    centered = True
-                    print("객체가 중심에 위치했습니다.")
-                    return True  # 감지 성공
-
-    if not detection_made:
-        print("YOLO 모델이 객체를 감지하지 못했습니다. 감지 없이 다음 단계로 진행합니다.")
-        return False  # 감지 실패
-
-def lower_z():
-    global current_x, current_y, lowered_z, lowered_y
-    lowered_z = fixed_z - 230
-    lowered_y = current_y - 80
-
-    print("로봇암을 아래로 내립니다.")
-    move_to_position(current_x, lowered_y, lowered_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
-    time.sleep(5)
-
-def block_box_match():
-    x, y = current_x, current_y
-    z = mc.get_coords()[2]  # 현재 z축 위치 가져오기
-    rx, ry, rz = pose2_coords[3], pose2_coords[4], pose2_coords[5]
-
-    # QR 코드 데이터에 따라 블록 배치 위치 설정
-    if last_detected_qr == 'A_1':
-        x += 100
-        y += 50
-        print("A_1 블록: 왼쪽 아래로 이동합니다.")
-    elif last_detected_qr == 'A_2':
-        y += 50
-        print("A_2 블록: 중앙 아래로 이동합니다.")
-    elif last_detected_qr == 'A_3':
-        x -= 100
-        y += 50
-        print("A_3 블록: 오른쪽 아래로 이동합니다.")
-    elif last_detected_qr == 'B_1':
-        x += 100
-        y -= 50
-        print("B_1 블록: 왼쪽 위로 이동합니다.")
-    elif last_detected_qr == 'B_2':
-        y -= 50
-        print("B_2 블록: 중앙 위로 이동합니다.")        
-    elif last_detected_qr == 'B_3':
-        x -= 100
-        y -= 50
-        print("B_3 블록: 오른쪽 위로 이동합니다.")
-        
-    print(f"블록을 놓는 위치로 이동: x={x}, y={y}, z={z}, rx={rx}, ry={rz}")
-    move_to_position(x, y, z, rx, ry, rz)
-    mc.set_gripper_state(0, 20, 1) #그리퍼 열기
-    print("그리퍼 열기...")
-    time.sleep(3)
-
-def reset_robot():
-    mc.send_angles([0, 0, 0, 0, 0, 0], 20)
-    mc.set_gripper_state(0, 20, 1)  # 그리퍼 열기
-    time.sleep(5)
-    print("로봇이 초기 위치로 돌아갔습니다.")
-
 # 메인 루프
 def main():
     global cap, should_exit, signal_received
@@ -403,7 +403,7 @@ def main():
         process_signal_thread = threading.Thread(target=process_signal, daemon=True)
         process_signal_thread.start()
 
-        # 메인 루프: 신호 처리 및 프로그램 종료 대기
+        # 메인 루프: 신호 처리 및 프로그램 종료 대기,
         print("서버 신호를 기다리는 중입니다.")
         while not should_exit:
             if signal_received:  # 새로운 신호가 수신된 경우
