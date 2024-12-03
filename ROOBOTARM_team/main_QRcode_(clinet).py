@@ -42,7 +42,6 @@ pixel_to_robot_y = 0.2
 # pose2 위치 (z축 고정)
 pose2_coords = [82.6, -263.7, 324.6, -169.28, 0.44, 176.97]
 fixed_z = pose2_coords[2]
-# lowered_z = fixed_z - 100
 
 # 초기 변수 설정
 cap = None
@@ -118,7 +117,7 @@ def detect_and_grab_block():
     global last_detected_qr
 
     # pose0로 이동
-    mc.send_angles([-30, 33, 65.26, -5, -90, -30.1], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
+    mc.send_angles([-30, 30, 81, -25, -90, -29], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
     #-15, 60, 17, 5, -90, -14
     time.sleep(5)
 
@@ -129,7 +128,7 @@ def detect_and_grab_block():
             print(f"탐지된 QR 코드: {detected_qr}")
 
             # 블록 잡기
-            mc.send_angles([-30, 44, 77.26, -36.83, -90, -30.1], 20)  # pose0_2 그리퍼로 블록 잡는 위치
+            mc.send_angles([-28, 45, 68, -25, -90, -29], 20)  # pose0_2 그리퍼로 블록 잡는 위치
             time.sleep(3)
             mc.set_gripper_mode(0)
             mc.init_gripper()
@@ -234,8 +233,9 @@ def detect_and_adjust_position():
 
 def lower_z():
     global current_x, current_y, lowered_z, lowered_y
-    lowered_z = fixed_z - 200
-    lowered_y = current_y - 26
+    lowered_z = fixed_z - 150
+    lowered_y = current_y - 0
+    # lowered_y = current_y - 26
 
     print("로봇암을 아래로 내립니다.")
     move_to_position(current_x, lowered_y, lowered_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
@@ -250,38 +250,38 @@ def block_box_match():
 
     # QR 코드 데이터에 따라 블록 배치 위치 설정
     if last_detected_qr == 'https://site.naver.com/patient/A_1':
-        x += 30
+        x += 60
         y -= 60
         print("A_1 블록: 왼쪽 위로 이동합니다.")
     elif last_detected_qr == 'https://site.naver.com/patient/A_2':
         x += 60
         print("A_2 블록: 왼쪽으로 이동합니다.")
     elif last_detected_qr == 'https://site.naver.com/patient/A_3':
-        x -= 30
-        y += 80
+        x += 60
+        y += 60
         print("A_3 블록: 왼쪽 아래로 이동합니다.")
     elif last_detected_qr == 'https://site.naver.com/patient/B_1':
-        x -= 30
+        x -= 60
         y -= 60
         print("B_1 블록: 오른쪽 위로 이동합니다.")
     elif last_detected_qr == 'https://site.naver.com/patient/B_2':
         x -= 60
         print("B_2 블록: 중앙 위로 이동합니다.")        
     elif last_detected_qr == 'https://site.naver.com/patient/B_3':
-        x -= 30
-        y += 80
-        print("B_3 블록: 오른쪽 위로 이동합니다.")
+        x -= 60
+        y += 60
+        print("B_3 블록: 오른쪽 아래로 이동합니다.")
         
     print(f"블록을 놓는 위치로 이동: x={x}, y={y}, z={z}, rx={rx}, ry={rz}")
     move_to_position(x, y, z, rx, ry, rz)
     mc.set_gripper_state(0, 20, 1) #그리퍼 열기
     print("그리퍼 열기...")
-    time.sleep(3)
+    time.sleep(5)
 
 def reset_robot():
     mc.send_angles([0, 0, 0, 0, 0, 0], 20)
     mc.set_gripper_state(0, 20, 1)  # 그리퍼 열기
-    time.sleep(5)
+    time.sleep(7)
     print("로봇이 초기 위치로 돌아갔습니다.")
 
 ###################################################################################################
