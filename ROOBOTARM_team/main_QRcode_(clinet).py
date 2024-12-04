@@ -21,7 +21,7 @@ def check_robot_connection():
         return False
 
 # YOLO 모델 로드
-model = YOLO('C://Users//shims//Desktop//github//kairos//final_project//best.pt')
+model = YOLO('C://Users//shims//Desktop//github//KG_2_Project//ROOBOTARM_team//yolov8_model//runs//detect//train6//weights//best.pt')
 
 # 글로벌 변수(전역 변수) 선언
 running = False            # 로봇 작업 진행 상태
@@ -40,7 +40,7 @@ pixel_to_robot_x = 0.2
 pixel_to_robot_y = 0.2
 
 # pose2 위치 (z축 고정)
-pose2_coords = [82.6, -263.7, 324.6, -169.28, 0.44, 176.97]
+pose2_coords = [86.9, -219.2, 352.8, -169.02, 0.54, 177.87]
 fixed_z = pose2_coords[2]
 
 # 초기 변수 설정
@@ -117,7 +117,7 @@ def detect_and_grab_block():
     global last_detected_qr
 
     # pose0로 이동
-    mc.send_angles([-30, 30, 81, -25, -90, -29], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
+    mc.send_angles([-30, 17.75, 80.15, -12.83, -90, -29], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
     #-15, 60, 17, 5, -90, -14
     time.sleep(5)
 
@@ -128,7 +128,7 @@ def detect_and_grab_block():
             print(f"탐지된 QR 코드: {detected_qr}")
 
             # 블록 잡기
-            mc.send_angles([-28, 45, 68, -25, -90, -29], 20)  # pose0_2 그리퍼로 블록 잡는 위치
+            mc.send_angles([-25.79, 38.75, 80.15, -36.83, -90, -23.82], 20)  # pose0_2 그리퍼로 블록 잡는 위치
             time.sleep(3)
             mc.set_gripper_mode(0)
             mc.init_gripper()
@@ -147,7 +147,7 @@ def detect_and_grab_block():
 def perform_pose2_adjustments():
     global centered
     centered = False  # 조정 시작 시 초기화
-    mc.send_angles([89, 29, 17, 31, -90, 2], 20)  # pose2 위치로 이동
+    mc.send_angles([90, 17.05, 17.75, 42.46, -90, 2], 20)  # pose2 위치로 이동
     time.sleep(5)
 
     # 중심 맞추기 시작 시간 기록
@@ -233,9 +233,9 @@ def detect_and_adjust_position():
 
 def lower_z():
     global current_x, current_y, lowered_z, lowered_y
-    lowered_z = fixed_z - 150
-    lowered_y = current_y - 0
-    # lowered_y = current_y - 26
+    lowered_z = fixed_z - 170
+    # lowered_y = current_y - 0
+    lowered_y = current_y - 30
 
     print("로봇암을 아래로 내립니다.")
     move_to_position(current_x, lowered_y, lowered_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
@@ -251,25 +251,25 @@ def block_box_match():
     # QR 코드 데이터에 따라 블록 배치 위치 설정
     if last_detected_qr == 'https://site.naver.com/patient/A_1':
         x += 60
-        y -= 60
+        y -= 80
         print("A_1 블록: 왼쪽 위로 이동합니다.")
     elif last_detected_qr == 'https://site.naver.com/patient/A_2':
         x += 60
         print("A_2 블록: 왼쪽으로 이동합니다.")
     elif last_detected_qr == 'https://site.naver.com/patient/A_3':
         x += 60
-        y += 60
+        y += 70
         print("A_3 블록: 왼쪽 아래로 이동합니다.")
     elif last_detected_qr == 'https://site.naver.com/patient/B_1':
         x -= 60
-        y -= 60
+        y -= 80
         print("B_1 블록: 오른쪽 위로 이동합니다.")
     elif last_detected_qr == 'https://site.naver.com/patient/B_2':
         x -= 60
         print("B_2 블록: 중앙 위로 이동합니다.")        
     elif last_detected_qr == 'https://site.naver.com/patient/B_3':
         x -= 60
-        y += 60
+        y += 65
         print("B_3 블록: 오른쪽 아래로 이동합니다.")
         
     print(f"블록을 놓는 위치로 이동: x={x}, y={y}, z={z}, rx={rx}, ry={rz}")
