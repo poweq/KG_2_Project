@@ -117,7 +117,7 @@ def detect_and_grab_block():
     global last_detected_qr
 
     # pose0로 이동
-    mc.send_angles([-30, 17.75, 80.15, -12.83, -90, -29], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
+    mc.send_angles([-20, 7.29, 81.03, 1.66, -90, 70], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
     #-15, 60, 17, 5, -90, -14
     time.sleep(5)
 
@@ -128,11 +128,17 @@ def detect_and_grab_block():
             print(f"탐지된 QR 코드: {detected_qr}")
 
             # 블록 잡기
-            mc.send_angles([-25.79, 38.75, 80.15, -36.83, -90, -23.82], 20)  # pose0_2 그리퍼로 블록 잡는 위치
+            mc.send_angles([-23, 3.29, 81.03, 1.66, -90, 70], 20)
+            time.sleep(1)
+            mc.send_angles([-26.54, 15.55, 64.68, 14.5, -93.6, 64.68], 20)  # pose0_2 그리퍼로 블록 잡기 전에 구조물에 안걸리게 이동
+            time.sleep(1)
+            mc.send_angles([-25.4, 21.53, 88.33, -14.94, -93.51, 65.83], 20)  # pose0_3 그리퍼로 블록 잡는 위치
             time.sleep(3)
             mc.set_gripper_mode(0)
             mc.init_gripper()
             mc.set_gripper_state(1, 20, 1)  # 그리퍼로 블록 잡기
+            time.sleep(3)
+            mc.send_angles([-25.48, 34.8, 14.32, 48.42, -93.33, 65.65], 20)  # pose1 그리퍼로 블록 잡은 후 위로 올린 위치
             time.sleep(3)
             print("블록을 성공적으로 잡았습니다!")
             return True
@@ -149,7 +155,7 @@ def perform_pose2_adjustments():
     centered = False  # 조정 시작 시 초기화
     mc.send_angles([90, 17.05, 17.75, 42.46, -90, 2], 20)  # pose2 위치로 이동
     time.sleep(5)
-
+    
     # 중심 맞추기 시작 시간 기록
     start_time = time.time()
     time_limit = 10  # 10초 제한
