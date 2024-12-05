@@ -1,0 +1,31 @@
+<package format="3">
+  <name>robot_monitoring</name>
+  <version>0.0.1</version>
+  <description>Robot monitoring and control package</description>
+
+  <maintainer email="your_email@example.com">Your Name</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- 빌드 도구 의존성 -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+
+  <!-- 빌드 및 실행 의존성 -->
+  <build_depend>rclpy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>example_interfaces</build_depend>
+  <build_depend>rosidl_default_generators</build_depend>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>example_interfaces</exec_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <!-- 인터페이스 패키지임을 명시 -->
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+    <!-- 빌드 타입은 하나만 지정 -->
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

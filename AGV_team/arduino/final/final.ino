@@ -40,8 +40,8 @@ unsigned long previousMillis = 0;
 const long interval = 10;  // 1초
 
 void setup() {
-  Serial.begin(9600);  
-  Serial3.begin(9600); 
+  Serial.begin(115200);  
+  Serial3.begin(115200); 
 
   // 모터 핀을 출력으로 설정
   pinMode(motorA_DirectionPin1, OUTPUT);
@@ -65,7 +65,9 @@ void loop() {
   // 블루투스 모듈로부터 명령어 읽기
   if (Serial3.available() > 0) {
     String command = Serial3.readStringUntil('\n'); // 한 줄 읽기
+   // Serial.print(command);
     handleCommand(command);
+    
   }
 
   // 시리얼 0번으로부터 명령어 읽기
@@ -95,7 +97,7 @@ void loop() {
 
   // 각 모터별 엔코더 값 출력 (시리얼 플로터용)
 // 각 모터별 엔코더 값 출력 (디버깅용)
-
+/*
 Serial.print(" A:");
 Serial.print(abs(encoderAPosition));  // 절대값으로 출력
 Serial.print(" B:");
@@ -104,7 +106,7 @@ Serial.print(" C:");
 Serial.print(abs(encoderCPosition));  // 절대값으로 출력
 Serial.print(" D:");
 Serial.println(abs(encoderDPosition)); // 절대값으로 출력
-
+*/
   delay(10);
 
 }
@@ -135,7 +137,7 @@ void handleCommand(String command) {
     setMotorDirectionAndPWM('d', motorDValue * 1.02);
 
     // 출력값을 시리얼 0번으로 출력
-   /*
+   
     Serial.print("모터 출력: a:");
     Serial.print(motorAValue);
     Serial.print(" b:");
@@ -144,7 +146,7 @@ void handleCommand(String command) {
     Serial.print(motorCValue);
     Serial.print(" d:");
     Serial.println(motorDValue);
-    */
+    
 }
 
 void updateMotorValue(String command, char motor, int &motorValue) {
