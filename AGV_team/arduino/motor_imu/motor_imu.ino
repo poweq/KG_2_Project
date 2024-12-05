@@ -41,13 +41,36 @@ long encoderDPosition = 0;
 // 타이머 변수
 unsigned long previousMillis = 0;
 const long interval = 10;  // 10ms 간격
+void  motor_dir_setup();
 
 // IMU 관련 변수
+float accX ;
+float accY ;
+float accZ ;
+
+float gyroX ;
+float gyroY ;
+float gyroZ ; 
+
+float magX;
+float magY;
+float magZ;
+
+// Magneto 소프트웨어 보정값
+float mag_bias[3] = {-339.590589, 96.630322, -397.338474};  // Magneto에서 계산된 바이어스
+float mag_scale[3][3] = {                                    // Magneto A^-1 행렬
+    {0.122757, 0.005258, -0.009477},
+    {0.005258, 0.120840, -0.005066},
+    {-0.009477, -0.005066, 0.117316}
+    };
 MPU9250 mpu;
 int16_t mpu_9250_raw_data[10];
 void print_motor();
 void print_imu();
-
+void activateMagnetometer();
+void print_calibration();
+float calculateYaw(float magX, float magY);
+void applyMagCalibration(float rawMag[3], float calibMag[3]);
 // 데이터 수신 관련 변수
 const int ARRAY_SIZE = 5;
 int dataArray[ARRAY_SIZE];
@@ -63,24 +86,12 @@ void setup() {
     Serial.println("MPU9250 초기화 실패");
     while (1);
   }
+  activateMagnetometer();
   Serial.println("MPU9250 초기화 성공");
-
-  // 모터 핀을 출력으로 설정
-  pinMode(motorA_DirectionPin1, OUTPUT);
-  pinMode(motorA_DirectionPin2, OUTPUT);
-  pinMode(motorA_PWM_Pin, OUTPUT);
+  motor_dir_setup();
+  Serial.println("모터 초기화 ");
   
-  pinMode(motorB_DirectionPin1, OUTPUT);
-  pinMode(motorB_DirectionPin2, OUTPUT);
-  pinMode(motorB_PWM_Pin, OUTPUT);
 
-  pinMode(motorC_DirectionPin1, OUTPUT);
-  pinMode(motorC_DirectionPin2, OUTPUT);
-  pinMode(motorC_PWM_Pin, OUTPUT);
-
-  pinMode(motorD_DirectionPin1, OUTPUT);
-  pinMode(motorD_DirectionPin2, OUTPUT);
-  pinMode(motorD_PWM_Pin, OUTPUT);
 }
 
 void loop() {
@@ -99,31 +110,105 @@ void loop() {
   if (Serial.available() > 0) {
     String command = Serial.readStringUntil('\n'); // 한 줄 읽기
     Serial.print(command);
-    // handleCommand(command);
   }
-
-  // 엔코더 값을 읽기
-  encoderAPosition = encoderA.read();
-  encoderBPosition = encoderB.read();
-  encoderCPosition = encoderC.read();
-  encoderDPosition = encoderD.read();
-
   // 현재 시간 가져오기
   unsigned long currentMillis = millis();
   
   // 10ms 간격으로 IMU 데이터와 엔코더 값을 전송
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
-    sendIMUData();
-    encoderA.write(0);
-    encoderB.write(0);
-    encoderC.write(0);
-    encoderD.write(0);
+    //sendIMUData();
+
+     if (mpu.update()) {
+   // 가속도계 데이터 읽기 (g 단위)
+       accX = mpu.getAccX();
+      accY = mpu.getAccY();
+      accZ = mpu.getAccZ();
+
+      // 자이로스코프 데이터 읽기 (°/s 단위)
+       gyroX = mpu.getGyroX();
+       gyroY = mpu.getGyroY();
+       gyroZ = mpu.getGyroZ();
+
+      // 자력계 데이터 읽기 (μT 단위)
+       magX = mpu.getMagX();
+       magY = mpu.getMagY();
+       magZ = mpu.getMagZ();
+
+      // 자력계 보정 적용
+      float rawMag[3] = {magX, magY, magZ};
+      float calibMag[3];
+      //applyMagCalibration(rawMag, calibMag);
+
+      // Yaw 값 계산 (필요 시 사용)
+     // float yaw = calculateYaw(calibMag[0], calibMag[1]);
+      
+      //print_imu();
+      send_imu();
+      // 필요 시 Yaw 값 출력
+      
+    //  Serial.print("Yaw: ");
+    //  Serial.println(yaw);
+      
+         }
+  // print_motor();
+    delay(10);
   }
-  print_motor();
-  delay(10);
+}
+void send_imu()
+{
+// 데이터 전송
+      Serial3.print("243,");  // 헤더 (0xF3의 10진수)
+      Serial3.print(accX, 3); Serial3.print(",");
+      Serial3.print(accY, 3); Serial3.print(",");
+      Serial3.print(accZ, 3); Serial3.print(",");
+      Serial3.print(gyroX, 3); Serial3.print(",");
+      Serial3.print(gyroY, 3); Serial3.print(",");
+      Serial3.print(gyroZ, 3); Serial3.print(",");
+      Serial3.print(magX, 3); Serial3.print(",");
+      Serial3.print(magY, 3); Serial3.print(",");
+      Serial3.print(magZ, 3);
+      Serial3.println();  // 패킷의 끝을 표시
+
 }
 
+void print_imu()
+{
+// 데이터 전송
+      Serial.print("243,");  // 헤더 (0xF3의 10진수)
+      Serial.print(accX, 3); Serial.print(",");
+      Serial.print(accY, 3); Serial.print(",");
+      Serial.print(accZ, 3); Serial.print(",");
+      Serial.print(gyroX, 3); Serial.print(",");
+      Serial.print(gyroY, 3); Serial.print(",");
+      Serial.print(gyroZ, 3); Serial.print(",");
+      Serial.print(magX, 3); Serial.print(",");
+      Serial.print(magY, 3); Serial.print(",");
+      Serial.print(magZ, 3);
+      Serial.println();  // 패킷의 끝을 표시
+
+}
+
+void motor_dir_setup()
+{
+    // 모터 핀을 출력으로 설정
+  pinMode(motorA_DirectionPin1, OUTPUT);
+  pinMode(motorA_DirectionPin2, OUTPUT);
+  pinMode(motorA_PWM_Pin, OUTPUT);
+  
+  pinMode(motorB_DirectionPin1, OUTPUT);
+  pinMode(motorB_DirectionPin2, OUTPUT);
+  pinMode(motorB_PWM_Pin, OUTPUT);
+
+  pinMode(motorC_DirectionPin1, OUTPUT);
+  pinMode(motorC_DirectionPin2, OUTPUT);
+  pinMode(motorC_PWM_Pin, OUTPUT);
+
+  pinMode(motorD_DirectionPin1, OUTPUT);
+  pinMode(motorD_DirectionPin2, OUTPUT);
+  pinMode(motorD_PWM_Pin, OUTPUT);
+
+}
 void print_motor()
 {
       // 출력값을 시리얼 0번으로 출력
@@ -246,7 +331,31 @@ void processInput(String input) {
     setMotorDirectionAndPWM('d', motorDValue);
   }
 }
-
+void activateMagnetometer() {
+    Wire.beginTransmission(0x0C);  // AK8963 I2C 주소
+    Wire.write(0x0A);              // Control Register
+    Wire.write(0x12);              // Continuous Measurement Mode 2
+    if (Wire.endTransmission() == 0) {
+        Serial.println("Magnetometer activated successfully.");
+    } else {
+        Serial.println("Failed to activate magnetometer.");
+    }
+}
+// Magneto 보정 적용 함수
+void applyMagCalibration(float rawMag[3], float calibMag[3]) {
+    float temp[3] = {0};
+    // (h_meas - b): 바이어스 제거
+    for (int i = 0; i < 3; i++) {
+        temp[i] = rawMag[i] - mag_bias[i];
+    }
+    // A^-1 * (h_meas - b): 스케일 및 미스얼라인먼트 보정
+    for (int i = 0; i < 3; i++) {
+        calibMag[i] = 0;
+        for (int j = 0; j < 3; j++) {
+            calibMag[i] += mag_scale[i][j] * temp[j];
+        }
+    }
+}
 void sendIMUData() {
   int16_t accX, accY, accZ;
   int16_t gyroX, gyroY, gyroZ;
@@ -278,11 +387,16 @@ void sendIMUData() {
 
   // 배열 데이터를 시리얼 포트를 통해 전송
   Serial3.write((uint8_t*)mpu_9250_raw_data, sizeof(mpu_9250_raw_data));
+  //Serial.write((uint8_t*)mpu_9250_raw_data, sizeof(mpu_9250_raw_data));
   
-  print_imu();
+  //print_imu_raw();
   
 }
-void print_imu()
+// Yaw 값 계산 함수
+float calculateYaw(float magX, float magY) {
+    return atan2(magY, magX) * (180.0 / PI);  // 라디안을 도(degree)로 변환
+}
+void print_imu_raw()
 {
   Serial.print("Gyro: ");
   Serial.print(mpu_9250_raw_data[1]);
