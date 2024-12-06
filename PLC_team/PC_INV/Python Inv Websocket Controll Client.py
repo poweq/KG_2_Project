@@ -7,11 +7,11 @@ from pyzbar.pyzbar import decode
 import time
 
 # 아두이노 연결 설정
-arduino = serial.Serial('COM3', 9600, timeout=1)
+arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
 
 # 등록된 QR 코드 주소 리스트
 valid_addresses = [
-    "https://site.naver.com/patient/B_3",
+    "https://site.naver.com/patient/B_2",
     "https://example.com/address1",
     "https://example.com/address2"
     # 추가적으로 더 많은 주소를 여기에 넣을 수 있습니다.
@@ -21,8 +21,8 @@ valid_addresses = [
 qr_recognition_enabled = True
 
 async def send_signal(signal):
-    uri = "ws://172.30.1.31:8765"  # WebSocket 서버 주소
-    
+    uri = "ws://192.168.0.131:8765"  # WebSocket 서버 주소
+
     async with websockets.connect(uri) as websocket:
         await websocket.send(signal)
         response = await websocket.recv()
@@ -41,9 +41,9 @@ def process_frame(frame):
     # QR 코드 인식이 활성화되어 있지 않으면 프레임을 그대로 반환
     if not qr_recognition_enabled:
         return frame
-    
+
     qr_codes = decode(frame)
-    
+
     for qr in qr_codes:
         qr_data = qr.data.decode('utf-8')
         print(f"QR 코드 데이터: {qr_data}")
@@ -61,30 +61,30 @@ def process_frame(frame):
 
         # QR 코드 인식 후 0 값을 서버로 전송하고 5초 후에 1 값을 서버로 전송
         asyncio.run(send_values_to_server())
-        
+
         # QR 코드 인식 후 10초 동안 인식을 멈추도록 설정
         qr_recognition_enabled = False
         # 10초 후에 인식 활성화
         time.sleep(10)
         qr_recognition_enabled = True
-    
+
     return frame
 
 def main():
-    cap = cv2.VideoCapture(1)  # 웹캠 열기
-    
+    cap = cv2.VideoCapture(0)  # 웹캠 열기
+
     while True:
         ret, frame = cap.read()  # 프레임 읽기
         if not ret:
             break
-        
+
         # QR 코드 처리
         frame = process_frame(frame)
-        
-        # 프레임 화면에 표시
-        cv2.imshow("QR Code Scanner", frame)
-        
-        # 'q' 키로 종료
+
+        # 화면을 띄우지 않고 QR 코드 인식 처리만 수행
+        # cv2.imshow("QR Code Scanner", frame)  # 화면 띄우지 않음
+
+        # 'q' 키로 종료 (이 부분은 화면을 띄우지 않더라도 유지)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
