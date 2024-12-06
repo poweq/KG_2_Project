@@ -152,7 +152,7 @@ def init_camera():
         print("카메라가 이미 초기화되어 있습니다.")
         return cap
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(2)
     if cap.isOpened():
         print("카메라 초기화 성공.")
         return cap
@@ -203,27 +203,35 @@ def detect_qr_code():
         print("QR 코드 감지 실패, 재시도...")
     print("QR 코드 감지 실패. 모든 시도 종료.")
     return None
+
 # pose0에서 QR 코드 인식 및 블록 잡기
 def detect_and_grab_block():
     global last_detected_qr
 
     # pose0로 이동
-    
-    mc.send_angles([-30, 17.75, 80.15, -12.83, -90, -29], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
+    mc.send_angles([-20, 7.29, 81.03, 1.66, -90, 70], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
+    #-15, 60, 17, 5, -90, -14
     time.sleep(5)
 
-    for attempt in range(3):  # QR 코드 감지를 최대 3회 시도
+    for attempt in range(10):  # QR 코드 감지를 최대 10회 시도
         detected_qr = detect_qr_code()
         if detected_qr:
             last_detected_qr = detected_qr
             print(f"탐지된 QR 코드: {detected_qr}")
 
             # 블록 잡기
-            mc.send_angles([-25.79, 38.75, 80.15, -36.83, -90, -23.82], 20)  # pose0_2 그리퍼로 블록 잡는 위치
+            mc.send_angles([-23, 3.29, 81.03, 1.66, -90, 70], 20)
+            time.sleep(1)
+            mc.send_angles([-26.54, 15.55, 64.68, 14.5, -93.6, 64.68], 20)  # pose0_2 그리퍼로 블록 잡기 전에 구조물에 안걸리게 이동
+            time.sleep(1)
+            mc.send_angles([-25.4, 21.53, 88.33, -14.94, -93.51, 65.83], 20)  # pose0_3 그리퍼로 블록 잡는 위치
             time.sleep(3)
             mc.set_gripper_mode(0)
             mc.init_gripper()
-            mc.set_gripper_state(1, 20, 1)  # 그리퍼로 블록 잡기
+            mc.init_eletric_gripper()
+            mc.set_gripper_value(15,20,1)  # 그리퍼로 블록 잡기
+            time.sleep(3)
+            mc.send_angles([-25.48, 34.8, 14.32, 48.42, -93.33, 65.65], 20)  # pose1 그리퍼로 블록 잡은 후 위로 올린 위치
             time.sleep(3)
             print("블록을 성공적으로 잡았습니다!")
             return True
@@ -324,8 +332,7 @@ def detect_and_adjust_position():
 
 def lower_z():
     global current_x, current_y, lowered_z, lowered_y
-    lowered_z = fixed_z - 170
-    # lowered_y = current_y - 0
+    lowered_z = fixed_z - 150
     lowered_y = current_y - 30
 
     print("로봇암을 아래로 내립니다.")
@@ -365,15 +372,15 @@ def block_box_match():
         
     print(f"블록을 놓는 위치로 이동: x={x}, y={y}, z={z}, rx={rx}, ry={rz}")
     move_to_position(x, y, z, rx, ry, rz)
-    mc.set_gripper_state(0, 20, 1) #그리퍼 열기
+    mc.set_gripper_value(100,20,1) #그리퍼 열기
     print("그리퍼 열기...")
     time.sleep(5)
 
 def reset_robot():
     #robot_arm_node.publish_pose("reset...")  # reset
     mc.send_angles([0, 0, 0, 0, 0, 0], 20)
-    mc.set_gripper_state(0, 20, 1)  # 그리퍼 열기
-    time.sleep(5)
+    mc.set_gripper_value(100,20,1)  # 그리퍼 열기
+    time.sleep(7)
     print("로봇이 초기 위치로 돌아갔습니다.")
 
 # 기타 로봇 동작 함수들 (detect_and_grab_block, perform_pose2_adjustments 등은 기존 코드 유지)
@@ -423,7 +430,7 @@ def robot_task():
             if not running or should_exit:
                 return  # 실행 중단
 
-            time.sleep(2)
+            time.sleep(4)
             mc.set_gripper_state(0, 20, 1)
             print("그리퍼 열기...")
 
@@ -524,12 +531,12 @@ def main():
         print("프로그램 종료.")
 
 # YOLO 모델 로드
-model = YOLO('C://Users//shims//Desktop//github//KG_2_Project//ROOBOTARM_team//yolov8_model//runs//detect//train6//weights//best.pt')
+model = YOLO('/home/shim/github/KG_2_Project/ROOBOTARM_team/yolov8_model/runs/detect/train6/weights/best.pt')
 
 # 글로벌 변수(전역 변수) 선언
 running = False            # 로봇 작업 진행 상태
 signal_received = None     # 신호 상태
-task_thread = None         # 로봇 작업 스레드
+task_thread = None         # 로봇 작업 스레드정
 should_exit = False        # 프로그램 종료 플래그 추가
 last_detected_qr = None    # QR 코드 데이터 저장
 cap = None                 # 카메라 객체
