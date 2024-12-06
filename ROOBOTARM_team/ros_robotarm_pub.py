@@ -320,15 +320,15 @@ def detect_and_adjust_position():
                     print("빨간 점이 목표 좌표 근처에 위치했습니다.")
                     return
 
-    # 실시간으로 YOLO Detection View 업데이트
-    cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
-    cv2.resizeWindow(WINDOW_NAME, 600, 600)
-    cv2.imshow(WINDOW_NAME, frame_with_yolo)
+    # # 실시간으로 YOLO Detection View 업데이트
+    # cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
+    # cv2.resizeWindow(WINDOW_NAME, 600, 600)
+    # cv2.imshow(WINDOW_NAME, frame_with_yolo)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):  # 'q' 키를 누르면 종료
-        cap.release()
-        cv2.destroyAllWindows()
-        exit()
+    # if cv2.waitKey(1) & 0xFF == ord('q'):  # 'q' 키를 누르면 종료
+    #     cap.release()
+    #     cv2.destroyAllWindows()
+    #     exit()
 
 def lower_z():
     global current_x, current_y, lowered_z, lowered_y
