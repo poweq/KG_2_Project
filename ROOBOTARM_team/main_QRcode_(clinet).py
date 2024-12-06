@@ -136,7 +136,8 @@ def detect_and_grab_block():
             time.sleep(3)
             mc.set_gripper_mode(0)
             mc.init_gripper()
-            mc.set_gripper_state(1, 20, 1)  # 그리퍼로 블록 잡기
+            mc.init_eletric_gripper()
+            mc.set_gripper_value(15,20,1)  # 그리퍼로 블록 잡기
             time.sleep(3)
             mc.send_angles([-25.48, 34.8, 14.32, 48.42, -93.33, 65.65], 20)  # pose1 그리퍼로 블록 잡은 후 위로 올린 위치
             time.sleep(3)
@@ -239,7 +240,7 @@ def detect_and_adjust_position():
 
 def lower_z():
     global current_x, current_y, lowered_z, lowered_y
-    lowered_z = fixed_z - 170
+    lowered_z = fixed_z - 150
     # lowered_y = current_y - 0
     lowered_y = current_y - 30
 
@@ -280,13 +281,13 @@ def block_box_match():
         
     print(f"블록을 놓는 위치로 이동: x={x}, y={y}, z={z}, rx={rx}, ry={rz}")
     move_to_position(x, y, z, rx, ry, rz)
-    mc.set_gripper_state(0, 20, 1) #그리퍼 열기
+    mc.set_gripper_value(100,20,1) #그리퍼 열기
     print("그리퍼 열기...")
     time.sleep(5)
 
 def reset_robot():
     mc.send_angles([0, 0, 0, 0, 0, 0], 20)
-    mc.set_gripper_state(0, 20, 1)  # 그리퍼 열기
+    mc.set_gripper_value(100,20,1)  # 그리퍼 열기
     time.sleep(7)
     print("로봇이 초기 위치로 돌아갔습니다.")
 
