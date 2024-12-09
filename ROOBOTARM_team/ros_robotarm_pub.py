@@ -236,7 +236,7 @@ def detect_and_grab_block():
             print("블록을 성공적으로 잡았습니다!")
             return True
 
-        print(f"QR 코드 감지 실패, {attempt + 1}/3 시도 완료.")
+        print(f"QR 코드 감지 실패, {attempt + 1}번째 시도 완료.")
         time.sleep(2)  # 재시도 전 대기
 
     print("QR 코드를 감지하지 못했습니다. 작업 실패.")
@@ -379,8 +379,9 @@ def block_box_match():
 def reset_robot():
     #robot_arm_node.publish_pose("reset...")  # reset
     mc.send_angles([0, 0, 0, 0, 0, 0], 20)
+    time.sleep(5)
     mc.set_gripper_value(100,20,1)  # 그리퍼 열기
-    time.sleep(7)
+    time.sleep(3)
     print("로봇이 초기 위치로 돌아갔습니다.")
 
 # 기타 로봇 동작 함수들 (detect_and_grab_block, perform_pose2_adjustments 등은 기존 코드 유지)
@@ -392,40 +393,41 @@ def robot_task():
         if not running or should_exit:
             return  # 실행 중단
 
-        ####################################### 1단계 #######################################
+          ####################################### 1단계 #######################################
+        # pose 1 퍼블리시
+        ros_client.send_data('/robot_arm_status', 'pose 1', msg_type='std_msgs/String')
+        print("Published: pose 1")
+
         if detect_and_grab_block():
             if not running or should_exit:
                 return  # 실행 중단
 
-            # pose 1 퍼블리시
-            ros_client.send_data('/robot_arm_status', 'pose 1', msg_type='std_msgs/String')
-            print("Published: pose 1")
-
             print("객체 중심 맞추기...")
-
             ####################################### 2단계 #######################################
-            perform_pose2_adjustments()  # 감지 실패해도 종료 후 다음 단계로 진행
-            if not running or should_exit:
-                return  # 실행 중단
-
             # pose 2 퍼블리시
             ros_client.send_data('/robot_arm_status', 'pose 2', msg_type='std_msgs/String')
             print("Published: pose 2")
 
-            print("Z축 내리기...")
-
-            ####################################### 3단계 #######################################
-            lower_z()
+            perform_pose2_adjustments()  # 감지 실패해도 종료 후 다음 단계로 진행
             if not running or should_exit:
                 return  # 실행 중단
 
+            ####################################### 3단계 #######################################
             # pose 3 퍼블리시
             ros_client.send_data('/robot_arm_status', 'pose 3', msg_type='std_msgs/String')
             print("Published: pose 3")
-
+            
+            print("Z축 내리기...")
+            lower_z()
+            if not running or should_exit:
+                return  # 실행 중단
+            
             print("블록 배치...")
-
             ####################################### 4단계 #######################################
+            # pose 4 퍼블리시
+            ros_client.send_data('/robot_arm_status', 'pose 4', msg_type='std_msgs/String')
+            print("Published: pose 4")
+
             block_box_match()
             if not running or should_exit:
                 return  # 실행 중단
@@ -433,19 +435,13 @@ def robot_task():
             time.sleep(4)
             mc.set_gripper_state(0, 20, 1)
             print("그리퍼 열기...")
-
-            # pose 4 퍼블리시
-            ros_client.send_data('/robot_arm_status', 'pose 4', msg_type='std_msgs/String')
-            print("Published: pose 4")
-
             ####################################### 5단계 #######################################
             reset_robot()
-            time.sleep(3)
+            time.sleep(7)
 
             # pose 5 퍼블리시
             ros_client.send_data('/robot_arm_status', 'pose 5', msg_type='std_msgs/String')
             print("Published: pose 5")
-
         else:
             print("QR 코드 감지 실패 또는 블록 잡기 실패. 작업을 종료합니다.")
             reset_robot()
