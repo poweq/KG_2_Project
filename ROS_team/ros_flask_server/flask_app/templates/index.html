@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Arm & AGV Status</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .status {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .button-group {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Robot Arm & AGV Monitoring</h1>
+
+    <!-- Robot Arm Status -->
+    <h2>Robot Arm Status</h2>
+    <p id="robot_arm_status" class="status">{{ robot_arm_status }}</p>
+
+    <div class="button-group">
+        <button id="robot_arm_start">Start Robot Arm</button>
+        <button id="robot_arm_stop">Stop Robot Arm</button>
+    </div>
+
+    <!-- AGV Status -->
+    <h2>AGV Status</h2>
+    <p id="agv_status" class="status">{{ agv_status }}</p>
+
+    <script>
+        const socket = io();
+
+        // Robot Arm 상태 업데이트
+        socket.on("robot_arm_update", function(data) {
+            document.getElementById("robot_arm_status").textContent = data.status;
+        });
+
+        // AGV 상태 업데이트
+        socket.on("agv_update", function(data) {
+            document.getElementById("agv_status").textContent = data.status;
+        });
+
+        // 버튼 클릭 이벤트 처리
+        document.getElementById("robot_arm_start").addEventListener("click", function() {
+            sendCommand("start");
+        });
+
+        document.getElementById("robot_arm_stop").addEventListener("click", function() {
+            sendCommand("stop");
+        });
+
+        // 명령 전송 함수
+        function sendCommand(command) {
+            fetch("/send_command", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ command }),
+            })
+            .then(response => response.json())
+            .then(data => console.log("Command Sent:", data))
+            .catch(err => console.error("Error:", err));
+        }
+    </script>
+</body>
+</html>
