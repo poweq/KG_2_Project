@@ -462,12 +462,12 @@ def start_robot():
 
 # 로봇 정지 함수
 def stop_robot():
-    global running
+    global running, task_thread
     if running:
         running = False
         print("Stopping robot...")
-        if task_thread:
-            task_thread.join()
+        if task_thread and task_thread.is_alive():
+            task_thread.join()  # task_thread가 종료될 때까지 대기
         print("Robot stopped.")
     else:
         print("Robot is not running.")
