@@ -390,61 +390,81 @@ def reset_robot():
 def robot_task():
     global running, last_detected_qr, should_exit, ros_client
     try:
+        # 시작 시 running과 should_exit 상태 체크
         if not running or should_exit:
             return  # 실행 중단
 
-          ####################################### 1단계 #######################################
-        # pose 1 퍼블리시
+        # 1단계: pose 1 퍼블리시
         ros_client.send_data('/robot_arm_status', 'pose 1', msg_type='std_msgs/String')
         print("Published: pose 1")
+        if not running or should_exit:
+            return
 
+        # 블록 감지 및 잡기 시도
         if detect_and_grab_block():
             if not running or should_exit:
-                return  # 실행 중단
+                return
 
             print("객체 중심 맞추기...")
-            ####################################### 2단계 #######################################
-            # pose 2 퍼블리시
+
+            # 2단계: pose 2 퍼블리시
             ros_client.send_data('/robot_arm_status', 'pose 2', msg_type='std_msgs/String')
             print("Published: pose 2")
-
-            perform_pose2_adjustments()  # 감지 실패해도 종료 후 다음 단계로 진행
             if not running or should_exit:
-                return  # 실행 중단
+                return
 
-            ####################################### 3단계 #######################################
-            # pose 3 퍼블리시
+            perform_pose2_adjustments()  # 감지 실패해도 다음 단계로 진행
+            if not running or should_exit:
+                return
+
+            # 3단계: pose 3 퍼블리시
             ros_client.send_data('/robot_arm_status', 'pose 3', msg_type='std_msgs/String')
             print("Published: pose 3")
-            
+            if not running or should_exit:
+                return
+
             print("Z축 내리기...")
             lower_z()
             if not running or should_exit:
-                return  # 실행 중단
-            
+                return
+
             print("블록 배치...")
-            ####################################### 4단계 #######################################
-            # pose 4 퍼블리시
+
+            # 4단계: pose 4 퍼블리시
             ros_client.send_data('/robot_arm_status', 'pose 4', msg_type='std_msgs/String')
             print("Published: pose 4")
+            if not running or should_exit:
+                return
 
             block_box_match()
             if not running or should_exit:
-                return  # 실행 중단
+                return
 
+            # 그리퍼 열기
             time.sleep(4)
             mc.set_gripper_state(0, 20, 1)
             print("그리퍼 열기...")
-            ####################################### 5단계 #######################################
+            if not running or should_exit:
+                return
+
+            # 로봇 초기 위치 복귀
             reset_robot()
             time.sleep(7)
+            if not running or should_exit:
+                return
 
-            # pose 5 퍼블리시
+            # 5단계: pose 5 퍼블리시
             ros_client.send_data('/robot_arm_status', 'pose 5', msg_type='std_msgs/String')
             print("Published: pose 5")
+            if not running or should_exit:
+                return
+
         else:
             print("QR 코드 감지 실패 또는 블록 잡기 실패. 작업을 종료합니다.")
             reset_robot()
+            # 여기서도 stop 신호 확인 가능
+            if not running or should_exit:
+                return
 
     finally:
         running = False  # 작업 종료 표시
@@ -460,15 +480,22 @@ def start_robot():
     else:
         print("Robot is already running.")
 
-# 로봇 정지 함수
 def stop_robot():
-    global running
+    global running, task_thread
     if running:
         running = False
         print("Stopping robot...")
-        if task_thread:
+        # 현재 동작 중인 task_thread가 종료되기를 기다림
+        if task_thread and task_thread.is_alive():
             task_thread.join()
         print("Robot stopped.")
+        
+        # 로봇을 초기 자세로 복귀
+        reset_robot()
+        print("로봇이 초기 위치로 돌아갔습니다.")
+        # pose0 코드 추가
+        ros_client.send_data('/robot_arm_status', 'pose 0', msg_type='std_msgs/String')
+        print("Published: pose 0")
     else:
         print("Robot is not running.")
 

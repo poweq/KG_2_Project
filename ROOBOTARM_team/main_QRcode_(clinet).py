@@ -287,6 +287,7 @@ def block_box_match():
 
 def reset_robot():
     mc.send_angles([0, 0, 0, 0, 0, 0], 20)
+    time.sleep(7)
     mc.set_gripper_value(100,20,1)  # 그리퍼 열기
     time.sleep(7)
     print("로봇이 초기 위치로 돌아갔습니다.")
