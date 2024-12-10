@@ -45,41 +45,53 @@
     <h2>AGV Status</h2>
     <p id="agv_status" class="status">{{ agv_status }}</p>
 
+    <div class="button-group">
+        <button id="agv_start">Start AGV</button>
+        <button id="agv_stop">Stop AGV</button>
+    </div>
     <script>
         const socket = io();
-
-        // Robot Arm 상태 업데이트
+    
+        // Update Robot Arm Status in Real-Time
         socket.on("robot_arm_update", function(data) {
             document.getElementById("robot_arm_status").textContent = data.status;
         });
-
-        // AGV 상태 업데이트
+    
+        // Update AGV Status in Real-Time
         socket.on("agv_update", function(data) {
             document.getElementById("agv_status").textContent = data.status;
         });
-
-        // 버튼 클릭 이벤트 처리
+    
+        // Button Click Event Handlers
         document.getElementById("robot_arm_start").addEventListener("click", function() {
-            sendCommand("start");
+            sendCommand("robot_arm_command", "start");
         });
-
+    
         document.getElementById("robot_arm_stop").addEventListener("click", function() {
-            sendCommand("stop");
+            sendCommand("robot_arm_command", "stop");
         });
-
-        // 명령 전송 함수
-        function sendCommand(command) {
+    
+        document.getElementById("agv_start").addEventListener("click", function() {
+            sendCommand("agv_command", "start");
+        });
+    
+        document.getElementById("agv_stop").addEventListener("click", function() {
+            sendCommand("agv_command", "stop");
+        });
+    
+        // Send Command to Flask Backend
+        function sendCommand(topic, command) {
             fetch("/send_command", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ command }),
+                body: JSON.stringify({ topic: topic, command: command }),
             })
             .then(response => response.json())
-            .then(data => console.log("Command Sent:", data))
-            .catch(err => console.error("Error:", err));
+            .then(data => console.log(`Command Sent: ${command} to ${topic}`, data))
+            .catch(err => console.error("Error sending command:", err));
         }
     </script>
-</body>
+    </body>
 </html>
