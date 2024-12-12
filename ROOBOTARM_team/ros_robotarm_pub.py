@@ -204,6 +204,16 @@ def detect_qr_code():
     print("QR 코드 감지 실패. 모든 시도 종료.")
     return None
 
+# QR 코드 URL과 전송할 데이터 매핑 딕셔너리
+qr_map = {
+    'https://site.naver.com/patient/A_1': 'A_1',
+    'https://site.naver.com/patient/A_2': 'A_2',
+    'https://site.naver.com/patient/A_3': 'A_3',
+    'https://site.naver.com/patient/B_1': 'B_1',
+    'https://site.naver.com/patient/B_2': 'B_2',
+    'https://site.naver.com/patient/B_3': 'B_3'
+}
+
 # pose0에서 QR 코드 인식 및 블록 잡기
 def detect_and_grab_block():
     global last_detected_qr
@@ -218,6 +228,12 @@ def detect_and_grab_block():
         if detected_qr:
             last_detected_qr = detected_qr
             print(f"탐지된 QR 코드: {detected_qr}")
+
+            # QR 코드 매핑 딕셔너리를 통해 서버로 데이터 전송
+            if last_detected_qr in qr_map:
+                send_value = qr_map[last_detected_qr]
+                ros_client.send_data('/qr_data', send_value, msg_type='std_msgs/String')
+                print(f"서버로 '{send_value}' 데이터 전송 완료.")
 
             # 블록 잡기
             mc.send_angles([-23, 3.29, 81.03, 1.66, -90, 70], 20)
@@ -536,7 +552,10 @@ def main():
     #pose0 코드 추가
     ros_client.send_data('/robot_arm_status', 'pose 0', msg_type='std_msgs/String')
     print("Published: pose 0")
-
+    
+    ros_client.send_data('/qr_data', "no data", msg_type='std_msgs/String')
+    print("QR 토픽데이터 초기화")
+    
     # 카메라 초기화
     cap = init_camera()
     if cap is None:  # 초기화 실패 시 종료
