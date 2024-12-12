@@ -86,7 +86,7 @@ async def main():
         controller = InverterController(port, baudrate)
 
         # Set an initial frequency (optional)
-        if controller.set_frequency(35) is None:
+        if controller.set_frequency(25) is None:
             print("Failed to set frequency.")
 
         # Start the WebSocket server, allowing external access
