@@ -453,9 +453,9 @@ def robot_task():
             if not running or should_exit:
                 return
 
-            # 5단계: pose 5 퍼블리시
-            ros_client.send_data('/robot_arm_status', 'pose 5', msg_type='std_msgs/String')
-            print("Published: pose 5")
+            # 5단계: pose 0 퍼블리시
+            ros_client.send_data('/robot_arm_status', 'pose 0', msg_type='std_msgs/String')
+            print("Published: pose 0")
             if not running or should_exit:
                 return
 
