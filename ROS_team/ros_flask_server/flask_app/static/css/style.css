@@ -1,0 +1,38 @@
+body {
+    display: flex;
+    justify-content: center; /* 가로 방향 가운데 정렬 */
+    align-items: center; /* 세로 방향 가운데 정렬 */
+    height: 100vh; /* 화면 전체 높이를 채움 */
+    margin: 0; /* 기본 여백 제거 */
+    font-family: Arial, sans-serif; /* 기본 폰트 */
+    flex-direction: column; /* 세로 정렬 */
+}
+
+.status-and-buttons {
+    display: flex;
+    align-items: center; /* 세로 방향 가운데 정렬 */
+    margin-bottom: 20px;
+}
+
+.status {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px; /* 버튼 그룹과 간격 */
+    color: #007BFF;
+}
+
+.button-group button {
+    padding: 5px 10px;
+    margin-right: 5px; /* 버튼 간 간격 */
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.button-group button:last-child {
+    margin-right: 0; /* 마지막 버튼 간격 제거 */
+}
+
+h2 {
+    margin-bottom: 10px; /* 제목 아래 간격 */
+    text-align: center; /* 제목 가운데 정렬 */
+}

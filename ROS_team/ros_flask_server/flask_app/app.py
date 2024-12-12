@@ -25,7 +25,8 @@ class ROS2Publisher(Node):
         }
         self.command_publishers = {
             'robot_arm_command': self.create_publisher(String, '/robot_arm_command', 10),
-            'agv_command': self.create_publisher(String, '/agv_command', 10)
+            'agv_command': self.create_publisher(String, '/agv_command', 10),
+            'pusher_command': self.create_publisher(String, '/pusher_command', 10)
         }
     def publish_command(self, command):
         msg = String()
@@ -58,8 +59,12 @@ def init_ros2_node():
     # 서버 시작 시 초기 메시지 퍼블리시
     ros2_node.publish_status('robot_arm_status', "No Data")
     ros2_node.publish_status('agv_status', "No Data")
+    ros2_node.publish_command('pusher_status', "No Data")
+
     ros2_node.publish_command('robot_arm_command', "idle")
     ros2_node.publish_command('agv_command', "idle")
+    ros2_node.publish_command('pusher_command', "idle")
+    
     rclpy.spin(ros2_node)
 
 # ROS 2 노드를 별도 스레드에서 실행
@@ -97,28 +102,76 @@ def update_agv_status():
     socketio.emit("agv_update", {"status": agv_status})  # 클라이언트에 상태 전송
     return jsonify({"status": "success"}), 200
 
+#pusher
+@app.route("/update_pusher_x", methods=["POST"])
+def update_pusher_x():
+    try:
+        data = request.get_json()
+        value = data.get("value")
+        if isinstance(value, int) and value > 0:  # 자연수 확인
+            socketio.emit("pusher_x_update", {"value": value})  # 클라이언트에 상태 전송
+            app.logger.info(f"Updated Pusher X with value: {value}")
+            return jsonify({"status": "success", "value": value}), 200
+        else:
+            return jsonify({"error": "Invalid value"}), 400
+    except Exception as e:
+        app.logger.error(f"Error updating pusher X: {e}")
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/update_pusher_y", methods=["POST"])
+def update_pusher_y():
+    try:
+        data = request.get_json()
+        value = data.get("value")
+        if isinstance(value, int) and value > 0:  # 자연수 확인
+            socketio.emit("pusher_y_update", {"value": value})  # 클라이언트에 상태 전송
+            app.logger.info(f"Updated Pusher Y with value: {value}")
+            return jsonify({"status": "success", "value": value}), 200
+        else:
+            return jsonify({"error": "Invalid value"}), 400
+    except Exception as e:
+        app.logger.error(f"Error updating pusher Y: {e}")
+        return jsonify({"error": str(e)}), 500
 
 @app.route("/send_command", methods=["POST"])
 def send_command():
+    
     try:
         data = request.get_json()
         topic = data.get("topic")
         command = data.get("command")
-        if topic in ["robot_arm_command", "agv_command"] and command in ["start", "stop"]:
-            # WebSocket으로 ROS 브리지에 명령 전송
-            message = {
-                "op": "publish",
-                "topic": f"/{topic}",
-                "msg": {"data": command}
-            }
-            ros_bridge_ws.send(json.dumps(message))
-            app.logger.info(f"Published to {topic}: {command}")
-            return jsonify({"status": "success", "command": command}), 200
+        app.logger.info(f"command to {topic}: {command}")
+        
+        # 로봇암과 AGV 명령 처리 
+        if topic in ["robot_arm_command", "agv_command"]:
+            app.logger.info(f"topic command")
+            if command in ["start", "stop"]:
+                # ROS 2 퍼블리시 로직
+                message = {"op": "publish", "topic": f"/{topic}", "msg": {"data": command}}
+                ros_bridge_ws.send(json.dumps(message))
+                app.logger.info(f"Published to {topic}: {command}")
+                return jsonify({"status": "success", "command": command}), 200
+            else:
+                return jsonify({"error": "Invalid command for topic"}), 400
+        
+        # 푸셔 명령 처리    
+        elif topic == "pusher_command":
+            if ":" in command:  # x:n 또는 y:n 형식 확인
+                message = {"op": "publish", "topic": f"/{topic}", "msg": {"data": command}}
+                ros_bridge_ws.send(json.dumps(message))
+                app.logger.info(f"Published to {topic}: {command}")
+                return jsonify({"status": "success", "command": command}), 200
+            else:
+                return jsonify({"error": "Invalid pusher command"}), 400
+            
         else:
-            return jsonify({"error": "Invalid topic or command"}), 400
+            return jsonify({"error": "Unknown topic"}), 400
     except Exception as e:
         app.logger.error(f"Error sending command: {e}")
         return jsonify({"error": str(e)}), 500
+
+
 
 
 @app.route("/")
