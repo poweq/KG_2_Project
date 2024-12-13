@@ -555,7 +555,10 @@ def main():
     
     ros_client.send_data('/qr_data', "no data", msg_type='std_msgs/String')
     print("QR 토픽데이터 초기화")
-    
+
+    ros_client.send_data('/agv_command', "start", msg_type='std_msgs/String')
+    print("AGV 시작문자 전송")
+
     # 카메라 초기화
     cap = init_camera()
     if cap is None:  # 초기화 실패 시 종료
