@@ -130,7 +130,8 @@ running = False
 signal_received = None
 task_thread = None
 should_exit = False
-last_detected_qr = None
+a_detected_qr_list = []  # A 데이터 탐지 순서 저장
+b_detected_qr_list = []  # B 데이터 탐지 순서 저장
 current_x = 0
 current_y = 0
 
@@ -214,46 +215,68 @@ qr_map = {
     'https://site.naver.com/patient/B_3': 'B_3'
 }
 
-# pose0에서 QR 코드 인식 및 블록 잡기
-def detect_and_grab_block():
-    global last_detected_qr
-
-    # pose0로 이동
-    mc.send_angles([-20, 7.29, 81.03, 1.66, -90, 70], 20)  # pose0_1 웹캠으로 QR 코드 확인 위치
-    #-15, 60, 17, 5, -90, -14
-    time.sleep(5)
+def detect_and_store_qr_codes():
+    """
+    QR 코드를 탐지하고 A/B 데이터를 분류해 저장합니다.
+    """
+    global a_detected_qr_list, b_detected_qr_list
 
     for attempt in range(10):  # QR 코드 감지를 최대 10회 시도
         detected_qr = detect_qr_code()
         if detected_qr:
-            last_detected_qr = detected_qr
             print(f"탐지된 QR 코드: {detected_qr}")
 
+            # A 데이터인지 B 데이터인지 확인하고 저장
+            if 'A_' in detected_qr and detected_qr not in a_detected_qr_list:
+                a_detected_qr_list.append(detected_qr)
+                print(f"A 데이터 순서 업데이트: {a_detected_qr_list}")
+            elif 'B_' in detected_qr and detected_qr not in b_detected_qr_list:
+                b_detected_qr_list.append(detected_qr)
+                print(f"B 데이터 순서 업데이트: {b_detected_qr_list}")
+
             # QR 코드 매핑 딕셔너리를 통해 서버로 데이터 전송
-            if last_detected_qr in qr_map:
-                send_value = qr_map[last_detected_qr]
+            if detected_qr in qr_map:
+                send_value = qr_map[detected_qr]
                 ros_client.send_data('/qr_data', send_value, msg_type='std_msgs/String')
                 print(f"서버로 '{send_value}' 데이터 전송 완료.")
+            else:
+                print(f"QR 코드 매핑에서 '{detected_qr}'를 찾을 수 없습니다.")
 
-            # 블록 잡기
-            mc.send_angles([-23, 3.29, 81.03, 1.66, -90, 70], 20)
-            time.sleep(1)
-            mc.send_angles([-26.54, 15.55, 64.68, 14.5, -93.6, 64.68], 20)  # pose0_2 그리퍼로 블록 잡기 전에 구조물에 안걸리게 이동
-            time.sleep(1)
-            mc.send_angles([-25.4, 21.53, 88.33, -14.94, -93.51, 65.83], 20)  # pose0_3 그리퍼로 블록 잡는 위치
-            time.sleep(3)
-            mc.set_gripper_mode(0)
-            mc.init_gripper()
-            mc.init_eletric_gripper()
-            mc.set_gripper_value(15,20,1)  # 그리퍼로 블록 잡기
-            time.sleep(3)
-            mc.send_angles([-25.48, 34.8, 14.32, 48.42, -93.33, 65.65], 20)  # pose1 그리퍼로 블록 잡은 후 위로 올린 위치
-            time.sleep(3)
-            print("블록을 성공적으로 잡았습니다!")
-            return True
+# pose0에서 QR 코드 인식 및 블록 잡기
+def detect_and_grab_block():
+    """
+    QR 코드를 탐지하고 블록을 잡습니다.
+    """
+    global a_detected_qr_list, b_detected_qr_list
 
-        print(f"QR 코드 감지 실패, {attempt + 1}번째 시도 완료.")
-        time.sleep(2)  # 재시도 전 대기
+    # pose0로 이동
+    mc.send_angles([-20, 7.29, 81.03, 1.66, -90, 70], 20) # pose0_1 웹캠으로 QR 코드 확인 위치
+    time.sleep(5)
+
+    # QR 코드 감지 및 분류
+    detect_and_store_qr_codes()
+
+    # 블록 잡기 (A 데이터와 B 데이터를 모두 탐지한 경우)
+    if a_detected_qr_list or b_detected_qr_list:
+        mc.send_angles([-23, 3.29, 81.03, 1.66, -90, 70], 20)
+        time.sleep(1)        
+        mc.send_angles([-26.54, 15.55, 64.68, 14.5, -93.6, 64.68], 20)
+        time.sleep(1)
+        mc.send_angles([-25.4, 21.53, 88.33, -14.94, -93.51, 65.83], 20)  # pose0_3 그리퍼로 블록 잡는 위치
+        time.sleep(3)
+        mc.set_gripper_mode(0)
+        mc.init_gripper()
+        mc.init_eletric_gripper()
+        mc.set_gripper_value(15, 20, 1) # 그리퍼로 블록 잡기
+        time.sleep(3)
+        mc.send_angles([-25.48, 34.8, 14.32, 48.42, -93.33, 65.65], 20)
+        time.sleep(3)
+        print("블록을 성공적으로 잡았습니다!")
+        return True
+
+
+    print(f"QR 코드 감지 실패, {attempt + 1}번째 시도 완료.")
+    time.sleep(2)  # 재시도 전 대기    
 
     print("QR 코드를 감지하지 못했습니다. 작업 실패.")
     return False
@@ -355,42 +378,114 @@ def lower_z():
     move_to_position(current_x, lowered_y, lowered_z, pose2_coords[3], pose2_coords[4], pose2_coords[5])
     time.sleep(5)
 
-def block_box_match():
-    x, y = current_x, lowered_y
-    z = mc.get_coords()[2]  # 현재 z축 위치 가져오기
-    rx, ry, rz = pose2_coords[3], pose2_coords[4], pose2_coords[5]
+def handle_data(data_list, direction):
+    """
+    QR 데이터를 탐지된 순서에 따라 처리합니다.
+    - direction: "A" -> positive, "B" -> negative
+    """
+    global current_x, current_y
 
-    print(f"디버깅: 감지된 QR 코드 = {last_detected_qr}")
-    
-    # QR 코드 데이터에 따라 블록 배치 위치 설정
-    if last_detected_qr == 'https://site.naver.com/patient/A_1':
-        x += 60
-        y += 70
-        print("A_1 블록: 왼쪽 아래로 이동합니다.")
-    elif last_detected_qr == 'https://site.naver.com/patient/A_2':
-        x += 60
-        print("A_2 블록: 왼쪽으로 이동합니다.")
-    elif last_detected_qr == 'https://site.naver.com/patient/A_3':
-        x += 60
-        y -= 80
-        print("A_3 블록: 왼쪽 위로 이동합니다.")
-    elif last_detected_qr == 'https://site.naver.com/patient/B_1':
-        x -= 60
-        y += 65
-        print("B_1 블록: 오른쪽 아래로 이동합니다.")
-    elif last_detected_qr == 'https://site.naver.com/patient/B_2':
-        x -= 60
-        print("B_2 블록: 중앙 위로 이동합니다.")     
-    elif last_detected_qr == 'https://site.naver.com/patient/B_3':
-        x -= 60
-        y -= 80
-        print("B_3 블록: 오른쪽 위로 이동합니다.")
-        
-    print(f"블록을 놓는 위치로 이동: x={x}, y={y}, z={z}, rx={rx}, ry={rz}")
-    move_to_position(x, y, z, rx, ry, rz)
-    mc.set_gripper_value(100,20,1) #그리퍼 열기
-    print("그리퍼 열기...")
-    time.sleep(5)
+    # 이동 방향 설정
+    x_step = 60 if direction == "A" else -60
+
+    for idx, qr_code in enumerate(data_list):
+        # 데이터 순서에 따라 좌표 계산
+        if idx == 0:
+            x = current_x + x_step
+            y = current_y + 70
+        elif idx == 1:
+            x = current_x + x_step
+            y = current_y
+        elif idx == 2:
+            x = current_x + x_step
+            y = current_y - 80
+        else:
+            print(f"예상하지 못한 {direction} 데이터 순서: {qr_code}, 스킵합니다.")
+            continue
+
+        z = mc.get_coords()[2]
+        rx, ry, rz = pose2_coords[3], pose2_coords[4], pose2_coords[5]
+        print(f"{direction} 블록 배치 위치 (QR: {qr_code}) -> x={x}, y={y}, z={z}, rx={rx}, ry={ry}, rz={rz}")
+        move_to_position(x, y, z, rx, ry, rz)
+        mc.set_gripper_value(100, 20, 1)  # 그리퍼 열기
+        print(f"{direction} 블록 놓기 완료 (QR: {qr_code}).")
+        time.sleep(5)
+
+        # x, y 기준 업데이트
+        current_x, current_y = x, y
+
+def handle_a_data():
+    """
+    A 데이터를 탐지된 순서에 따라 처리합니다.
+    """
+    global a_detected_qr_list, current_x, current_y
+
+    for idx, qr_code in enumerate(a_detected_qr_list):
+        if idx == 0:  # 첫 번째로 온 A 데이터
+            x = current_x + 60
+            y = current_y + 70
+        elif idx == 1:  # 두 번째로 온 A 데이터
+            x = current_x + 60
+            y = current_y
+        elif idx == 2:  # 세 번째로 온 A 데이터
+            x = current_x + 60
+            y = current_y - 80
+        else:
+            print(f"예상하지 못한 A 데이터 순서: {qr_code}, 스킵합니다.")
+            continue
+
+        z = mc.get_coords()[2]
+        rx, ry, rz = pose2_coords[3], pose2_coords[4], pose2_coords[5]
+        print(f"A 블록 배치 위치 (QR: {qr_code}) -> x={x}, y={y}, z={z}, rx={rx}, ry={ry}, rz={rz}")
+        move_to_position(x, y, z, rx, ry, rz)
+        mc.set_gripper_value(100, 20, 1)  # 그리퍼 열기
+        print(f"A 블록 놓기 완료 (QR: {qr_code}).")
+        time.sleep(5)
+
+        # x, y 기준 업데이트
+        current_x, current_y = x, y
+
+def handle_b_data():
+    """
+    B 데이터를 탐지된 순서에 따라 처리합니다.
+    """
+    global b_detected_qr_list, current_x, current_y
+
+    for idx, qr_code in enumerate(b_detected_qr_list):
+        if idx == 0:  # 첫 번째로 온 B 데이터
+            x = current_x - 60
+            y = current_y + 70
+        elif idx == 1:  # 두 번째로 온 B 데이터
+            x = current_x - 60
+            y = current_y
+        elif idx == 2:  # 세 번째로 온 B 데이터
+            x = current_x - 60
+            y = current_y - 80
+        else:
+            print(f"예상하지 못한 B 데이터 순서: {qr_code}, 스킵합니다.")
+            continue
+
+        z = mc.get_coords()[2]
+        rx, ry, rz = pose2_coords[3], pose2_coords[4], pose2_coords[5]
+        print(f"B 블록 배치 위치 (QR: {qr_code}) -> x={x}, y={y}, z={z}, rx={rx}, ry={ry}, rz={rz}")
+        move_to_position(x, y, z, rx, ry, rz)
+        mc.set_gripper_value(100, 20, 1)  # 그리퍼 열기
+        print(f"B 블록 놓기 완료 (QR: {qr_code}).")
+        time.sleep(5)
+
+        # x, y 기준 업데이트
+        current_x, current_y = x, y
+
+def process_qr_data():
+    """
+    저장된 A와 B 데이터를 각각 처리합니다.
+    """
+    if a_detected_qr_list:
+        print("A 데이터 처리 시작...")
+        handle_data(a_detected_qr_list, "A")
+    if b_detected_qr_list:
+        print("B 데이터 처리 시작...")
+        handle_data(b_detected_qr_list, "B")
 
 def reset_robot():
     #robot_arm_node.publish_pose("reset...")  # reset
@@ -403,6 +498,71 @@ def reset_robot():
 # 기타 로봇 동작 함수들 (detect_and_grab_block, perform_pose2_adjustments 등은 기존 코드 유지)
 
 # 로봇 작업 함수 (별도의 스레드에서 실행)
+# def robot_task():
+    global running, should_exit, ros_client
+    try:
+        if not running or should_exit:
+            return
+        
+        # 1단계: pose 1 퍼블리시
+        ros_client.send_data('/robot_arm_status', 'pose 1', msg_type='std_msgs/String')
+        print("Published: pose 1")
+        if not running or should_exit:
+            return
+
+        # QR 코드 감지 및 블록 잡기
+        if detect_and_grab_block():
+            if not running or should_exit:
+                return
+            
+            print("객체 중심 맞추기...")
+
+            # 2단계: pose 2 퍼블리시
+            ros_client.send_data('/robot_arm_status', 'pose 2', msg_type='std_msgs/String')
+            print("Published: pose 2")
+            if not running or should_exit:
+                return
+
+            # A와 B 데이터를 처리
+            process_qr_data()
+            if not running or should_exit:
+                return
+            
+            # 3단계: pose 3 퍼블리시
+            ros_client.send_data('/robot_arm_status', 'pose 3', msg_type='std_msgs/String')
+            print("Published: pose 3")
+            if not running or should_exit:
+                return
+            
+            print("Z축 내리기...")
+            lower_z()
+            if not running or should_exit:
+                return
+
+            print("블록 배치...")
+            
+            # 로봇 초기 위치 복귀
+            reset_robot()
+            time.sleep(7)
+            if not running or should_exit:
+                return
+
+            ros_client.send_data('/robot_arm_status', 'pose 0', msg_type='std_msgs/String')
+            print("Published: pose 0")
+            if not running or should_exit:
+                return
+
+        else:
+            print("QR 코드 감지 실패 또는 블록 잡기 실패. 작업을 종료합니다.")
+            reset_robot()
+            # 여기서도 stop 신호 확인 가능
+            if not running or should_exit:
+                return
+
+    finally:
+        running = False
+
+
 def robot_task():
     global running, last_detected_qr, should_exit, ros_client
     try:
@@ -452,7 +612,7 @@ def robot_task():
             if not running or should_exit:
                 return
 
-            block_box_match()
+            process_qr_data()
             if not running or should_exit:
                 return
 
@@ -468,6 +628,12 @@ def robot_task():
             time.sleep(7)
             if not running or should_exit:
                 return
+            
+            # 지금까지 들어온 데이터를 출력
+            print("\n===== 작업 완료: QR 코드 데이터 리스트 =====")
+            print(f"A 데이터 리스트: {a_detected_qr_list}")
+            print(f"B 데이터 리스트: {b_detected_qr_list}")
+            print("========================================\n")
 
             # 5단계: pose 0 퍼블리시
             ros_client.send_data('/robot_arm_status', 'pose 0', msg_type='std_msgs/String')
