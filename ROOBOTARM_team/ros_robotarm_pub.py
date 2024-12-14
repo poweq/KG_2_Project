@@ -152,7 +152,7 @@ def init_camera():
         print("카메라가 이미 초기화되어 있습니다.")
         return cap
 
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(2)
     if cap.isOpened():
         print("카메라 초기화 성공.")
         return cap
