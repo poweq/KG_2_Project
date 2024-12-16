@@ -1,0 +1,75 @@
+[0.035s] Invoking command in '/home/jucy/ydlidar_ws_11_29/build/nav2_costmap_2d': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_map_server:/home/jucy/ydlidar_ws_11_29/install/nav2_lifecycle_manager:/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_voxel_grid:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_map_server:/home/jucy/ydlidar_ws_11_29/install/nav2_lifecycle_manager:/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_voxel_grid:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_map_server/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_lifecycle_manager/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_voxel_grid/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/build/nav2_costmap_2d -- -j12 -l12
+[0.092s] [  4%] Built target gtest
+[0.092s] [  8%] Built target gtest_main
+[0.132s] [ 35%] Built target nav2_costmap_2d_core
+[0.165s] [ 39%] Built target array_parser_test
+[0.172s] [ 43%] Built target collision_footprint_test
+[0.172s] [ 47%] Built target nav2_costmap_2d_markers
+[0.173s] [ 52%] Built target nav2_costmap_2d_cloud
+[0.174s] [ 60%] Built target nav2_costmap_2d_client
+[0.196s] [ 75%] Built target layers
+[0.239s] [ 79%] Built target footprint_tests_exec
+[0.249s] [ 83%] Built target obstacle_tests_exec
+[0.251s] [ 87%] Built target inflation_tests_exec
+[0.251s] [ 91%] Built target test_collision_checker_exec
+[0.251s] [ 95%] Built target nav2_costmap_2d
+[0.255s] [100%] Built target range_tests_exec
+[0.267s] Invoked command in '/home/jucy/ydlidar_ws_11_29/build/nav2_costmap_2d' returned '0': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_map_server:/home/jucy/ydlidar_ws_11_29/install/nav2_lifecycle_manager:/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_voxel_grid:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_map_server:/home/jucy/ydlidar_ws_11_29/install/nav2_lifecycle_manager:/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_voxel_grid:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_map_server/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_lifecycle_manager/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_voxel_grid/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/build/nav2_costmap_2d -- -j12 -l12
+[0.269s] Invoking command in '/home/jucy/ydlidar_ws_11_29/build/nav2_costmap_2d': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_map_server:/home/jucy/ydlidar_ws_11_29/install/nav2_lifecycle_manager:/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_voxel_grid:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_map_server:/home/jucy/ydlidar_ws_11_29/install/nav2_lifecycle_manager:/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_voxel_grid:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_map_server/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_lifecycle_manager/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_voxel_grid/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/build/nav2_costmap_2d
+[0.278s] -- Install configuration: "Release"
+[0.278s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/lib/libnav2_costmap_2d_core.so
+[0.278s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/lib/liblayers.so
+[0.279s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/lib/libnav2_costmap_2d_client.so
+[0.279s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/lib/nav2_costmap_2d/nav2_costmap_2d
+[0.280s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/lib/nav2_costmap_2d/nav2_costmap_2d_markers
+[0.280s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/lib/nav2_costmap_2d/nav2_costmap_2d_cloud
+[0.280s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/costmap_plugins.xml
+[0.280s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include/
+[0.280s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d
+[0.281s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/inflation_layer.hpp
+[0.281s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/observation_buffer.hpp
+[0.281s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/footprint_collision_checker.hpp
+[0.281s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/clear_costmap_service.hpp
+[0.281s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/costmap_2d_ros.hpp
+[0.281s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/exceptions.hpp
+[0.281s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/range_sensor_layer.hpp
+[0.281s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/array_parser.hpp
+[0.281s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/costmap_math.hpp
+[0.281s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/footprint_subscriber.hpp
+[0.281s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/static_layer.hpp
+[0.281s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/layered_costmap.hpp
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/costmap_2d.hpp
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/cost_values.hpp
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/footprint.hpp
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/costmap_topic_collision_checker.hpp
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/layer.hpp
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/costmap_2d_publisher.hpp
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/costmap_subscriber.hpp
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/obstacle_layer.hpp
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/costmap_layer.hpp
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/voxel_layer.hpp
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/include//nav2_costmap_2d/observation.hpp
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/environment/library_path.sh
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/environment/library_path.dsv
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/costmap_plugins.xml
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/ament_index/resource_index/package_run_dependencies/nav2_costmap_2d
+[0.282s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/ament_index/resource_index/parent_prefix_path/nav2_costmap_2d
+[0.283s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/environment/ament_prefix_path.sh
+[0.283s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/environment/ament_prefix_path.dsv
+[0.283s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/environment/path.sh
+[0.283s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/environment/path.dsv
+[0.283s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/local_setup.bash
+[0.283s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/local_setup.sh
+[0.283s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/local_setup.zsh
+[0.283s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/local_setup.dsv
+[0.283s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/package.dsv
+[0.283s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/ament_index/resource_index/packages/nav2_costmap_2d
+[0.283s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/ament_index/resource_index/nav2_costmap_2d__pluginlib__plugin/nav2_costmap_2d
+[0.283s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.283s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/cmake/ament_cmake_export_libraries-extras.cmake
+[0.283s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.284s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/cmake/ament_cmake_export_definitions-extras.cmake
+[0.284s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/cmake/nav2_costmap_2dConfig.cmake
+[0.284s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/cmake/nav2_costmap_2dConfig-version.cmake
+[0.285s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_costmap_2d/share/nav2_costmap_2d/package.xml
+[0.285s] Invoked command in '/home/jucy/ydlidar_ws_11_29/build/nav2_costmap_2d' returned '0': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_map_server:/home/jucy/ydlidar_ws_11_29/install/nav2_lifecycle_manager:/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_voxel_grid:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_map_server:/home/jucy/ydlidar_ws_11_29/install/nav2_lifecycle_manager:/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_voxel_grid:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_map_server/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_lifecycle_manager/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_voxel_grid/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/build/nav2_costmap_2d

@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build/jdamr200_node/jdamr200_node.egg-info
+writing ../../build/jdamr200_node/jdamr200_node.egg-info/PKG-INFO
+writing dependency_links to ../../build/jdamr200_node/jdamr200_node.egg-info/dependency_links.txt
+writing entry points to ../../build/jdamr200_node/jdamr200_node.egg-info/entry_points.txt
+writing requirements to ../../build/jdamr200_node/jdamr200_node.egg-info/requires.txt
+writing top-level names to ../../build/jdamr200_node/jdamr200_node.egg-info/top_level.txt
+writing manifest file '../../build/jdamr200_node/jdamr200_node.egg-info/SOURCES.txt'
+reading manifest file '../../build/jdamr200_node/jdamr200_node.egg-info/SOURCES.txt'
+writing manifest file '../../build/jdamr200_node/jdamr200_node.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/jdamr200_node/build
+creating /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/jdamr200_node/build/lib
+creating /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/jdamr200_node/build/lib/jdamr200_node
+copying jdamr200_node/jdamr200_node.py -> /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/jdamr200_node/build/lib/jdamr200_node
+copying jdamr200_node/__init__.py -> /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/jdamr200_node/build/lib/jdamr200_node
+running install
+running install_lib
+creating /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node/lib/python3.8/site-packages/jdamr200_node
+copying /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/jdamr200_node/build/lib/jdamr200_node/jdamr200_node.py -> /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node/lib/python3.8/site-packages/jdamr200_node
+copying /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/jdamr200_node/build/lib/jdamr200_node/__init__.py -> /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node/lib/python3.8/site-packages/jdamr200_node
+byte-compiling /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node/lib/python3.8/site-packages/jdamr200_node/jdamr200_node.py to jdamr200_node.cpython-38.pyc
+byte-compiling /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node/lib/python3.8/site-packages/jdamr200_node/__init__.py to __init__.cpython-38.pyc
+running install_data
+creating /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node/share/ament_index
+creating /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node/share/ament_index/resource_index
+creating /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node/share/ament_index/resource_index/packages
+copying resource/jdamr200_node -> /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node/share/ament_index/resource_index/packages
+copying package.xml -> /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node/share/jdamr200_node
+running install_egg_info
+Copying ../../build/jdamr200_node/jdamr200_node.egg-info to /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node/lib/python3.8/site-packages/jdamr200_node-0.0.0-py3.8.egg-info
+running install_scripts
+Installing jdamr200_node script to /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node/lib/jdamr200_node
+writing list of installed files to '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/jdamr200_node/install.log'

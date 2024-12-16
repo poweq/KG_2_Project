@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case A Control</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .status {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .button-group {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Case B Controls</h2>
+    <div class="status-and-buttons">
+        <p id="case_b_status" class="status">B: No Data</p>
+        <div class="button-group">
+            <!-- Open/Close 버튼 -->
+            <button class="btn-open" onclick="sendCaseCommand('b', 'open')">Open</button>
+            <button class="btn-close" onclick="sendCaseCommand('b', 'close')">Close</button>
+        </div>
+        <div class="button-group">
+            <!-- 1, 2, 3 버튼 -->
+            <button class="btn-number" onclick="sendCaseCommand('b', 1)">1</button>
+            <button class="btn-number" onclick="sendCaseCommand('b', 2)">2</button>
+            <button class="btn-number" onclick="sendCaseCommand('b', 3)">3</button>
+        </div>
+    </div>
+    
+    <script>
+        const socket = io();
+
+        // Case 상태 업데이트
+        socket.on("case_b_update", function(data) {
+            document.getElementById("case_b_status").textContent = `B: ${data.value}`;
+         });
+
+        // 명령 전송 함수
+        function sendCaseCommand(caseType, value) {
+        if (['a', 'b'].includes(caseType) && ([1, 2, 3].includes(value) || ['open', 'close'].includes(value))) {
+            const command = `${caseType}:${value}`;
+            sendCommand("case_command", command);
+
+            // 눌린 버튼 상태 표시
+            const buttons = document.querySelectorAll(".btn-open, .btn-close, .btn-number");
+            buttons.forEach((button) => button.classList.remove("clicked")); // 기존 상태 초기화
+
+            const button = event.target; // 현재 눌린 버튼
+            button.classList.add("clicked");
+        } else {
+            console.error("Invalid Case Command:", caseType, value);
+        }
+    }
+            // Flask로 명령 전송
+            function sendCommand(topic, command) {
+        fetch("/send_command", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ topic: topic, command: command }),
+        })
+        .then(response => response.json())
+        .then(data => console.log(`Command Sent: ${command} to ${topic}`, data))
+        .catch(err => console.error("Error sending command:", err));
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+-- Found ament_cmake_core: 0.9.12 (/opt/ros/foxy/share/ament_cmake_core/cmake)
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found ament_cmake_python: 0.9.12 (/opt/ros/foxy/share/ament_cmake_python/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_common
+-- Install configuration: ""
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/environment/pythonpath.sh
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/environment/pythonpath.dsv
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common/launch
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common/launch/rewritten_yaml.py
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common/launch/replace_string.py
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common/launch/has_node_params.py
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common/launch/__init__.py
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common/__init__.py
+Listing '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common'...
+Compiling '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common/__init__.py'...
+Listing '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common/launch'...
+Compiling '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common/launch/__init__.py'...
+Compiling '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common/launch/has_node_params.py'...
+Compiling '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common/launch/replace_string.py'...
+Compiling '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages/nav2_common/launch/rewritten_yaml.py'...
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/ament_index/resource_index/package_run_dependencies/nav2_common
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/ament_index/resource_index/parent_prefix_path/nav2_common
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/environment/ament_prefix_path.sh
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/environment/ament_prefix_path.dsv
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/environment/path.sh
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/environment/path.dsv
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/local_setup.bash
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/local_setup.sh
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/local_setup.zsh
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/local_setup.dsv
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/package.dsv
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/ament_index/resource_index/packages/nav2_common
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/cmake/nav2_common-extras.cmake
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/cmake/nav2_commonConfig.cmake
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/cmake/nav2_commonConfig-version.cmake
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/package.xml
+-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/cmake
+-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/share/nav2_common/cmake/nav2_package.cmake

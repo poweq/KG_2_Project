@@ -1,0 +1,4 @@
+Invoking command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_navigation2': /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_navigation2 -- -j12 -l12
+Invoked command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_navigation2' returned '0': /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_navigation2 -- -j12 -l12
+Invoking command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_navigation2': /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_navigation2
+Invoked command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_navigation2' returned '0': /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_navigation2

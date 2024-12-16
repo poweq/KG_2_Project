@@ -1,0 +1,236 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						4,
+						14
+					]
+				},
+				{
+					"build" : "test",
+					"childIndexes" : 
+					[
+						2
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13
+					]
+				},
+				{
+					"build" : "gtest",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "/opt/ros/foxy/src/gtest_vendor",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "smac_planner",
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "gtest",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "gtest::@0af4add9fe94340e763e",
+					"jsonFile" : "target-gtest-Release-347870354144a7df76a1.json",
+					"name" : "gtest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gtest_main::@0af4add9fe94340e763e",
+					"jsonFile" : "target-gtest_main-Release-99b576d935f788229105.json",
+					"name" : "gtest_main",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "smac_planner::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-smac_planner-Release-8fe35ce3fb1a55c02e74.json",
+					"name" : "smac_planner",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "smac_planner_2d::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-smac_planner_2d-Release-6921f2fc1af083ca6781.json",
+					"name" : "smac_planner_2d",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "smac_planner_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-smac_planner_uninstall-Release-9f72845ed8f7d8596e5c.json",
+					"name" : "smac_planner_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_a_star::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_a_star-Release-dd39bf255e333fe8f6d7.json",
+					"name" : "test_a_star",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_collision_checker::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_collision_checker-Release-93ef016a9a5e6183f311.json",
+					"name" : "test_collision_checker",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_costmap_downsampler::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_costmap_downsampler-Release-721bc15e91e108dfcffb.json",
+					"name" : "test_costmap_downsampler",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_node2d::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_node2d-Release-3f05b6a178a9e7c902ff.json",
+					"name" : "test_node2d",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_nodebasic::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_nodebasic-Release-9858f2b1d35bb2609f80.json",
+					"name" : "test_nodebasic",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_nodese2::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_nodese2-Release-ad2bbc00d8cf17aa456a.json",
+					"name" : "test_nodese2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_smac_2d::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_smac_2d-Release-99ac9f04563913a51464.json",
+					"name" : "test_smac_2d",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_smac_se2::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_smac_se2-Release-f01246ef850429445bb7.json",
+					"name" : "test_smac_se2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_smoother::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_smoother-Release-766b7d620b1329d01b99.json",
+					"name" : "test_smoother",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Release-0183d47a1e3c86473be1.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/smac_planner",
+		"source" : "/home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/navigation2/smac_planner"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

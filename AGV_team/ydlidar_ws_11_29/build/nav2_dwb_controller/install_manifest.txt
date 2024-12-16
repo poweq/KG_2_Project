@@ -1,0 +1,15 @@
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/ament_index/resource_index/package_run_dependencies/nav2_dwb_controller
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/ament_index/resource_index/parent_prefix_path/nav2_dwb_controller
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/nav2_dwb_controller/environment/ament_prefix_path.sh
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/nav2_dwb_controller/environment/ament_prefix_path.dsv
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/nav2_dwb_controller/environment/path.sh
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/nav2_dwb_controller/environment/path.dsv
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/nav2_dwb_controller/local_setup.bash
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/nav2_dwb_controller/local_setup.sh
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/nav2_dwb_controller/local_setup.zsh
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/nav2_dwb_controller/local_setup.dsv
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/nav2_dwb_controller/package.dsv
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/ament_index/resource_index/packages/nav2_dwb_controller
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/nav2_dwb_controller/cmake/nav2_dwb_controllerConfig.cmake
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/nav2_dwb_controller/cmake/nav2_dwb_controllerConfig-version.cmake
+/home/jucy/ydlidar_ws_11_29/install/nav2_dwb_controller/share/nav2_dwb_controller/package.xml

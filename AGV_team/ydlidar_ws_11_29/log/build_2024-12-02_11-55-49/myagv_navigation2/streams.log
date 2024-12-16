@@ -1,0 +1,64 @@
+[0.232s] Invoking command in '/home/jucy/ydlidar_ws_11_29/build/myagv_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node /usr/bin/cmake /home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/myagv_navigation2 -DCMAKE_INSTALL_PREFIX=/home/jucy/ydlidar_ws_11_29/install/myagv_navigation2
+[0.289s] -- The C compiler identification is GNU 9.4.0
+[0.342s] -- The CXX compiler identification is GNU 9.4.0
+[0.349s] -- Check for working C compiler: /usr/bin/cc
+[0.413s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.413s] -- Detecting C compiler ABI info
+[0.477s] -- Detecting C compiler ABI info - done
+[0.487s] -- Detecting C compile features
+[0.488s] -- Detecting C compile features - done
+[0.490s] -- Check for working CXX compiler: /usr/bin/c++
+[0.564s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.565s] -- Detecting CXX compiler ABI info
+[0.644s] -- Detecting CXX compiler ABI info - done
+[0.666s] -- Detecting CXX compile features
+[0.667s] -- Detecting CXX compile features - done
+[0.669s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.691s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.691s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.897s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[0.977s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.978s] -- Added test 'lint_cmake' to check CMake code style
+[0.979s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[0.982s] -- Added test 'xmllint' to check XML markup files
+[0.984s] -- Configuring done
+[0.986s] -- Generating done
+[0.987s] -- Build files have been written to: /home/jucy/ydlidar_ws_11_29/build/myagv_navigation2
+[0.991s] Invoked command in '/home/jucy/ydlidar_ws_11_29/build/myagv_navigation2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node /usr/bin/cmake /home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/myagv_navigation2 -DCMAKE_INSTALL_PREFIX=/home/jucy/ydlidar_ws_11_29/install/myagv_navigation2
+[0.994s] Invoking command in '/home/jucy/ydlidar_ws_11_29/build/myagv_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/build/myagv_navigation2 -- -j12 -l12
+[1.030s] Invoked command in '/home/jucy/ydlidar_ws_11_29/build/myagv_navigation2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/build/myagv_navigation2 -- -j12 -l12
+[1.042s] Invoking command in '/home/jucy/ydlidar_ws_11_29/build/myagv_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/build/myagv_navigation2
+[1.051s] -- Install configuration: ""
+[1.051s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/launch
+[1.052s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/launch/navigation2.launch.py
+[1.052s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/map
+[1.052s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/map/test7_map.pgm
+[1.052s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/map/test5_map.yaml
+[1.052s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/map/test4_map.yaml
+[1.052s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/map/test6_map.pgm
+[1.052s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/map/test4_map.pgm
+[1.052s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/map/test5_map.pgm
+[1.052s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/map/test6_map.yaml
+[1.052s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/map/test7_map.yaml
+[1.052s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/map/test7_map.zip
+[1.053s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/param
+[1.053s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/param/myagv.yaml
+[1.053s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/param/follow_point_bt.xml
+[1.053s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/rviz
+[1.053s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/rviz/nav2_config_object_following.rviz
+[1.053s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/ament_index/resource_index/package_run_dependencies/myagv_navigation2
+[1.053s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/ament_index/resource_index/parent_prefix_path/myagv_navigation2
+[1.053s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/environment/ament_prefix_path.sh
+[1.053s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/environment/ament_prefix_path.dsv
+[1.053s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/environment/path.sh
+[1.053s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/environment/path.dsv
+[1.053s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/local_setup.bash
+[1.054s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/local_setup.sh
+[1.054s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/local_setup.zsh
+[1.054s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/local_setup.dsv
+[1.054s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/package.dsv
+[1.054s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/ament_index/resource_index/packages/myagv_navigation2
+[1.054s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/cmake/myagv_navigation2Config.cmake
+[1.054s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/cmake/myagv_navigation2Config-version.cmake
+[1.054s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/myagv_navigation2/share/myagv_navigation2/package.xml
+[1.057s] Invoked command in '/home/jucy/ydlidar_ws_11_29/build/myagv_navigation2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/build/myagv_navigation2

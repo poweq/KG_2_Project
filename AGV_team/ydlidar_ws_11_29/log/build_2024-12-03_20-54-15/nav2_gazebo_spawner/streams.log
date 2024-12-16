@@ -1,0 +1,37 @@
+[5.491s] Invoking command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/navigation2/nav2_bringup/nav2_gazebo_spawner': PYTHONPATH=/home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../../build/nav2_gazebo_spawner build --build-base /home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/build install --record /home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/install.log --install-scripts $base/lib/nav2_gazebo_spawner --single-version-externally-managed install_data
+[5.694s] running egg_info
+[5.694s] creating ../../../../../build/nav2_gazebo_spawner/nav2_gazebo_spawner.egg-info
+[5.695s] writing ../../../../../build/nav2_gazebo_spawner/nav2_gazebo_spawner.egg-info/PKG-INFO
+[5.695s] writing dependency_links to ../../../../../build/nav2_gazebo_spawner/nav2_gazebo_spawner.egg-info/dependency_links.txt
+[5.695s] writing entry points to ../../../../../build/nav2_gazebo_spawner/nav2_gazebo_spawner.egg-info/entry_points.txt
+[5.695s] writing requirements to ../../../../../build/nav2_gazebo_spawner/nav2_gazebo_spawner.egg-info/requires.txt
+[5.695s] writing top-level names to ../../../../../build/nav2_gazebo_spawner/nav2_gazebo_spawner.egg-info/top_level.txt
+[5.754s] writing manifest file '../../../../../build/nav2_gazebo_spawner/nav2_gazebo_spawner.egg-info/SOURCES.txt'
+[5.794s] reading manifest file '../../../../../build/nav2_gazebo_spawner/nav2_gazebo_spawner.egg-info/SOURCES.txt'
+[5.795s] writing manifest file '../../../../../build/nav2_gazebo_spawner/nav2_gazebo_spawner.egg-info/SOURCES.txt'
+[5.795s] running build
+[5.795s] running build_py
+[5.796s] creating /home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/build
+[5.796s] creating /home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/build/lib
+[5.797s] creating /home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/build/lib/nav2_gazebo_spawner
+[5.797s] copying nav2_gazebo_spawner/nav2_gazebo_spawner.py -> /home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/build/lib/nav2_gazebo_spawner
+[5.810s] copying nav2_gazebo_spawner/__init__.py -> /home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/build/lib/nav2_gazebo_spawner
+[5.811s] running install
+[5.814s] running install_lib
+[5.818s] creating /home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/lib/python3.8/site-packages/nav2_gazebo_spawner
+[5.818s] copying /home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/build/lib/nav2_gazebo_spawner/nav2_gazebo_spawner.py -> /home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/lib/python3.8/site-packages/nav2_gazebo_spawner
+[5.819s] copying /home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/build/lib/nav2_gazebo_spawner/__init__.py -> /home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/lib/python3.8/site-packages/nav2_gazebo_spawner
+[5.820s] byte-compiling /home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/lib/python3.8/site-packages/nav2_gazebo_spawner/nav2_gazebo_spawner.py to nav2_gazebo_spawner.cpython-38.pyc
+[5.826s] byte-compiling /home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/lib/python3.8/site-packages/nav2_gazebo_spawner/__init__.py to __init__.cpython-38.pyc
+[5.827s] running install_data
+[5.828s] creating /home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/share/ament_index
+[5.828s] creating /home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/share/ament_index/resource_index
+[5.828s] creating /home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/share/ament_index/resource_index/packages
+[5.829s] copying resource/nav2_gazebo_spawner -> /home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/share/ament_index/resource_index/packages
+[5.829s] copying package.xml -> /home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/share/nav2_gazebo_spawner
+[5.829s] running install_egg_info
+[5.833s] Copying ../../../../../build/nav2_gazebo_spawner/nav2_gazebo_spawner.egg-info to /home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/lib/python3.8/site-packages/nav2_gazebo_spawner-0.3.0-py3.8.egg-info
+[5.835s] running install_scripts
+[5.858s] Installing nav2_gazebo_spawner script to /home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/lib/nav2_gazebo_spawner
+[5.858s] writing list of installed files to '/home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/install.log'
+[5.877s] Invoked command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/navigation2/nav2_bringup/nav2_gazebo_spawner' returned '0': PYTHONPATH=/home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../../build/nav2_gazebo_spawner build --build-base /home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/build install --record /home/jucy/ydlidar_ws_11_29/build/nav2_gazebo_spawner/install.log --install-scripts $base/lib/nav2_gazebo_spawner --single-version-externally-managed install_data

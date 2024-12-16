@@ -1,0 +1,61 @@
+[0.009s] Invoking command in '/home/jucy/ydlidar_ws_11_29/build/nav2_util': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/build/nav2_util -- -j12 -l12
+[0.063s] [ 10%] Built target gtest
+[0.063s] [ 10%] Built target gtest_main
+[0.072s] [ 15%] Built target dump_params
+[0.084s] [ 20%] Built target test_execution_timer
+[0.089s] [ 45%] Built target nav2_util_core
+[0.140s] [ 50%] Built target test_string_utils
+[0.143s] [ 55%] Built target lifecycle_bringup
+[0.145s] [ 60%] Built target test_lifecycle_utils
+[0.150s] [ 65%] Built target test_node_utils
+[0.150s] [ 75%] Built target test_lifecycle_node
+[0.151s] [ 75%] Built target test_lifecycle_cli_node
+[0.151s] [ 80%] Built target test_actions
+[0.152s] [ 85%] Built target test_service_client
+[0.153s] [ 92%] Built target test_odometry_utils
+[0.153s] [ 95%] Built target test_geometry_utils
+[0.161s] [100%] Built target test_robot_utils
+[0.173s] Invoked command in '/home/jucy/ydlidar_ws_11_29/build/nav2_util' returned '0': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/build/nav2_util -- -j12 -l12
+[0.175s] Invoking command in '/home/jucy/ydlidar_ws_11_29/build/nav2_util': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/build/nav2_util
+[0.184s] -- Install configuration: "Release"
+[0.184s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include/
+[0.184s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util
+[0.184s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/costmap.hpp
+[0.185s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/node_utils.hpp
+[0.185s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/simple_action_server.hpp
+[0.185s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/lifecycle_utils.hpp
+[0.185s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/robot_utils.hpp
+[0.185s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/node_thread.hpp
+[0.185s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/geometry_utils.hpp
+[0.185s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/clear_entirely_costmap_service_client.hpp
+[0.185s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/string_utils.hpp
+[0.186s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/execution_timer.hpp
+[0.186s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/odometry_utils.hpp
+[0.186s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/line_iterator.hpp
+[0.186s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/lifecycle_service_client.hpp
+[0.186s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/lifecycle_node.hpp
+[0.186s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/include//nav2_util/service_client.hpp
+[0.186s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/environment/library_path.sh
+[0.186s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/environment/library_path.dsv
+[0.186s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/ament_index/resource_index/package_run_dependencies/nav2_util
+[0.186s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/ament_index/resource_index/parent_prefix_path/nav2_util
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/environment/ament_prefix_path.sh
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/environment/ament_prefix_path.dsv
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/environment/path.sh
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/environment/path.dsv
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/local_setup.bash
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/local_setup.sh
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/local_setup.zsh
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/local_setup.dsv
+[0.187s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/package.dsv
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/ament_index/resource_index/packages/nav2_util
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/cmake/ament_cmake_export_libraries-extras.cmake
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/cmake/nav2_utilConfig.cmake
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/cmake/nav2_utilConfig-version.cmake
+[0.187s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/share/nav2_util/package.xml
+[0.188s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/lib/libnav2_util_core.so
+[0.188s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/lib/nav2_util/lifecycle_bringup
+[0.188s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_util/lib/nav2_util/dump_params
+[0.189s] Invoked command in '/home/jucy/ydlidar_ws_11_29/build/nav2_util' returned '0': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/build/nav2_util

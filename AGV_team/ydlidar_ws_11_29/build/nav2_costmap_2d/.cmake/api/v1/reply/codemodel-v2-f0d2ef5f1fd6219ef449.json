@@ -1,0 +1,284 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						16
+					]
+				},
+				{
+					"build" : "test",
+					"childIndexes" : 
+					[
+						2,
+						4
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test"
+				},
+				{
+					"build" : "test/unit",
+					"childIndexes" : 
+					[
+						3
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "test/unit",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "gtest",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 1,
+					"source" : "/opt/ros/foxy/src/gtest_vendor",
+					"targetIndexes" : 
+					[
+						3,
+						4
+					]
+				},
+				{
+					"build" : "test/integration",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "test/integration",
+					"targetIndexes" : 
+					[
+						2,
+						5,
+						13,
+						14,
+						15
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						4
+					],
+					"name" : "nav2_costmap_2d",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "gtest",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "array_parser_test::@eef10db73b2f22524f92",
+					"jsonFile" : "target-array_parser_test-Release-ebcb3c67a66c047065b0.json",
+					"name" : "array_parser_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "collision_footprint_test::@eef10db73b2f22524f92",
+					"jsonFile" : "target-collision_footprint_test-Release-459d703918d1d30779f0.json",
+					"name" : "collision_footprint_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "footprint_tests_exec::@52504cf1fab3ef64dbbb",
+					"jsonFile" : "target-footprint_tests_exec-Release-203d0e21292eac170395.json",
+					"name" : "footprint_tests_exec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "gtest::@0af4add9fe94340e763e",
+					"jsonFile" : "target-gtest-Release-9f6cff7ec16e980cd430.json",
+					"name" : "gtest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "gtest_main::@0af4add9fe94340e763e",
+					"jsonFile" : "target-gtest_main-Release-b0fcf92fc55ed70872fa.json",
+					"name" : "gtest_main",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "inflation_tests_exec::@52504cf1fab3ef64dbbb",
+					"jsonFile" : "target-inflation_tests_exec-Release-ef67852279d349782c17.json",
+					"name" : "inflation_tests_exec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "layers::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-layers-Release-1c6657df90011e2a06bb.json",
+					"name" : "layers",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nav2_costmap_2d::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nav2_costmap_2d-Release-39d1dae24b9fc145025c.json",
+					"name" : "nav2_costmap_2d",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nav2_costmap_2d_client::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nav2_costmap_2d_client-Release-74a07fcdc4dbd7409f18.json",
+					"name" : "nav2_costmap_2d_client",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nav2_costmap_2d_cloud::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nav2_costmap_2d_cloud-Release-90c6f1a0978ea9143785.json",
+					"name" : "nav2_costmap_2d_cloud",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nav2_costmap_2d_core::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nav2_costmap_2d_core-Release-aefb43d1325a53b3b106.json",
+					"name" : "nav2_costmap_2d_core",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nav2_costmap_2d_markers::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nav2_costmap_2d_markers-Release-0f57a0eccaf184972199.json",
+					"name" : "nav2_costmap_2d_markers",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nav2_costmap_2d_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nav2_costmap_2d_uninstall-Release-be3e3e74272c27902d36.json",
+					"name" : "nav2_costmap_2d_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "obstacle_tests_exec::@52504cf1fab3ef64dbbb",
+					"jsonFile" : "target-obstacle_tests_exec-Release-366acc6e67b0fc7c2d8e.json",
+					"name" : "obstacle_tests_exec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "range_tests_exec::@52504cf1fab3ef64dbbb",
+					"jsonFile" : "target-range_tests_exec-Release-ab35a9fb845257b1cf0d.json",
+					"name" : "range_tests_exec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_collision_checker_exec::@52504cf1fab3ef64dbbb",
+					"jsonFile" : "target-test_collision_checker_exec-Release-cc87c884a113267de5a4.json",
+					"name" : "test_collision_checker_exec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Release-25e9741ce2a85489a0f5.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/jucy/ydlidar_ws_11_29/build/nav2_costmap_2d",
+		"source" : "/home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/navigation2/nav2_costmap_2d"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

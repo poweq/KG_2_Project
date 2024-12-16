@@ -1,0 +1,8 @@
+[0.249s] Invoking command in '/home/jucy/ydlidar_ws_11_29/build/nav_2d_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node:/home/jucy/turtlebot3_ws/install/turtlebot3_teleop:/home/jucy/turtlebot3_ws/install/turtlebot3_example:/home/jucy/turtlebot3_ws/install/nav2_goal_pulisher_test:/home/jucy/turtlebot3_ws/install/nav2_goal_publisher:/home/jucy/ros2_ws/install/camera_udp_communication:/home/jucy/ros2_ws/install/agv_control_py:/home/jucy/ydlidar_ros2_ws/install/jdamr200_teleop:/home/jucy/ydlidar_ros2_ws/install/jdamr200_node /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/build/nav_2d_msgs -- -j12 -l12
+[1.229s] [  1%] Built target nav_2d_msgs__cpp
+[1.516s] make[1]: *** [CMakeFiles/Makefile2:468: CMakeFiles/nav_2d_msgs__rosidl_typesupport_fastrtps_cpp.dir/all] Interrupt
+[1.517s] make[1]: *** [CMakeFiles/Makefile2:300: CMakeFiles/nav_2d_msgs__rosidl_typesupport_cpp.dir/all] Interrupt
+[1.517s] make[2]: *** [CMakeFiles/nav_2d_msgs__rosidl_generator_c.dir/build.make:392: CMakeFiles/nav_2d_msgs__rosidl_generator_c.dir/depend] Interrupt
+[1.518s] make[1]: *** [CMakeFiles/Makefile2:327: CMakeFiles/nav_2d_msgs__rosidl_generator_c.dir/all] Interrupt
+[1.541s] make[1]: *** [CMakeFiles/Makefile2:381: CMakeFiles/nav_2d_msgs__rosidl_typesupport_introspection_cpp.dir/all] Interrupt
+[1.542s] make: *** [Makefile:141: all] Interrupt

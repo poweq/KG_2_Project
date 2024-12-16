@@ -1,0 +1,181 @@
+[0.000000] (-) TimerEvent: {}
+[0.000474] (-) JobUnselected: {'identifier': 'costmap_queue'}
+[0.000502] (-) JobUnselected: {'identifier': 'dwb_core'}
+[0.000522] (-) JobUnselected: {'identifier': 'dwb_critics'}
+[0.000537] (-) JobUnselected: {'identifier': 'dwb_msgs'}
+[0.000575] (-) JobUnselected: {'identifier': 'dwb_plugins'}
+[0.000592] (-) JobUnselected: {'identifier': 'jdamr200_node'}
+[0.000605] (-) JobUnselected: {'identifier': 'myagv_bringup'}
+[0.000619] (-) JobUnselected: {'identifier': 'myagv_description'}
+[0.000657] (-) JobUnselected: {'identifier': 'myagv_navigation2'}
+[0.000756] (-) JobUnselected: {'identifier': 'nav2_amcl'}
+[0.000786] (-) JobUnselected: {'identifier': 'nav2_bringup'}
+[0.000804] (-) JobUnselected: {'identifier': 'nav2_bt_navigator'}
+[0.000827] (-) JobUnselected: {'identifier': 'nav2_common'}
+[0.000851] (-) JobUnselected: {'identifier': 'nav2_controller'}
+[0.000869] (-) JobUnselected: {'identifier': 'nav2_core'}
+[0.000928] (-) JobUnselected: {'identifier': 'nav2_costmap_2d'}
+[0.000971] (-) JobUnselected: {'identifier': 'nav2_dwb_controller'}
+[0.000992] (-) JobUnselected: {'identifier': 'nav2_gazebo_spawner'}
+[0.001013] (-) JobUnselected: {'identifier': 'nav2_lifecycle_manager'}
+[0.001061] (-) JobUnselected: {'identifier': 'nav2_map_server'}
+[0.001119] (-) JobUnselected: {'identifier': 'nav2_msgs'}
+[0.001142] (-) JobUnselected: {'identifier': 'nav2_navfn_planner'}
+[0.001170] (-) JobUnselected: {'identifier': 'nav2_planner'}
+[0.001187] (-) JobUnselected: {'identifier': 'nav2_recoveries'}
+[0.001236] (-) JobUnselected: {'identifier': 'nav2_regulated_pure_pursuit_controller'}
+[0.001278] (-) JobUnselected: {'identifier': 'nav2_rviz_plugins'}
+[0.001300] (-) JobUnselected: {'identifier': 'nav2_system_tests'}
+[0.001317] (-) JobUnselected: {'identifier': 'nav2_util'}
+[0.001334] (-) JobUnselected: {'identifier': 'nav2_voxel_grid'}
+[0.001354] (-) JobUnselected: {'identifier': 'nav2_waypoint_follower'}
+[0.001413] (-) JobUnselected: {'identifier': 'nav_2d_msgs'}
+[0.001441] (-) JobUnselected: {'identifier': 'nav_2d_utils'}
+[0.001458] (-) JobUnselected: {'identifier': 'navigation2'}
+[0.001487] (-) JobUnselected: {'identifier': 'smac_planner'}
+[0.001505] (-) JobUnselected: {'identifier': 'ydlidar_ros2_driver'}
+[0.001625] (nav2_behavior_tree) JobQueued: {'identifier': 'nav2_behavior_tree', 'dependencies': OrderedDict([('nav2_common', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common'), ('nav2_msgs', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs'), ('nav2_util', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util')])}
+[0.001701] (nav2_behavior_tree) JobStarted: {'identifier': 'nav2_behavior_tree'}
+[0.014362] (nav2_behavior_tree) JobProgress: {'identifier': 'nav2_behavior_tree', 'progress': 'cmake'}
+[0.016813] (nav2_behavior_tree) JobProgress: {'identifier': 'nav2_behavior_tree', 'progress': 'build'}
+[0.016859] (nav2_behavior_tree) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree', '--', '-j12', '-l12'], 'cwd': '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jucy'), ('LC_TIME', 'ko_KR.UTF-8'), ('SSH_AGENT_PID', '2359'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/jucy'), ('OLDPWD', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ko_KR.UTF-8'), ('MANAGERPID', '2215'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2793'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jucy'), ('JOURNAL_STREAM', '8:50192'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'jucy'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/usr/bin/python3.8:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/jucy:@/tmp/.ICE-unix/2397,unix/jucy:/tmp/.ICE-unix/2397'), ('INVOCATION_ID', '2e4371950db341e99deab30d57b729f1'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ko_KR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ko_KR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ko_KR.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:adbf21c7-b807-4d5b-b6c1-1783fc108ccb'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ko_KR.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'ko_KR.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages:/usr/bin/python3.8:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'ko_KR.UTF-8'), ('LC_PAPER', 'ko_KR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy')]), 'shell': False}
+[0.093060] (nav2_behavior_tree) StdoutLine: {'line': b'[  2%] Built target nav2_pipeline_sequence_bt_node\n'}
+[0.096588] (nav2_behavior_tree) StdoutLine: {'line': b'[  4%] Built target nav2_initial_pose_received_condition_bt_node\n'}
+[0.099635] (-) TimerEvent: {}
+[0.100182] (nav2_behavior_tree) StdoutLine: {'line': b'[  6%] Built target nav2_goal_updated_condition_bt_node\n'}
+[0.107596] (nav2_behavior_tree) StdoutLine: {'line': b'[ 10%] Built target nav2_behavior_tree\n'}
+[0.107860] (nav2_behavior_tree) StdoutLine: {'line': b'[ 10%] Built target nav2_is_stuck_condition_bt_node\n'}
+[0.108106] (nav2_behavior_tree) StdoutLine: {'line': b'[ 12%] Built target nav2_wait_action_bt_node\n'}
+[0.108341] (nav2_behavior_tree) StdoutLine: {'line': b'[ 14%] Built target nav2_transform_available_condition_bt_node\n'}
+[0.110353] (nav2_behavior_tree) StdoutLine: {'line': b'[ 16%] Built target nav2_compute_path_to_pose_action_bt_node\n'}
+[0.114061] (nav2_behavior_tree) StdoutLine: {'line': b'[ 18%] Built target nav2_follow_path_action_bt_node\n'}
+[0.115623] (nav2_behavior_tree) StdoutLine: {'line': b'[ 20%] Built target nav2_spin_action_bt_node\n'}
+[0.116002] (nav2_behavior_tree) StdoutLine: {'line': b'[ 22%] Built target nav2_goal_updater_node_bt_node\n'}
+[0.124738] (nav2_behavior_tree) StdoutLine: {'line': b'[ 24%] Built target nav2_goal_reached_condition_bt_node\n'}
+[0.148860] (nav2_behavior_tree) StdoutLine: {'line': b'[ 26%] Built target nav2_time_expired_condition_bt_node\n'}
+[0.152222] (nav2_behavior_tree) StdoutLine: {'line': b'[ 30%] Built target nav2_rate_controller_bt_node\n'}
+[0.152466] (nav2_behavior_tree) StdoutLine: {'line': b'[ 30%] Built target nav2_round_robin_node_bt_node\n'}
+[0.160852] (nav2_behavior_tree) StdoutLine: {'line': b'[ 32%] Built target nav2_is_battery_low_condition_bt_node\n'}
+[0.166321] (nav2_behavior_tree) StdoutLine: {'line': b'[ 34%] Built target nav2_reinitialize_global_localization_service_bt_node\n'}
+[0.169182] (nav2_behavior_tree) StdoutLine: {'line': b'[ 36%] Built target nav2_distance_controller_bt_node\n'}
+[0.171088] (nav2_behavior_tree) StdoutLine: {'line': b'[ 38%] Built target nav2_clear_costmap_service_bt_node\n'}
+[0.177515] (nav2_behavior_tree) StdoutLine: {'line': b'[ 40%] Built target nav2_truncate_path_action_bt_node\n'}
+[0.177794] (nav2_behavior_tree) StdoutLine: {'line': b'[ 42%] Built target nav2_distance_traveled_condition_bt_node\n'}
+[0.178926] (nav2_behavior_tree) StdoutLine: {'line': b'[ 44%] Built target nav2_speed_controller_bt_node\n'}
+[0.179495] (nav2_behavior_tree) StdoutLine: {'line': b'[ 46%] Built target nav2_navigate_to_pose_action_bt_node\n'}
+[0.179826] (nav2_behavior_tree) StdoutLine: {'line': b'[ 48%] Built target gtest\n'}
+[0.183432] (nav2_behavior_tree) StdoutLine: {'line': b'[ 51%] Built target nav2_back_up_action_bt_node\n'}
+[0.184500] (nav2_behavior_tree) StdoutLine: {'line': b'[ 53%] Built target gtest_main\n'}
+[0.186530] (nav2_behavior_tree) StdoutLine: {'line': b'[ 55%] Built target nav2_recovery_node_bt_node\n'}
+[0.199736] (-) TimerEvent: {}
+[0.246045] (nav2_behavior_tree) StdoutLine: {'line': b'[ 57%] Built target test_bt_conversions\n'}
+[0.248102] (nav2_behavior_tree) StdoutLine: {'line': b'[ 59%] Built target test_condition_goal_reached\n'}
+[0.248570] (nav2_behavior_tree) StdoutLine: {'line': b'[ 61%] Built target test_condition_distance_traveled\n'}
+[0.249422] (nav2_behavior_tree) StdoutLine: {'line': b'[ 63%] Built target test_goal_updater_node\n'}
+[0.249688] (nav2_behavior_tree) StdoutLine: {'line': b'[ 65%] Built target test_condition_goal_updated\n'}
+[0.249921] (nav2_behavior_tree) StdoutLine: {'line': b'[ 67%] Built target test_condition_time_expired\n'}
+[0.250128] (nav2_behavior_tree) StdoutLine: {'line': b'[ 69%] Built target test_condition_is_battery_low\n'}
+[0.252425] (nav2_behavior_tree) StdoutLine: {'line': b'[ 71%] Built target test_condition_initial_pose_received\n'}
+[0.259506] (nav2_behavior_tree) StdoutLine: {'line': b'[ 73%] Built target test_decorator_rate_controller\n'}
+[0.259876] (nav2_behavior_tree) StdoutLine: {'line': b'[ 75%] Built target test_condition_is_stuck\n'}
+[0.265359] (nav2_behavior_tree) StdoutLine: {'line': b'[ 77%] Built target test_decorator_speed_controller\n'}
+[0.271634] (nav2_behavior_tree) StdoutLine: {'line': b'[ 79%] Built target test_condition_transform_available\n'}
+[0.299842] (-) TimerEvent: {}
+[0.308112] (nav2_behavior_tree) StdoutLine: {'line': b'[ 81%] Built target test_control_pipeline_sequence\n'}
+[0.308439] (nav2_behavior_tree) StdoutLine: {'line': b'[ 83%] Built target test_decorator_distance_controller\n'}
+[0.309139] (nav2_behavior_tree) StdoutLine: {'line': b'[ 85%] Built target test_control_recovery_node\n'}
+[0.312625] (nav2_behavior_tree) StdoutLine: {'line': b'[ 87%] Built target test_control_round_robin_node\n'}
+[0.313725] (nav2_behavior_tree) StdoutLine: {'line': b'[ 89%] Built target test_action_navigate_to_pose_action\n'}
+[0.318361] (nav2_behavior_tree) StdoutLine: {'line': b'[ 91%] Built target test_action_reinitialize_global_localization_service\n'}
+[0.318742] (nav2_behavior_tree) StdoutLine: {'line': b'[ 94%] Built target test_action_follow_path_action\n'}
+[0.319032] (nav2_behavior_tree) StdoutLine: {'line': b'[ 95%] Built target test_action_clear_costmap_service\n'}
+[0.319211] (nav2_behavior_tree) StdoutLine: {'line': b'[ 97%] Built target test_truncate_path_action\n'}
+[0.320966] (nav2_behavior_tree) StdoutLine: {'line': b'[100%] Built target test_action_compute_path_to_pose_action\n'}
+[0.333542] (nav2_behavior_tree) CommandEnded: {'returncode': 0}
+[0.335381] (nav2_behavior_tree) JobProgress: {'identifier': 'nav2_behavior_tree', 'progress': 'install'}
+[0.344879] (nav2_behavior_tree) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree'], 'cwd': '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jucy'), ('LC_TIME', 'ko_KR.UTF-8'), ('SSH_AGENT_PID', '2359'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/jucy'), ('OLDPWD', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ko_KR.UTF-8'), ('MANAGERPID', '2215'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2793'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jucy'), ('JOURNAL_STREAM', '8:50192'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'jucy'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/usr/bin/python3.8:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/jucy:@/tmp/.ICE-unix/2397,unix/jucy:/tmp/.ICE-unix/2397'), ('INVOCATION_ID', '2e4371950db341e99deab30d57b729f1'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ko_KR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ko_KR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ko_KR.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:adbf21c7-b807-4d5b-b6c1-1783fc108ccb'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ko_KR.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'ko_KR.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages:/usr/bin/python3.8:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'ko_KR.UTF-8'), ('LC_PAPER', 'ko_KR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy')]), 'shell': False}
+[0.356660] (nav2_behavior_tree) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[0.357259] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_behavior_tree.so\n'}
+[0.357554] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_compute_path_to_pose_action_bt_node.so\n'}
+[0.358036] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_follow_path_action_bt_node.so\n'}
+[0.358491] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_back_up_action_bt_node.so\n'}
+[0.358884] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_spin_action_bt_node.so\n'}
+[0.359411] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_wait_action_bt_node.so\n'}
+[0.359919] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_clear_costmap_service_bt_node.so\n'}
+[0.360321] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_is_stuck_condition_bt_node.so\n'}
+[0.360699] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_transform_available_condition_bt_node.so\n'}
+[0.361071] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_goal_reached_condition_bt_node.so\n'}
+[0.361454] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_goal_updated_condition_bt_node.so\n'}
+[0.361833] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_time_expired_condition_bt_node.so\n'}
+[0.362213] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_distance_traveled_condition_bt_node.so\n'}
+[0.362634] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_initial_pose_received_condition_bt_node.so\n'}
+[0.363003] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_is_battery_low_condition_bt_node.so\n'}
+[0.363519] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_reinitialize_global_localization_service_bt_node.so\n'}
+[0.363913] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_rate_controller_bt_node.so\n'}
+[0.364285] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_distance_controller_bt_node.so\n'}
+[0.364598] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_speed_controller_bt_node.so\n'}
+[0.365096] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_truncate_path_action_bt_node.so\n'}
+[0.365478] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_goal_updater_node_bt_node.so\n'}
+[0.365864] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_recovery_node_bt_node.so\n'}
+[0.366204] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_navigate_to_pose_action_bt_node.so\n'}
+[0.366593] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_pipeline_sequence_bt_node.so\n'}
+[0.366892] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_round_robin_node_bt_node.so\n'}
+[0.367155] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include/\n'}
+[0.367460] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree\n'}
+[0.367748] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/bt_action_node.hpp\n'}
+[0.367858] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins\n'}
+[0.367947] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/decorator\n'}
+[0.368007] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/decorator/rate_controller.hpp\n'}
+[0.368067] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/decorator/distance_controller.hpp\n'}
+[0.368124] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/decorator/goal_updater_node.hpp\n'}
+[0.368181] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/decorator/speed_controller.hpp\n'}
+[0.368237] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition\n'}
+[0.368294] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/goal_updated_condition.hpp\n'}
+[0.368350] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/goal_reached_condition.hpp\n'}
+[0.368407] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/distance_traveled_condition.hpp\n'}
+[0.368534] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/time_expired_condition.hpp\n'}
+[0.368601] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/is_stuck_condition.hpp\n'}
+[0.368660] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/is_battery_low_condition.hpp\n'}
+[0.368719] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/transform_available_condition.hpp\n'}
+[0.368778] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/initial_pose_received_condition.hpp\n'}
+[0.368955] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/control\n'}
+[0.369016] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/control/round_robin_node.hpp\n'}
+[0.369109] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/control/recovery_node.hpp\n'}
+[0.369171] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/control/pipeline_sequence.hpp\n'}
+[0.369230] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action\n'}
+[0.369288] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/clear_costmap_service.hpp\n'}
+[0.369397] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/compute_path_to_pose_action.hpp\n'}
+[0.369453] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/reinitialize_global_localization_service.hpp\n'}
+[0.369517] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/navigate_to_pose_action.hpp\n'}
+[0.369628] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/back_up_action.hpp\n'}
+[0.369706] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/truncate_path_action.hpp\n'}
+[0.369779] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/wait_action.hpp\n'}
+[0.369864] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/spin_action.hpp\n'}
+[0.369937] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/follow_path_action.hpp\n'}
+[0.369991] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/bt_service_node.hpp\n'}
+[0.370045] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/behavior_tree_engine.hpp\n'}
+[0.370100] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/bt_conversions.hpp\n'}
+[0.370154] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/nav2_tree_nodes.xml\n'}
+[0.370207] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/environment/library_path.sh\n'}
+[0.370260] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/environment/library_path.dsv\n'}
+[0.370313] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/ament_index/resource_index/package_run_dependencies/nav2_behavior_tree\n'}
+[0.370367] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/ament_index/resource_index/parent_prefix_path/nav2_behavior_tree\n'}
+[0.370421] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/environment/ament_prefix_path.sh\n'}
+[0.370474] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/environment/ament_prefix_path.dsv\n'}
+[0.370527] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/environment/path.sh\n'}
+[0.370581] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/environment/path.dsv\n'}
+[0.370639] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/local_setup.bash\n'}
+[0.370693] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/local_setup.sh\n'}
+[0.370746] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/local_setup.zsh\n'}
+[0.370799] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/local_setup.dsv\n'}
+[0.370861] (nav2_behavior_tree) StdoutLine: {'line': b'-- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/package.dsv\n'}
+[0.370915] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/ament_index/resource_index/packages/nav2_behavior_tree\n'}
+[0.370969] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.371033] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[0.371091] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.371144] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/cmake/nav2_behavior_treeConfig.cmake\n'}
+[0.371197] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/cmake/nav2_behavior_treeConfig-version.cmake\n'}
+[0.371251] (nav2_behavior_tree) StdoutLine: {'line': b'-- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/package.xml\n'}
+[0.372593] (nav2_behavior_tree) CommandEnded: {'returncode': 0}
+[0.390990] (nav2_behavior_tree) JobEnded: {'identifier': 'nav2_behavior_tree', 'rc': 0}
+[0.391694] (-) EventReactorShutdown: {}

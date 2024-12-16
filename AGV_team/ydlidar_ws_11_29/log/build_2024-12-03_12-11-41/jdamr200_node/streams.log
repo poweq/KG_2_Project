@@ -1,0 +1,21 @@
+[3.108s] Invoking command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/jdamr200_node': PYTHONPATH=/home/jucy/ydlidar_ws_11_29/build/jdamr200_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/jdamr200_node build --build-base /home/jucy/ydlidar_ws_11_29/build/jdamr200_node/build install --record /home/jucy/ydlidar_ws_11_29/build/jdamr200_node/install.log --single-version-externally-managed install_data
+[3.505s] running egg_info
+[3.506s] writing ../../../build/jdamr200_node/jdamr200_node.egg-info/PKG-INFO
+[3.506s] writing dependency_links to ../../../build/jdamr200_node/jdamr200_node.egg-info/dependency_links.txt
+[3.506s] writing entry points to ../../../build/jdamr200_node/jdamr200_node.egg-info/entry_points.txt
+[3.506s] writing requirements to ../../../build/jdamr200_node/jdamr200_node.egg-info/requires.txt
+[3.507s] writing top-level names to ../../../build/jdamr200_node/jdamr200_node.egg-info/top_level.txt
+[3.680s] reading manifest file '../../../build/jdamr200_node/jdamr200_node.egg-info/SOURCES.txt'
+[3.722s] writing manifest file '../../../build/jdamr200_node/jdamr200_node.egg-info/SOURCES.txt'
+[3.722s] running build
+[3.722s] running build_py
+[3.795s] running install
+[3.796s] running install_lib
+[3.800s] running install_data
+[3.801s] running install_egg_info
+[3.802s] removing '/home/jucy/ydlidar_ws_11_29/install/jdamr200_node/lib/python3.8/site-packages/jdamr200_node-0.0.0-py3.8.egg-info' (and everything under it)
+[3.802s] Copying ../../../build/jdamr200_node/jdamr200_node.egg-info to /home/jucy/ydlidar_ws_11_29/install/jdamr200_node/lib/python3.8/site-packages/jdamr200_node-0.0.0-py3.8.egg-info
+[3.869s] running install_scripts
+[3.884s] Installing jdamr200_node script to /home/jucy/ydlidar_ws_11_29/install/jdamr200_node/lib/jdamr200_node
+[3.884s] writing list of installed files to '/home/jucy/ydlidar_ws_11_29/build/jdamr200_node/install.log'
+[3.929s] Invoked command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/jdamr200_node' returned '0': PYTHONPATH=/home/jucy/ydlidar_ws_11_29/build/jdamr200_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/jdamr200_node build --build-base /home/jucy/ydlidar_ws_11_29/build/jdamr200_node/build install --record /home/jucy/ydlidar_ws_11_29/build/jdamr200_node/install.log --single-version-externally-managed install_data

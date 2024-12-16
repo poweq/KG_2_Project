@@ -1,0 +1,135 @@
+[0.018s] Invoking command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree -- -j12 -l12
+[0.092s] [  2%] Built target nav2_pipeline_sequence_bt_node
+[0.094s] [  4%] Built target nav2_goal_updated_condition_bt_node
+[0.099s] [  6%] Built target nav2_initial_pose_received_condition_bt_node
+[0.102s] [  8%] Built target nav2_behavior_tree
+[0.108s] [ 10%] Built target nav2_is_stuck_condition_bt_node
+[0.108s] [ 12%] Built target nav2_transform_available_condition_bt_node
+[0.109s] [ 14%] Built target nav2_wait_action_bt_node
+[0.112s] [ 17%] Built target nav2_follow_path_action_bt_node
+[0.112s] [ 18%] Built target nav2_goal_reached_condition_bt_node
+[0.113s] [ 20%] Built target nav2_goal_updater_node_bt_node
+[0.116s] [ 22%] Built target nav2_spin_action_bt_node
+[0.118s] [ 24%] Built target nav2_compute_path_to_pose_action_bt_node
+[0.152s] [ 26%] Built target nav2_rate_controller_bt_node
+[0.160s] [ 28%] Built target nav2_is_battery_low_condition_bt_node
+[0.161s] [ 30%] Built target nav2_time_expired_condition_bt_node
+[0.163s] [ 32%] Built target nav2_round_robin_node_bt_node
+[0.165s] [ 34%] Built target nav2_reinitialize_global_localization_service_bt_node
+[0.166s] [ 36%] Built target nav2_distance_traveled_condition_bt_node
+[0.174s] [ 38%] Built target nav2_clear_costmap_service_bt_node
+[0.176s] [ 40%] Built target nav2_distance_controller_bt_node
+[0.177s] [ 42%] Built target nav2_truncate_path_action_bt_node
+[0.177s] [ 44%] Built target nav2_speed_controller_bt_node
+[0.180s] [ 46%] Built target nav2_navigate_to_pose_action_bt_node
+[0.181s] [ 48%] Built target nav2_back_up_action_bt_node
+[0.186s] [ 51%] Built target gtest
+[0.188s] [ 54%] Built target nav2_recovery_node_bt_node
+[0.188s] [ 55%] Built target gtest_main
+[0.236s] [ 57%] Built target test_bt_conversions
+[0.253s] [ 59%] Built target test_condition_initial_pose_received
+[0.254s] [ 61%] Built target test_goal_updater_node
+[0.255s] [ 65%] Built target test_condition_is_battery_low
+[0.255s] [ 65%] Built target test_condition_is_stuck
+[0.257s] [ 67%] Built target test_condition_distance_traveled
+[0.258s] [ 69%] Built target test_condition_time_expired
+[0.258s] [ 71%] Built target test_condition_transform_available
+[0.261s] [ 73%] Built target test_decorator_rate_controller
+[0.261s] [ 75%] Built target test_condition_goal_updated
+[0.265s] [ 77%] Built target test_condition_goal_reached
+[0.276s] [ 79%] Built target test_decorator_speed_controller
+[0.307s] [ 81%] Built target test_decorator_distance_controller
+[0.316s] [ 83%] Built target test_action_compute_path_to_pose_action
+[0.317s] [ 85%] Built target test_action_navigate_to_pose_action
+[0.318s] [ 87%] Built target test_control_round_robin_node
+[0.319s] [ 89%] Built target test_control_recovery_node
+[0.320s] [ 91%] Built target test_truncate_path_action
+[0.322s] [ 95%] Built target test_action_clear_costmap_service
+[0.322s] [ 95%] Built target test_control_pipeline_sequence
+[0.323s] [ 97%] Built target test_action_follow_path_action
+[0.324s] [100%] Built target test_action_reinitialize_global_localization_service
+[0.336s] Invoked command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree' returned '0': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree -- -j12 -l12
+[0.350s] Invoking command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree
+[0.359s] -- Install configuration: "Release"
+[0.359s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_behavior_tree.so
+[0.359s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_compute_path_to_pose_action_bt_node.so
+[0.359s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_follow_path_action_bt_node.so
+[0.360s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_back_up_action_bt_node.so
+[0.360s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_spin_action_bt_node.so
+[0.361s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_wait_action_bt_node.so
+[0.361s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_clear_costmap_service_bt_node.so
+[0.362s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_is_stuck_condition_bt_node.so
+[0.362s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_transform_available_condition_bt_node.so
+[0.362s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_goal_reached_condition_bt_node.so
+[0.363s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_goal_updated_condition_bt_node.so
+[0.363s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_time_expired_condition_bt_node.so
+[0.364s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_distance_traveled_condition_bt_node.so
+[0.364s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_initial_pose_received_condition_bt_node.so
+[0.364s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_is_battery_low_condition_bt_node.so
+[0.365s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_reinitialize_global_localization_service_bt_node.so
+[0.365s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_rate_controller_bt_node.so
+[0.366s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_distance_controller_bt_node.so
+[0.366s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_speed_controller_bt_node.so
+[0.366s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_truncate_path_action_bt_node.so
+[0.367s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_goal_updater_node_bt_node.so
+[0.367s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_recovery_node_bt_node.so
+[0.368s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_navigate_to_pose_action_bt_node.so
+[0.368s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_pipeline_sequence_bt_node.so
+[0.368s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/lib/libnav2_round_robin_node_bt_node.so
+[0.369s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include/
+[0.369s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree
+[0.369s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/bt_action_node.hpp
+[0.369s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins
+[0.369s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/decorator
+[0.369s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/decorator/rate_controller.hpp
+[0.369s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/decorator/distance_controller.hpp
+[0.369s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/decorator/goal_updater_node.hpp
+[0.369s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/decorator/speed_controller.hpp
+[0.369s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition
+[0.369s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/goal_updated_condition.hpp
+[0.370s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/goal_reached_condition.hpp
+[0.370s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/distance_traveled_condition.hpp
+[0.370s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/time_expired_condition.hpp
+[0.370s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/is_stuck_condition.hpp
+[0.370s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/is_battery_low_condition.hpp
+[0.370s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/transform_available_condition.hpp
+[0.370s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/condition/initial_pose_received_condition.hpp
+[0.370s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/control
+[0.370s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/control/round_robin_node.hpp
+[0.370s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/control/recovery_node.hpp
+[0.370s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/control/pipeline_sequence.hpp
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/clear_costmap_service.hpp
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/compute_path_to_pose_action.hpp
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/reinitialize_global_localization_service.hpp
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/navigate_to_pose_action.hpp
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/back_up_action.hpp
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/truncate_path_action.hpp
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/wait_action.hpp
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/spin_action.hpp
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/plugins/action/follow_path_action.hpp
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/bt_service_node.hpp
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/behavior_tree_engine.hpp
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/include//nav2_behavior_tree/bt_conversions.hpp
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/nav2_tree_nodes.xml
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/environment/library_path.sh
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/environment/library_path.dsv
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/ament_index/resource_index/package_run_dependencies/nav2_behavior_tree
+[0.371s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/ament_index/resource_index/parent_prefix_path/nav2_behavior_tree
+[0.372s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/environment/ament_prefix_path.sh
+[0.372s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/environment/ament_prefix_path.dsv
+[0.372s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/environment/path.sh
+[0.372s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/environment/path.dsv
+[0.372s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/local_setup.bash
+[0.372s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/local_setup.sh
+[0.372s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/local_setup.zsh
+[0.372s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/local_setup.dsv
+[0.372s] -- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/package.dsv
+[0.372s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/ament_index/resource_index/packages/nav2_behavior_tree
+[0.372s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.372s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/cmake/ament_cmake_export_libraries-extras.cmake
+[0.373s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.373s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/cmake/nav2_behavior_treeConfig.cmake
+[0.373s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/cmake/nav2_behavior_treeConfig-version.cmake
+[0.373s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_behavior_tree/share/nav2_behavior_tree/package.xml
+[0.374s] Invoked command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree' returned '0': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/nav2_behavior_tree

@@ -1,0 +1,12 @@
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/RobotModel
+      Enabled: true
+      Name: Robot Model
+      Robot Description: robot_description
+      Visual Enabled: true
+      Collision Enabled: false
+  Global Options:
+    Background Color: [48, 48, 48]
+    Frame: base_link

@@ -1,0 +1,4 @@
+Invoking command in '/home/jucy/ydlidar_ws_11_29/build/nav2_common': /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/build/nav2_common -- -j12 -l12
+Invoked command in '/home/jucy/ydlidar_ws_11_29/build/nav2_common' returned '0': /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/build/nav2_common -- -j12 -l12
+Invoking command in '/home/jucy/ydlidar_ws_11_29/build/nav2_common': /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/build/nav2_common
+Invoked command in '/home/jucy/ydlidar_ws_11_29/build/nav2_common' returned '0': /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/build/nav2_common
