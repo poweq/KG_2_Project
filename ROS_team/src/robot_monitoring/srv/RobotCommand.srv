@@ -1,4 +1,0 @@
-string command  # 요청 데이터: "start" 또는 "stop"
----
-bool success    # 응답 성공 여부
-string message  # 응답 메시지

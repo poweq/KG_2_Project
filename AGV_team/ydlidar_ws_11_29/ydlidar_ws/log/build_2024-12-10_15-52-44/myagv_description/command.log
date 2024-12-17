@@ -1,4 +1,0 @@
-Invoking command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description': /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description -- -j12 -l12
-Invoked command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description' returned '0': /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description -- -j12 -l12
-Invoking command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description': /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description
-Invoked command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description' returned '0': /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description

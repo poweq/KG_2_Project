@@ -1,7 +1,0 @@
-[0.000000] (-) TimerEvent: {}
-[0.000146] (-) JobUnselected: {'identifier': 'jdamr200_node'}
-[0.000311] (-) JobUnselected: {'identifier': 'myagv_bringup'}
-[0.000344] (-) JobUnselected: {'identifier': 'myagv_description'}
-[0.000370] (-) JobUnselected: {'identifier': 'myagv_navigation2'}
-[0.000396] (-) JobUnselected: {'identifier': 'ydlidar_ros2_driver'}
-[0.000702] (-) EventReactorShutdown: {}

@@ -1,9 +1,0 @@
-/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description/CMakeFiles/install/strip.dir
-/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description/CMakeFiles/install/local.dir
-/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description/CMakeFiles/edit_cache.dir
-/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description/CMakeFiles/test.dir
-/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description/CMakeFiles/install.dir
-/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description/CMakeFiles/list_install_components.dir
-/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description/CMakeFiles/rebuild_cache.dir
-/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description/CMakeFiles/myagv_description_uninstall.dir
-/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/myagv_description/CMakeFiles/uninstall.dir

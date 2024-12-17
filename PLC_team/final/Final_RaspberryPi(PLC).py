@@ -2,7 +2,6 @@ import cv2
 import asyncio
 import serial
 from pyzbar.pyzbar import decode
-import time
 import json
 import websockets
 import websocket
@@ -88,7 +87,7 @@ class ROS2WebSocketClient:
             print(f"Failed to publish message: {e}")
 
 async def send_signal(signal):
-    uri = "ws://192.168.0.131:8765" # PLC 서버
+    uri = "ws://192.168.0.131:8765"  # PLC 서버
     async with websockets.connect(uri) as websocket:
         await websocket.send(signal)
         response = await websocket.recv()
@@ -137,7 +136,9 @@ async def process_frame_async(frame, cap):
         print("QR 코드 처리가 완료되었습니다. 카메라를 다시 활성화합니다.")
         return True  # QR 코드가 감지된 경우에만 True 반환
 
-    print("QR 코드가 감지되지 않았습니다.")
+    # QR 코드가 감지되지 않았을 경우
+    arduino.write(b'f')  # 아두이노로 'f' 값 보내기
+    print("QR 코드가 감지되지 않았습니다. 'f' 전송.")
     return False  # QR 코드가 감지되지 않으면 False 반환
 
 async def main_async():
