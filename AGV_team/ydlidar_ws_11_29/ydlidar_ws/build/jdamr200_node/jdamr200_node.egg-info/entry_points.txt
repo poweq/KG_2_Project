@@ -1,0 +1,3 @@
+[console_scripts]
+jdamr200_node = jdamr200_node.jdamr200_node:main
+

@@ -1,0 +1,49 @@
+[0.823s] Invoking command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_gazebo_spawner:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node:/home/jucy/turtlebot3_ws/install/turtlebot3_teleop:/home/jucy/turtlebot3_ws/install/turtlebot3_example:/home/jucy/turtlebot3_ws/install/nav2_goal_pulisher_test:/home/jucy/turtlebot3_ws/install/nav2_goal_publisher:/home/jucy/ros2_ws/install/nav2_simple_commander:/home/jucy/ros2_ws/install/nav2_gazebo_spawner:/home/jucy/ros2_ws/install/camera_udp_communication:/home/jucy/ros2_ws/install/agv_control_py:/home/jucy/ydlidar_ros2_ws/install/jdamr200_teleop:/home/jucy/ydlidar_ros2_ws/install/jdamr200_node /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver -- -j12 -l12
+[1.853s] [ 50%] Built target ydlidar_ros2_driver_client
+[1.854s] [100%] Built target ydlidar_ros2_driver_node
+[1.913s] Invoked command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_gazebo_spawner:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node:/home/jucy/turtlebot3_ws/install/turtlebot3_teleop:/home/jucy/turtlebot3_ws/install/turtlebot3_example:/home/jucy/turtlebot3_ws/install/nav2_goal_pulisher_test:/home/jucy/turtlebot3_ws/install/nav2_goal_publisher:/home/jucy/ros2_ws/install/nav2_simple_commander:/home/jucy/ros2_ws/install/nav2_gazebo_spawner:/home/jucy/ros2_ws/install/camera_udp_communication:/home/jucy/ros2_ws/install/agv_control_py:/home/jucy/ydlidar_ros2_ws/install/jdamr200_teleop:/home/jucy/ydlidar_ros2_ws/install/jdamr200_node /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver -- -j12 -l12
+[1.927s] Invoking command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_gazebo_spawner:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node:/home/jucy/turtlebot3_ws/install/turtlebot3_teleop:/home/jucy/turtlebot3_ws/install/turtlebot3_example:/home/jucy/turtlebot3_ws/install/nav2_goal_pulisher_test:/home/jucy/turtlebot3_ws/install/nav2_goal_publisher:/home/jucy/ros2_ws/install/nav2_simple_commander:/home/jucy/ros2_ws/install/nav2_gazebo_spawner:/home/jucy/ros2_ws/install/camera_udp_communication:/home/jucy/ros2_ws/install/agv_control_py:/home/jucy/ydlidar_ros2_ws/install/jdamr200_teleop:/home/jucy/ydlidar_ros2_ws/install/jdamr200_node /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver
+[1.992s] -- Install configuration: ""
+[2.038s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/lib/ydlidar_ros2_driver/ydlidar_ros2_driver_node
+[2.070s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/lib/ydlidar_ros2_driver/ydlidar_ros2_driver_client
+[2.071s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/launch
+[2.073s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/launch/ydlidar_launch_view.py
+[2.074s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/launch/ydlidar_launch.py
+[2.075s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/launch/ydlidar.py
+[2.075s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/launch/ydlidar_cartographer.launch.py
+[2.076s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/launch/ydlidar_cartographer2.launch.py
+[2.076s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params
+[2.077s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/old.yaml
+[2.078s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/X4.yaml
+[2.078s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/G1.yaml
+[2.078s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/X4-Pro.yaml
+[2.079s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/TEA.yaml
+[2.080s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/TminiPro.yaml
+[2.080s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/TG.yaml
+[2.081s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/G6.yaml
+[2.081s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/GS2.yaml
+[2.082s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/G2.yaml
+[2.082s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/ydlidar.yaml
+[2.082s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/startup
+[2.083s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/startup/initenv.sh
+[2.083s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/config
+[2.083s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/config/ydlidar_cartographer.lua
+[2.084s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/config/ydlidar.rviz
+[2.084s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/config/ydlidar_cartographer.rviz
+[2.084s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/lib/ydlidar_ros2_driver/dynamic_tf_broadcaster.py
+[2.084s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ament_index/resource_index/package_run_dependencies/ydlidar_ros2_driver
+[2.084s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ament_index/resource_index/parent_prefix_path/ydlidar_ros2_driver
+[2.084s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/environment/ament_prefix_path.sh
+[2.085s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/environment/ament_prefix_path.dsv
+[2.085s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/environment/path.sh
+[2.085s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/environment/path.dsv
+[2.085s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/local_setup.bash
+[2.086s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/local_setup.sh
+[2.086s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/local_setup.zsh
+[2.086s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/local_setup.dsv
+[2.086s] -- Installing: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/package.dsv
+[2.086s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ament_index/resource_index/packages/ydlidar_ros2_driver
+[2.087s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/cmake/ydlidar_ros2_driverConfig.cmake
+[2.087s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/cmake/ydlidar_ros2_driverConfig-version.cmake
+[2.087s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/package.xml
+[2.107s] Invoked command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jucy/ydlidar_ws_11_29/install/nav2_gazebo_spawner:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/nav2_gazebo_spawner:/home/jucy/ydlidar_ws_11_29/ydlidar_ws/install/jdamr200_node:/home/jucy/turtlebot3_ws/install/turtlebot3_teleop:/home/jucy/turtlebot3_ws/install/turtlebot3_example:/home/jucy/turtlebot3_ws/install/nav2_goal_pulisher_test:/home/jucy/turtlebot3_ws/install/nav2_goal_publisher:/home/jucy/ros2_ws/install/nav2_simple_commander:/home/jucy/ros2_ws/install/nav2_gazebo_spawner:/home/jucy/ros2_ws/install/camera_udp_communication:/home/jucy/ros2_ws/install/agv_control_py:/home/jucy/ydlidar_ros2_ws/install/jdamr200_teleop:/home/jucy/ydlidar_ros2_ws/install/jdamr200_node /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver

@@ -1,0 +1,848 @@
+[0.037s] Invoking command in '/home/jucy/ydlidar_ws_11_29/build/nav2_msgs': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common:/home/jucy/ydlidar_ws_11_29/install/ydlidar_ros2_driver:/home/jucy/ydlidar_ws_11_29/install/myagv_navigation2:/home/jucy/ydlidar_ws_11_29/install/myagv_bringup:/home/jucy/ydlidar_ws_11_29/install/myagv_description:/home/jucy/new_ws/install/myagv_description:/home/jucy/new_ws/install/aseembly:/home/jucy/turtlebot3_ws/install/turtlebot3:/home/jucy/turtlebot3_ws/install/turtlebot3_simulations:/home/jucy/turtlebot3_ws/install/turtlebot3_bringup:/home/jucy/turtlebot3_ws/install/turtlebot3_node:/home/jucy/turtlebot3_ws/install/turtlebot3_navigation2:/home/jucy/turtlebot3_ws/install/turtlebot3_fake_node:/home/jucy/turtlebot3_ws/install/turtlebot3_msgs:/home/jucy/turtlebot3_ws/install/turtlebot3_gazebo:/home/jucy/turtlebot3_ws/install/turtlebot3_description:/home/jucy/turtlebot3_ws/install/turtlebot3_cartographer:/home/jucy/turtlebot3_ws/install/dynamixel_sdk_examples:/home/jucy/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/jucy/turtlebot3_ws/install/dynamixel_sdk:/home/jucy/ros2_ws/install/ps2_controller:/home/jucy/ydlidar_ros2_ws/install/ydlidar_ros2_driver:/home/jucy/ydlidar_ros2_ws/install/ps2_controller:/home/jucy/ydlidar_ros2_ws/install/myagv_navigation2:/home/jucy/ydlidar_ros2_ws/install/myagv_bringup:/home/jucy/ydlidar_ros2_ws/install/myagv_description:/home/jucy/ydlidar_ros2_wss/install/ydlidar_ros2_driver:/opt/ros/foxy:/opt/ros/foxy:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node:/home/jucy/turtlebot3_ws/install/turtlebot3_teleop:/home/jucy/turtlebot3_ws/install/turtlebot3_example:/home/jucy/turtlebot3_ws/install/nav2_goal_pulisher_test:/home/jucy/turtlebot3_ws/install/nav2_goal_publisher:/home/jucy/ros2_ws/install/camera_udp_communication:/home/jucy/ros2_ws/install/agv_control_py:/home/jucy/ydlidar_ros2_ws/install/jdamr200_teleop:/home/jucy/ydlidar_ros2_ws/install/jdamr200_node PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/navigation2/nav2_msgs -DCMAKE_INSTALL_PREFIX=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs
+[3.504s] -- The C compiler identification is GNU 9.4.0
+[6.711s] -- The CXX compiler identification is GNU 9.4.0
+[6.749s] -- Check for working C compiler: /usr/bin/cc
+[6.830s] -- Check for working C compiler: /usr/bin/cc -- works
+[6.830s] -- Detecting C compiler ABI info
+[6.896s] -- Detecting C compiler ABI info - done
+[6.907s] -- Detecting C compile features
+[6.908s] -- Detecting C compile features - done
+[6.910s] -- Check for working CXX compiler: /usr/bin/c++
+[6.982s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[6.983s] -- Detecting CXX compiler ABI info
+[7.057s] -- Detecting CXX compiler ABI info - done
+[7.068s] -- Detecting CXX compile features
+[7.068s] -- Detecting CXX compile features - done
+[7.114s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[7.221s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[7.221s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[8.052s] -- Found nav2_common: 0.4.7 (/home/jucy/ydlidar_ws_11_29/install/nav2_common/share/nav2_common/cmake)
+[8.061s] -- Found builtin_interfaces: 1.0.0 (/opt/ros/foxy/share/builtin_interfaces/cmake)
+[8.176s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[8.288s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[8.954s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[9.063s] -- Found FastRTPS: /opt/ros/foxy/include  
+[9.222s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[9.296s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[9.553s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[9.614s] -- Found action_msgs: 1.0.0 (/opt/ros/foxy/share/action_msgs/cmake)
+[9.766s] -- Setting build type to Release as none was specified.
+[9.839s] -- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+[10.353s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[10.700s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[10.887s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[10.927s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") 
+[10.931s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[10.966s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") 
+[10.966s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[10.966s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+[10.966s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+[10.994s] -- Found PythonExtra: .so  
+[11.156s] -- Configuring done
+[11.508s] -- Generating done
+[11.558s] -- Build files have been written to: /home/jucy/ydlidar_ws_11_29/build/nav2_msgs
+[11.571s] Invoked command in '/home/jucy/ydlidar_ws_11_29/build/nav2_msgs' returned '0': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common:/home/jucy/ydlidar_ws_11_29/install/ydlidar_ros2_driver:/home/jucy/ydlidar_ws_11_29/install/myagv_navigation2:/home/jucy/ydlidar_ws_11_29/install/myagv_bringup:/home/jucy/ydlidar_ws_11_29/install/myagv_description:/home/jucy/new_ws/install/myagv_description:/home/jucy/new_ws/install/aseembly:/home/jucy/turtlebot3_ws/install/turtlebot3:/home/jucy/turtlebot3_ws/install/turtlebot3_simulations:/home/jucy/turtlebot3_ws/install/turtlebot3_bringup:/home/jucy/turtlebot3_ws/install/turtlebot3_node:/home/jucy/turtlebot3_ws/install/turtlebot3_navigation2:/home/jucy/turtlebot3_ws/install/turtlebot3_fake_node:/home/jucy/turtlebot3_ws/install/turtlebot3_msgs:/home/jucy/turtlebot3_ws/install/turtlebot3_gazebo:/home/jucy/turtlebot3_ws/install/turtlebot3_description:/home/jucy/turtlebot3_ws/install/turtlebot3_cartographer:/home/jucy/turtlebot3_ws/install/dynamixel_sdk_examples:/home/jucy/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/jucy/turtlebot3_ws/install/dynamixel_sdk:/home/jucy/ros2_ws/install/ps2_controller:/home/jucy/ydlidar_ros2_ws/install/ydlidar_ros2_driver:/home/jucy/ydlidar_ros2_ws/install/ps2_controller:/home/jucy/ydlidar_ros2_ws/install/myagv_navigation2:/home/jucy/ydlidar_ros2_ws/install/myagv_bringup:/home/jucy/ydlidar_ros2_ws/install/myagv_description:/home/jucy/ydlidar_ros2_wss/install/ydlidar_ros2_driver:/opt/ros/foxy:/opt/ros/foxy:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node:/home/jucy/turtlebot3_ws/install/turtlebot3_teleop:/home/jucy/turtlebot3_ws/install/turtlebot3_example:/home/jucy/turtlebot3_ws/install/nav2_goal_pulisher_test:/home/jucy/turtlebot3_ws/install/nav2_goal_publisher:/home/jucy/ros2_ws/install/camera_udp_communication:/home/jucy/ros2_ws/install/agv_control_py:/home/jucy/ydlidar_ros2_ws/install/jdamr200_teleop:/home/jucy/ydlidar_ros2_ws/install/jdamr200_node PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/navigation2/nav2_msgs -DCMAKE_INSTALL_PREFIX=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs
+[11.573s] Invoking command in '/home/jucy/ydlidar_ws_11_29/build/nav2_msgs': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common:/home/jucy/ydlidar_ws_11_29/install/ydlidar_ros2_driver:/home/jucy/ydlidar_ws_11_29/install/myagv_navigation2:/home/jucy/ydlidar_ws_11_29/install/myagv_bringup:/home/jucy/ydlidar_ws_11_29/install/myagv_description:/home/jucy/new_ws/install/myagv_description:/home/jucy/new_ws/install/aseembly:/home/jucy/turtlebot3_ws/install/turtlebot3:/home/jucy/turtlebot3_ws/install/turtlebot3_simulations:/home/jucy/turtlebot3_ws/install/turtlebot3_bringup:/home/jucy/turtlebot3_ws/install/turtlebot3_node:/home/jucy/turtlebot3_ws/install/turtlebot3_navigation2:/home/jucy/turtlebot3_ws/install/turtlebot3_fake_node:/home/jucy/turtlebot3_ws/install/turtlebot3_msgs:/home/jucy/turtlebot3_ws/install/turtlebot3_gazebo:/home/jucy/turtlebot3_ws/install/turtlebot3_description:/home/jucy/turtlebot3_ws/install/turtlebot3_cartographer:/home/jucy/turtlebot3_ws/install/dynamixel_sdk_examples:/home/jucy/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/jucy/turtlebot3_ws/install/dynamixel_sdk:/home/jucy/ros2_ws/install/ps2_controller:/home/jucy/ydlidar_ros2_ws/install/ydlidar_ros2_driver:/home/jucy/ydlidar_ros2_ws/install/ps2_controller:/home/jucy/ydlidar_ros2_ws/install/myagv_navigation2:/home/jucy/ydlidar_ros2_ws/install/myagv_bringup:/home/jucy/ydlidar_ros2_ws/install/myagv_description:/home/jucy/ydlidar_ros2_wss/install/ydlidar_ros2_driver:/opt/ros/foxy:/opt/ros/foxy:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node:/home/jucy/turtlebot3_ws/install/turtlebot3_teleop:/home/jucy/turtlebot3_ws/install/turtlebot3_example:/home/jucy/turtlebot3_ws/install/nav2_goal_pulisher_test:/home/jucy/turtlebot3_ws/install/nav2_goal_publisher:/home/jucy/ros2_ws/install/camera_udp_communication:/home/jucy/ros2_ws/install/agv_control_py:/home/jucy/ydlidar_ros2_ws/install/jdamr200_teleop:/home/jucy/ydlidar_ros2_ws/install/jdamr200_node PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/build/nav2_msgs -- -j12 -l12
+[11.679s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[11.680s] [35m[1mScanning dependencies of target nav2_msgs__cpp[0m
+[11.693s] [  1%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[18.347s] [  1%] Built target nav2_msgs__cpp
+[18.369s] [  3%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[18.369s] [  3%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[18.372s] [  4%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[19.086s] [35m[1mScanning dependencies of target nav2_msgs__rosidl_generator_c[0m
+[19.458s] [  5%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/msg/detail/costmap_meta_data__functions.c.o[0m
+[19.459s] [  6%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/msg/detail/behavior_tree_status_change__functions.c.o[0m
+[19.460s] [  6%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/msg/detail/costmap__functions.c.o[0m
+[19.465s] [  6%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/msg/detail/voxel_grid__functions.c.o[0m
+[19.468s] [  6%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/msg/detail/behavior_tree_log__functions.c.o[0m
+[19.475s] [  6%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/srv/detail/clear_costmap_except_region__functions.c.o[0m
+[19.476s] [  6%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/msg/detail/particle_cloud__functions.c.o[0m
+[19.477s] [  7%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/msg/detail/particle__functions.c.o[0m
+[19.484s] [  8%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/srv/detail/get_costmap__functions.c.o[0m
+[19.908s] [  9%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/srv/detail/clear_costmap_around_robot__functions.c.o[0m
+[19.953s] [  9%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/srv/detail/clear_entire_costmap__functions.c.o[0m
+[19.953s] [ 10%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/srv/detail/manage_lifecycle_nodes__functions.c.o[0m
+[19.954s] [ 11%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/srv/detail/save_map__functions.c.o[0m
+[19.971s] [ 11%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/srv/detail/load_map__functions.c.o[0m
+[19.972s] [ 11%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/action/detail/back_up__functions.c.o[0m
+[20.015s] [ 12%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/action/detail/compute_path_to_pose__functions.c.o[0m
+[20.058s] [ 12%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/action/detail/follow_path__functions.c.o[0m
+[20.080s] [ 13%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/action/detail/navigate_to_pose__functions.c.o[0m
+[20.333s] [ 13%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/action/detail/wait__functions.c.o[0m
+[20.353s] [ 14%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/action/detail/dummy_recovery__functions.c.o[0m
+[20.353s] [ 14%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/action/detail/spin__functions.c.o[0m
+[20.378s] [ 15%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_msgs/action/detail/follow_waypoints__functions.c.o[0m
+[21.546s] [ 15%] [32m[1mLinking C shared library libnav2_msgs__rosidl_generator_c.so[0m
+[21.678s] [ 15%] Built target nav2_msgs__rosidl_generator_c
+[21.701s] [ 16%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[21.701s] [ 17%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[22.602s] [35m[1mScanning dependencies of target nav2_msgs__rosidl_typesupport_cpp[0m
+[22.799s] [ 17%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/msg/voxel_grid__type_support.cpp.o[0m
+[22.799s] [ 18%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/msg/behavior_tree_status_change__type_support.cpp.o[0m
+[22.800s] [ 19%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/msg/costmap_meta_data__type_support.cpp.o[0m
+[22.801s] [ 19%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/msg/behavior_tree_log__type_support.cpp.o[0m
+[22.808s] [ 19%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/msg/costmap__type_support.cpp.o[0m
+[22.813s] [ 20%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/msg/particle__type_support.cpp.o[0m
+[22.819s] [ 20%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/msg/particle_cloud__type_support.cpp.o[0m
+[22.824s] [ 21%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/srv/get_costmap__type_support.cpp.o[0m
+[23.663s] [ 22%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/srv/clear_costmap_around_robot__type_support.cpp.o[0m
+[23.673s] [ 22%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/srv/clear_costmap_except_region__type_support.cpp.o[0m
+[23.678s] [ 23%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/srv/manage_lifecycle_nodes__type_support.cpp.o[0m
+[23.702s] [ 23%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/srv/clear_entire_costmap__type_support.cpp.o[0m
+[23.797s] [ 23%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/srv/load_map__type_support.cpp.o[0m
+[23.888s] [ 24%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/srv/save_map__type_support.cpp.o[0m
+[24.031s] [ 24%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/action/back_up__type_support.cpp.o[0m
+[24.133s] [ 25%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/action/compute_path_to_pose__type_support.cpp.o[0m
+[24.797s] [35m[1mScanning dependencies of target nav2_msgs__rosidl_typesupport_introspection_cpp[0m
+[24.982s] [ 26%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/action/dummy_recovery__type_support.cpp.o[0m
+[24.982s] [ 26%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/action/wait__type_support.cpp.o[0m
+[24.983s] [ 26%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/action/navigate_to_pose__type_support.cpp.o[0m
+[24.983s] [ 26%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/action/follow_path__type_support.cpp.o[0m
+[24.983s] [ 27%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/action/spin__type_support.cpp.o[0m
+[24.985s] [ 28%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_msgs/action/follow_waypoints__type_support.cpp.o[0m
+[25.065s] [ 28%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/msg/detail/costmap__type_support.cpp.o[0m
+[25.065s] [ 28%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/msg/detail/voxel_grid__type_support.cpp.o[0m
+[25.070s] [ 29%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/msg/detail/costmap_meta_data__type_support.cpp.o[0m
+[26.012s] [ 30%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/msg/detail/behavior_tree_status_change__type_support.cpp.o[0m
+[26.035s] [ 30%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/msg/detail/behavior_tree_log__type_support.cpp.o[0m
+[26.053s] [ 31%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/msg/detail/particle__type_support.cpp.o[0m
+[26.103s] [ 31%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/msg/detail/particle_cloud__type_support.cpp.o[0m
+[26.294s] [ 32%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/srv/detail/get_costmap__type_support.cpp.o[0m
+[26.306s] [ 32%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/srv/detail/clear_costmap_except_region__type_support.cpp.o[0m
+[26.321s] [ 33%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/srv/detail/clear_costmap_around_robot__type_support.cpp.o[0m
+[26.339s] [ 33%] [32m[1mLinking CXX shared library libnav2_msgs__rosidl_typesupport_cpp.so[0m
+[26.530s] [ 33%] Built target nav2_msgs__rosidl_typesupport_cpp
+[26.674s] [ 33%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/srv/detail/clear_entire_costmap__type_support.cpp.o[0m
+[26.697s] [ 34%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/srv/detail/manage_lifecycle_nodes__type_support.cpp.o[0m
+[26.725s] [35m[1mScanning dependencies of target nav2_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[26.934s] [ 34%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/msg/detail/dds_fastrtps/costmap__type_support.cpp.o[0m
+[27.009s] [ 35%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/msg/detail/dds_fastrtps/costmap_meta_data__type_support.cpp.o[0m
+[27.143s] [ 35%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/srv/detail/load_map__type_support.cpp.o[0m
+[27.164s] [ 36%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/srv/detail/save_map__type_support.cpp.o[0m
+[27.201s] [ 36%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/action/detail/back_up__type_support.cpp.o[0m
+[27.280s] [ 37%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/action/detail/compute_path_to_pose__type_support.cpp.o[0m
+[27.489s] [ 37%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/action/detail/follow_path__type_support.cpp.o[0m
+[27.580s] [ 37%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/msg/detail/dds_fastrtps/voxel_grid__type_support.cpp.o[0m
+[27.654s] [ 38%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/action/detail/navigate_to_pose__type_support.cpp.o[0m
+[27.761s] [ 38%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/action/detail/wait__type_support.cpp.o[0m
+[28.149s] [ 39%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/action/detail/spin__type_support.cpp.o[0m
+[28.337s] [ 40%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/msg/detail/dds_fastrtps/behavior_tree_status_change__type_support.cpp.o[0m
+[28.455s] [ 40%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/msg/detail/dds_fastrtps/behavior_tree_log__type_support.cpp.o[0m
+[28.806s] [ 40%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/action/detail/dummy_recovery__type_support.cpp.o[0m
+[28.832s] [ 41%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_msgs/action/detail/follow_waypoints__type_support.cpp.o[0m
+[28.852s] [35m[1mScanning dependencies of target nav2_msgs__rosidl_typesupport_c[0m
+[28.904s] [ 42%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/msg/detail/dds_fastrtps/particle__type_support.cpp.o[0m
+[28.957s] [ 42%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/msg/detail/dds_fastrtps/particle_cloud__type_support.cpp.o[0m
+[29.023s] [ 43%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/srv/detail/dds_fastrtps/get_costmap__type_support.cpp.o[0m
+[29.030s] [ 43%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/msg/costmap__type_support.cpp.o[0m
+[29.059s] [ 44%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/msg/costmap_meta_data__type_support.cpp.o[0m
+[29.208s] [ 44%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/srv/detail/dds_fastrtps/clear_costmap_except_region__type_support.cpp.o[0m
+[29.229s] [ 45%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/srv/detail/dds_fastrtps/clear_costmap_around_robot__type_support.cpp.o[0m
+[29.285s] [ 45%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/msg/voxel_grid__type_support.cpp.o[0m
+[29.473s] [ 46%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/msg/behavior_tree_status_change__type_support.cpp.o[0m
+[29.534s] [ 46%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/srv/detail/dds_fastrtps/clear_entire_costmap__type_support.cpp.o[0m
+[29.601s] [ 46%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/msg/behavior_tree_log__type_support.cpp.o[0m
+[29.785s] [ 47%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/msg/particle__type_support.cpp.o[0m
+[29.804s] [ 48%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/srv/detail/dds_fastrtps/manage_lifecycle_nodes__type_support.cpp.o[0m
+[29.919s] [35m[1mScanning dependencies of target nav2_msgs__rosidl_typesupport_introspection_c[0m
+[29.968s] [ 48%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/msg/particle_cloud__type_support.cpp.o[0m
+[29.986s] [ 48%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/srv/detail/dds_fastrtps/load_map__type_support.cpp.o[0m
+[30.066s] [ 49%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/srv/get_costmap__type_support.cpp.o[0m
+[30.157s] [ 49%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/msg/detail/costmap__type_support.c.o[0m
+[30.173s] [ 49%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/srv/clear_costmap_except_region__type_support.cpp.o[0m
+[30.217s] [ 50%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/msg/detail/costmap_meta_data__type_support.c.o[0m
+[30.287s] [ 51%] [32m[1mLinking CXX shared library libnav2_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[30.312s] [ 51%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/msg/detail/voxel_grid__type_support.c.o[0m
+[30.323s] [ 52%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/msg/detail/behavior_tree_status_change__type_support.c.o[0m
+[30.338s] [ 53%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/srv/clear_costmap_around_robot__type_support.cpp.o[0m
+[30.417s] [ 54%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/srv/detail/dds_fastrtps/save_map__type_support.cpp.o[0m
+[30.450s] [ 54%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/msg/detail/behavior_tree_log__type_support.c.o[0m
+[30.477s] [ 54%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/srv/clear_entire_costmap__type_support.cpp.o[0m
+[30.482s] [ 55%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/msg/detail/particle__type_support.c.o[0m
+[30.484s] [ 55%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/msg/detail/particle_cloud__type_support.c.o[0m
+[30.513s] [ 56%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/srv/manage_lifecycle_nodes__type_support.cpp.o[0m
+[30.578s] [ 56%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/action/detail/dds_fastrtps/back_up__type_support.cpp.o[0m
+[30.612s] [ 56%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/srv/load_map__type_support.cpp.o[0m
+[30.639s] [ 57%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/action/detail/dds_fastrtps/compute_path_to_pose__type_support.cpp.o[0m
+[30.654s] [ 58%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/srv/save_map__type_support.cpp.o[0m
+[30.659s] [ 59%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/srv/detail/get_costmap__type_support.c.o[0m
+[30.663s] [ 60%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/srv/detail/clear_costmap_around_robot__type_support.c.o[0m
+[30.664s] [ 60%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/srv/detail/clear_costmap_except_region__type_support.c.o[0m
+[30.681s] [ 60%] Built target nav2_msgs__rosidl_typesupport_introspection_cpp
+[30.738s] [ 60%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/action/back_up__type_support.cpp.o[0m
+[30.806s] [ 61%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/srv/detail/manage_lifecycle_nodes__type_support.c.o[0m
+[30.827s] [ 61%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/srv/detail/clear_entire_costmap__type_support.c.o[0m
+[30.852s] [ 62%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/action/compute_path_to_pose__type_support.cpp.o[0m
+[30.872s] [ 62%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/action/detail/dds_fastrtps/follow_path__type_support.cpp.o[0m
+[30.925s] [ 62%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/action/follow_path__type_support.cpp.o[0m
+[30.956s] [ 62%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/srv/detail/load_map__type_support.c.o[0m
+[30.991s] [ 63%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/action/detail/dds_fastrtps/navigate_to_pose__type_support.cpp.o[0m
+[31.032s] [ 64%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/action/navigate_to_pose__type_support.cpp.o[0m
+[31.039s] [ 65%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/srv/detail/save_map__type_support.c.o[0m
+[31.100s] [ 66%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/action/detail/compute_path_to_pose__type_support.c.o[0m
+[31.107s] [ 66%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/action/detail/back_up__type_support.c.o[0m
+[31.166s] [ 66%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/action/detail/follow_path__type_support.c.o[0m
+[31.250s] [ 66%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/action/wait__type_support.cpp.o[0m
+[31.356s] [ 67%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/action/spin__type_support.cpp.o[0m
+[31.356s] [ 68%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/action/detail/navigate_to_pose__type_support.c.o[0m
+[31.390s] [ 68%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/action/detail/dds_fastrtps/wait__type_support.cpp.o[0m
+[31.416s] [ 68%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/action/detail/wait__type_support.c.o[0m
+[31.424s] [ 69%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/action/detail/dds_fastrtps/spin__type_support.cpp.o[0m
+[31.542s] [ 69%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/action/detail/dds_fastrtps/dummy_recovery__type_support.cpp.o[0m
+[31.567s] [ 69%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/action/dummy_recovery__type_support.cpp.o[0m
+[31.612s] [ 70%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/action/detail/spin__type_support.c.o[0m
+[31.666s] [ 70%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/action/detail/dummy_recovery__type_support.c.o[0m
+[31.677s] [ 71%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_msgs/action/detail/dds_fastrtps/follow_waypoints__type_support.cpp.o[0m
+[31.851s] [ 72%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nav2_msgs/action/follow_waypoints__type_support.cpp.o[0m
+[31.925s] [ 73%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nav2_msgs/action/detail/follow_waypoints__type_support.c.o[0m
+[32.070s] [ 73%] [32m[1mLinking CXX shared library libnav2_msgs__rosidl_typesupport_c.so[0m
+[32.185s] [ 73%] [32m[1mLinking C shared library libnav2_msgs__rosidl_typesupport_introspection_c.so[0m
+[32.310s] [ 73%] Built target nav2_msgs__rosidl_typesupport_c
+[32.313s] [ 73%] Built target nav2_msgs__rosidl_typesupport_introspection_c
+[33.532s] [ 73%] [32m[1mLinking CXX shared library libnav2_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[33.717s] [ 73%] Built target nav2_msgs__rosidl_typesupport_fastrtps_cpp
+[33.739s] [ 74%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[39.862s] [35m[1mScanning dependencies of target nav2_msgs__rosidl_typesupport_fastrtps_c[0m
+[40.049s] [ 75%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/msg/detail/costmap__type_support_c.cpp.o[0m
+[40.050s] [ 75%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/msg/detail/voxel_grid__type_support_c.cpp.o[0m
+[40.051s] [ 75%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/msg/detail/costmap_meta_data__type_support_c.cpp.o[0m
+[40.053s] [ 75%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/msg/detail/behavior_tree_log__type_support_c.cpp.o[0m
+[40.061s] [ 76%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/msg/detail/particle__type_support_c.cpp.o[0m
+[40.064s] [ 76%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/msg/detail/particle_cloud__type_support_c.cpp.o[0m
+[40.077s] [ 76%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/srv/detail/clear_costmap_except_region__type_support_c.cpp.o[0m
+[40.078s] [ 77%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/msg/detail/behavior_tree_status_change__type_support_c.cpp.o[0m
+[40.101s] [ 78%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/srv/detail/get_costmap__type_support_c.cpp.o[0m
+[40.145s] [ 79%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/srv/detail/clear_costmap_around_robot__type_support_c.cpp.o[0m
+[40.179s] [ 79%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/srv/detail/clear_entire_costmap__type_support_c.cpp.o[0m
+[40.186s] [ 80%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/srv/detail/manage_lifecycle_nodes__type_support_c.cpp.o[0m
+[41.194s] [ 80%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/srv/detail/load_map__type_support_c.cpp.o[0m
+[41.250s] [ 81%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/srv/detail/save_map__type_support_c.cpp.o[0m
+[41.251s] [ 81%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/action/detail/back_up__type_support_c.cpp.o[0m
+[41.268s] [ 81%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/action/detail/follow_path__type_support_c.cpp.o[0m
+[41.285s] [ 82%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/action/detail/compute_path_to_pose__type_support_c.cpp.o[0m
+[41.329s] [ 82%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/action/detail/wait__type_support_c.cpp.o[0m
+[41.337s] [ 83%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/action/detail/navigate_to_pose__type_support_c.cpp.o[0m
+[41.367s] [ 84%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/action/detail/spin__type_support_c.cpp.o[0m
+[41.377s] [ 84%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/action/detail/dummy_recovery__type_support_c.cpp.o[0m
+[41.443s] [ 85%] [32mBuilding CXX object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nav2_msgs/action/detail/follow_waypoints__type_support_c.cpp.o[0m
+[42.631s] [ 85%] [32m[1mLinking CXX shared library libnav2_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[42.761s] [ 85%] Built target nav2_msgs__rosidl_typesupport_fastrtps_c
+[42.789s] [35m[1mScanning dependencies of target nav2_msgs[0m
+[42.806s] [ 85%] Built target nav2_msgs
+[42.818s] [35m[1mScanning dependencies of target nav2_msgs__py[0m
+[42.847s] [ 86%] [34m[1mGenerating Python code for ROS interfaces[0m
+[49.449s] [ 86%] Built target nav2_msgs__py
+[49.468s] [35m[1mScanning dependencies of target nav2_msgs__python[0m
+[49.565s] [ 86%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/msg/_costmap_s.c.o[0m
+[49.566s] [ 86%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/msg/_voxel_grid_s.c.o[0m
+[49.567s] [ 87%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/msg/_behavior_tree_status_change_s.c.o[0m
+[49.567s] [ 88%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/msg/_behavior_tree_log_s.c.o[0m
+[49.567s] [ 88%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/msg/_costmap_meta_data_s.c.o[0m
+[49.568s] [ 88%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/msg/_particle_cloud_s.c.o[0m
+[49.569s] [ 89%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/msg/_particle_s.c.o[0m
+[49.569s] [ 90%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/srv/_get_costmap_s.c.o[0m
+[49.569s] [ 90%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/srv/_clear_costmap_except_region_s.c.o[0m
+[49.570s] [ 91%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/srv/_clear_costmap_around_robot_s.c.o[0m
+[49.570s] [ 91%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/srv/_clear_entire_costmap_s.c.o[0m
+[49.571s] [ 92%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/srv/_manage_lifecycle_nodes_s.c.o[0m
+[49.899s] [ 92%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/srv/_load_map_s.c.o[0m
+[49.904s] [ 93%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/srv/_save_map_s.c.o[0m
+[49.908s] [ 94%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/action/_back_up_s.c.o[0m
+[49.908s] [ 94%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/action/_compute_path_to_pose_s.c.o[0m
+[49.908s] [ 95%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/action/_navigate_to_pose_s.c.o[0m
+[49.910s] [ 95%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/action/_follow_path_s.c.o[0m
+[49.913s] [ 95%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/action/_wait_s.c.o[0m
+[49.951s] [ 96%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/action/_spin_s.c.o[0m
+[49.964s] [ 96%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/action/_dummy_recovery_s.c.o[0m
+[50.592s] [ 97%] [32mBuilding C object CMakeFiles/nav2_msgs__python.dir/rosidl_generator_py/nav2_msgs/action/_follow_waypoints_s.c.o[0m
+[50.874s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/nav2_msgs/libnav2_msgs__python.so[0m
+[50.930s] [ 97%] Built target nav2_msgs__python
+[50.972s] [35m[1mScanning dependencies of target nav2_msgs__rosidl_typesupport_c__pyext[0m
+[50.972s] [35m[1mScanning dependencies of target nav2_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[50.973s] [35m[1mScanning dependencies of target nav2_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[51.058s] [ 98%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/nav2_msgs/_nav2_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[51.059s] [ 99%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/nav2_msgs/_nav2_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[51.063s] [100%] [32mBuilding C object CMakeFiles/nav2_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/nav2_msgs/_nav2_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[52.147s] [100%] [32m[1mLinking CXX shared library rosidl_generator_py/nav2_msgs/nav2_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[52.153s] [100%] [32m[1mLinking C shared library rosidl_generator_py/nav2_msgs/nav2_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so[0m
+[52.153s] [100%] [32m[1mLinking C shared library rosidl_generator_py/nav2_msgs/nav2_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[52.225s] [100%] Built target nav2_msgs__rosidl_typesupport_c__pyext
+[52.225s] [100%] Built target nav2_msgs__rosidl_typesupport_introspection_c__pyext
+[52.251s] [100%] Built target nav2_msgs__rosidl_typesupport_fastrtps_c__pyext
+[52.262s] Invoked command in '/home/jucy/ydlidar_ws_11_29/build/nav2_msgs' returned '0': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common:/home/jucy/ydlidar_ws_11_29/install/ydlidar_ros2_driver:/home/jucy/ydlidar_ws_11_29/install/myagv_navigation2:/home/jucy/ydlidar_ws_11_29/install/myagv_bringup:/home/jucy/ydlidar_ws_11_29/install/myagv_description:/home/jucy/new_ws/install/myagv_description:/home/jucy/new_ws/install/aseembly:/home/jucy/turtlebot3_ws/install/turtlebot3:/home/jucy/turtlebot3_ws/install/turtlebot3_simulations:/home/jucy/turtlebot3_ws/install/turtlebot3_bringup:/home/jucy/turtlebot3_ws/install/turtlebot3_node:/home/jucy/turtlebot3_ws/install/turtlebot3_navigation2:/home/jucy/turtlebot3_ws/install/turtlebot3_fake_node:/home/jucy/turtlebot3_ws/install/turtlebot3_msgs:/home/jucy/turtlebot3_ws/install/turtlebot3_gazebo:/home/jucy/turtlebot3_ws/install/turtlebot3_description:/home/jucy/turtlebot3_ws/install/turtlebot3_cartographer:/home/jucy/turtlebot3_ws/install/dynamixel_sdk_examples:/home/jucy/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/jucy/turtlebot3_ws/install/dynamixel_sdk:/home/jucy/ros2_ws/install/ps2_controller:/home/jucy/ydlidar_ros2_ws/install/ydlidar_ros2_driver:/home/jucy/ydlidar_ros2_ws/install/ps2_controller:/home/jucy/ydlidar_ros2_ws/install/myagv_navigation2:/home/jucy/ydlidar_ros2_ws/install/myagv_bringup:/home/jucy/ydlidar_ros2_ws/install/myagv_description:/home/jucy/ydlidar_ros2_wss/install/ydlidar_ros2_driver:/opt/ros/foxy:/opt/ros/foxy:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node:/home/jucy/turtlebot3_ws/install/turtlebot3_teleop:/home/jucy/turtlebot3_ws/install/turtlebot3_example:/home/jucy/turtlebot3_ws/install/nav2_goal_pulisher_test:/home/jucy/turtlebot3_ws/install/nav2_goal_publisher:/home/jucy/ros2_ws/install/camera_udp_communication:/home/jucy/ros2_ws/install/agv_control_py:/home/jucy/ydlidar_ros2_ws/install/jdamr200_teleop:/home/jucy/ydlidar_ros2_ws/install/jdamr200_node PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/build/nav2_msgs -- -j12 -l12
+[52.265s] Invoking command in '/home/jucy/ydlidar_ws_11_29/build/nav2_msgs': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common:/home/jucy/ydlidar_ws_11_29/install/ydlidar_ros2_driver:/home/jucy/ydlidar_ws_11_29/install/myagv_navigation2:/home/jucy/ydlidar_ws_11_29/install/myagv_bringup:/home/jucy/ydlidar_ws_11_29/install/myagv_description:/home/jucy/new_ws/install/myagv_description:/home/jucy/new_ws/install/aseembly:/home/jucy/turtlebot3_ws/install/turtlebot3:/home/jucy/turtlebot3_ws/install/turtlebot3_simulations:/home/jucy/turtlebot3_ws/install/turtlebot3_bringup:/home/jucy/turtlebot3_ws/install/turtlebot3_node:/home/jucy/turtlebot3_ws/install/turtlebot3_navigation2:/home/jucy/turtlebot3_ws/install/turtlebot3_fake_node:/home/jucy/turtlebot3_ws/install/turtlebot3_msgs:/home/jucy/turtlebot3_ws/install/turtlebot3_gazebo:/home/jucy/turtlebot3_ws/install/turtlebot3_description:/home/jucy/turtlebot3_ws/install/turtlebot3_cartographer:/home/jucy/turtlebot3_ws/install/dynamixel_sdk_examples:/home/jucy/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/jucy/turtlebot3_ws/install/dynamixel_sdk:/home/jucy/ros2_ws/install/ps2_controller:/home/jucy/ydlidar_ros2_ws/install/ydlidar_ros2_driver:/home/jucy/ydlidar_ros2_ws/install/ps2_controller:/home/jucy/ydlidar_ros2_ws/install/myagv_navigation2:/home/jucy/ydlidar_ros2_ws/install/myagv_bringup:/home/jucy/ydlidar_ros2_ws/install/myagv_description:/home/jucy/ydlidar_ros2_wss/install/ydlidar_ros2_driver:/opt/ros/foxy:/opt/ros/foxy:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node:/home/jucy/turtlebot3_ws/install/turtlebot3_teleop:/home/jucy/turtlebot3_ws/install/turtlebot3_example:/home/jucy/turtlebot3_ws/install/nav2_goal_pulisher_test:/home/jucy/turtlebot3_ws/install/nav2_goal_publisher:/home/jucy/ros2_ws/install/camera_udp_communication:/home/jucy/ros2_ws/install/agv_control_py:/home/jucy/ydlidar_ros2_ws/install/jdamr200_teleop:/home/jucy/ydlidar_ros2_ws/install/jdamr200_node PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/build/nav2_msgs
+[52.273s] -- Install configuration: "Release"
+[52.273s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/ament_index/resource_index/rosidl_interfaces/nav2_msgs
+[52.273s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs
+[52.273s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg
+[52.273s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/costmap.h
+[52.274s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/rosidl_generator_c__visibility_control.h
+[52.274s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/voxel_grid.h
+[52.274s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/particle.h
+[52.274s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/costmap_meta_data.h
+[52.274s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/behavior_tree_log.h
+[52.274s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/behavior_tree_status_change.h
+[52.274s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/particle_cloud.h
+[52.274s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail
+[52.274s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__type_support.h
+[52.274s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__functions.c
+[52.275s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__struct.h
+[52.275s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__functions.h
+[52.275s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__struct.h
+[52.275s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__type_support.h
+[52.275s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__struct.h
+[52.275s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__functions.c
+[52.275s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__functions.h
+[52.275s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__functions.c
+[52.275s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__functions.c
+[52.275s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__functions.h
+[52.276s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__type_support.h
+[52.276s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__functions.c
+[52.276s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__functions.c
+[52.276s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__functions.h
+[52.276s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__functions.h
+[52.276s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__struct.h
+[52.276s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__functions.h
+[52.276s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__type_support.h
+[52.276s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__type_support.h
+[52.276s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__type_support.h
+[52.277s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__functions.c
+[52.277s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__struct.h
+[52.277s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__functions.h
+[52.277s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__type_support.h
+[52.277s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__struct.h
+[52.277s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__struct.h
+[52.277s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv
+[52.277s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/clear_entire_costmap.h
+[52.277s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/load_map.h
+[52.278s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/get_costmap.h
+[52.278s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/clear_costmap_around_robot.h
+[52.278s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/save_map.h
+[52.278s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/clear_costmap_except_region.h
+[52.278s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail
+[52.278s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__functions.h
+[52.278s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__struct.h
+[52.278s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__type_support.h
+[52.278s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__functions.h
+[52.278s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__type_support.h
+[52.279s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__type_support.h
+[52.279s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__functions.c
+[52.279s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__functions.c
+[52.279s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__type_support.h
+[52.279s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__functions.h
+[52.279s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__struct.h
+[52.279s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__struct.h
+[52.279s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__functions.h
+[52.279s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__functions.c
+[52.280s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__type_support.h
+[52.280s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__functions.c
+[52.280s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__struct.h
+[52.280s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__functions.h
+[52.280s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__struct.h
+[52.280s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__functions.h
+[52.280s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__functions.h
+[52.280s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__type_support.h
+[52.280s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__functions.c
+[52.281s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__functions.c
+[52.281s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__type_support.h
+[52.281s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__functions.c
+[52.281s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__struct.h
+[52.281s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__struct.h
+[52.281s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/manage_lifecycle_nodes.h
+[52.281s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action
+[52.282s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/compute_path_to_pose.h
+[52.282s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/back_up.h
+[52.282s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/wait.h
+[52.282s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/spin.h
+[52.282s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/dummy_recovery.h
+[52.282s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail
+[52.282s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__type_support.h
+[52.282s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__functions.h
+[52.282s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__struct.h
+[52.282s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__type_support.h
+[52.282s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__struct.h
+[52.283s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__type_support.h
+[52.283s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__functions.h
+[52.283s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__struct.h
+[52.283s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__functions.c
+[52.283s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__functions.h
+[52.283s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__functions.c
+[52.283s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__functions.c
+[52.284s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__functions.c
+[52.284s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__functions.h
+[52.284s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__functions.h
+[52.284s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__type_support.h
+[52.284s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__struct.h
+[52.284s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__type_support.h
+[52.284s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__struct.h
+[52.284s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__struct.h
+[52.285s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__type_support.h
+[52.285s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__type_support.h
+[52.285s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__functions.c
+[52.285s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__functions.h
+[52.285s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__struct.h
+[52.285s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__struct.h
+[52.285s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__functions.c
+[52.286s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__functions.h
+[52.286s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__type_support.h
+[52.286s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__functions.h
+[52.286s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__functions.c
+[52.286s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__functions.c
+[52.286s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/follow_path.h
+[52.286s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/follow_waypoints.h
+[52.286s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/navigate_to_pose.h
+[52.287s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/environment/library_path.sh
+[52.287s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/environment/library_path.dsv
+[52.287s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_generator_c.so
+[52.288s] -- Set runtime path of "/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_generator_c.so" to ""
+[52.288s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs
+[52.288s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg
+[52.289s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[52.289s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail
+[52.289s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__rosidl_typesupport_fastrtps_c.h
+[52.289s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__rosidl_typesupport_fastrtps_c.h
+[52.289s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__rosidl_typesupport_fastrtps_c.h
+[52.289s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__rosidl_typesupport_fastrtps_c.h
+[52.289s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__rosidl_typesupport_fastrtps_c.h
+[52.289s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__rosidl_typesupport_fastrtps_c.h
+[52.289s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__rosidl_typesupport_fastrtps_c.h
+[52.289s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv
+[52.290s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail
+[52.290s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__rosidl_typesupport_fastrtps_c.h
+[52.290s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__rosidl_typesupport_fastrtps_c.h
+[52.290s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__rosidl_typesupport_fastrtps_c.h
+[52.290s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__rosidl_typesupport_fastrtps_c.h
+[52.290s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__rosidl_typesupport_fastrtps_c.h
+[52.290s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__rosidl_typesupport_fastrtps_c.h
+[52.290s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__rosidl_typesupport_fastrtps_c.h
+[52.290s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action
+[52.290s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail
+[52.290s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__rosidl_typesupport_fastrtps_c.h
+[52.290s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__rosidl_typesupport_fastrtps_c.h
+[52.291s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__rosidl_typesupport_fastrtps_c.h
+[52.291s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__rosidl_typesupport_fastrtps_c.h
+[52.291s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__rosidl_typesupport_fastrtps_c.h
+[52.291s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__rosidl_typesupport_fastrtps_c.h
+[52.291s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__rosidl_typesupport_fastrtps_c.h
+[52.291s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__rosidl_typesupport_fastrtps_c.h
+[52.291s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_typesupport_fastrtps_c.so
+[52.292s] -- Set runtime path of "/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[52.292s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs
+[52.292s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg
+[52.292s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[52.292s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail
+[52.292s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__rosidl_typesupport_fastrtps_cpp.hpp
+[52.293s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__rosidl_typesupport_fastrtps_cpp.hpp
+[52.293s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__rosidl_typesupport_fastrtps_cpp.hpp
+[52.293s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__rosidl_typesupport_fastrtps_cpp.hpp
+[52.293s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__rosidl_typesupport_fastrtps_cpp.hpp
+[52.293s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__rosidl_typesupport_fastrtps_cpp.hpp
+[52.293s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__rosidl_typesupport_fastrtps_cpp.hpp
+[52.293s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/dds_fastrtps
+[52.293s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv
+[52.293s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail
+[52.293s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__rosidl_typesupport_fastrtps_cpp.hpp
+[52.294s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__rosidl_typesupport_fastrtps_cpp.hpp
+[52.294s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__rosidl_typesupport_fastrtps_cpp.hpp
+[52.294s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__rosidl_typesupport_fastrtps_cpp.hpp
+[52.294s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__rosidl_typesupport_fastrtps_cpp.hpp
+[52.294s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__rosidl_typesupport_fastrtps_cpp.hpp
+[52.294s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__rosidl_typesupport_fastrtps_cpp.hpp
+[52.294s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/dds_fastrtps
+[52.294s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action
+[52.294s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail
+[52.294s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__rosidl_typesupport_fastrtps_cpp.hpp
+[52.295s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__rosidl_typesupport_fastrtps_cpp.hpp
+[52.295s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__rosidl_typesupport_fastrtps_cpp.hpp
+[52.295s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__rosidl_typesupport_fastrtps_cpp.hpp
+[52.295s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__rosidl_typesupport_fastrtps_cpp.hpp
+[52.295s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__rosidl_typesupport_fastrtps_cpp.hpp
+[52.295s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__rosidl_typesupport_fastrtps_cpp.hpp
+[52.295s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__rosidl_typesupport_fastrtps_cpp.hpp
+[52.295s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dds_fastrtps
+[52.296s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_typesupport_fastrtps_cpp.so
+[52.296s] -- Set runtime path of "/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[52.297s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs
+[52.297s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg
+[52.297s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[52.297s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail
+[52.297s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__type_support.c
+[52.297s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__rosidl_typesupport_introspection_c.h
+[52.297s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__type_support.c
+[52.297s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__type_support.c
+[52.297s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__rosidl_typesupport_introspection_c.h
+[52.297s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__rosidl_typesupport_introspection_c.h
+[52.298s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__rosidl_typesupport_introspection_c.h
+[52.298s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__rosidl_typesupport_introspection_c.h
+[52.298s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__rosidl_typesupport_introspection_c.h
+[52.298s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__type_support.c
+[52.298s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__type_support.c
+[52.298s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__rosidl_typesupport_introspection_c.h
+[52.298s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__type_support.c
+[52.298s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__type_support.c
+[52.298s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv
+[52.298s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail
+[52.299s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__rosidl_typesupport_introspection_c.h
+[52.299s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__rosidl_typesupport_introspection_c.h
+[52.299s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__type_support.c
+[52.299s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__rosidl_typesupport_introspection_c.h
+[52.299s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__type_support.c
+[52.299s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__rosidl_typesupport_introspection_c.h
+[52.299s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__rosidl_typesupport_introspection_c.h
+[52.299s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__type_support.c
+[52.299s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__type_support.c
+[52.300s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__type_support.c
+[52.300s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__type_support.c
+[52.300s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__rosidl_typesupport_introspection_c.h
+[52.300s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__rosidl_typesupport_introspection_c.h
+[52.300s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__type_support.c
+[52.300s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action
+[52.300s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail
+[52.300s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__rosidl_typesupport_introspection_c.h
+[52.300s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__rosidl_typesupport_introspection_c.h
+[52.300s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__type_support.c
+[52.301s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__rosidl_typesupport_introspection_c.h
+[52.301s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__type_support.c
+[52.301s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__type_support.c
+[52.301s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__type_support.c
+[52.301s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__rosidl_typesupport_introspection_c.h
+[52.301s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__rosidl_typesupport_introspection_c.h
+[52.301s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__rosidl_typesupport_introspection_c.h
+[52.302s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__type_support.c
+[52.302s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__rosidl_typesupport_introspection_c.h
+[52.302s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__type_support.c
+[52.302s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__type_support.c
+[52.302s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__rosidl_typesupport_introspection_c.h
+[52.302s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__type_support.c
+[52.302s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_typesupport_introspection_c.so
+[52.303s] -- Set runtime path of "/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_typesupport_introspection_c.so" to ""
+[52.303s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_typesupport_c.so
+[52.304s] -- Set runtime path of "/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_typesupport_c.so" to ""
+[52.304s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs
+[52.304s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg
+[52.304s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/costmap.hpp
+[52.304s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/costmap_meta_data.hpp
+[52.304s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[52.305s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/voxel_grid.hpp
+[52.305s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/behavior_tree_log.hpp
+[52.305s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/behavior_tree_status_change.hpp
+[52.305s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail
+[52.305s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__builder.hpp
+[52.305s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__struct.hpp
+[52.305s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__traits.hpp
+[52.305s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__traits.hpp
+[52.305s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__struct.hpp
+[52.305s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__struct.hpp
+[52.305s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__traits.hpp
+[52.306s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__type_support.hpp
+[52.306s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__traits.hpp
+[52.306s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__type_support.hpp
+[52.306s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__type_support.hpp
+[52.306s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__struct.hpp
+[52.306s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__struct.hpp
+[52.306s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__type_support.hpp
+[52.306s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__type_support.hpp
+[52.306s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__type_support.hpp
+[52.307s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__builder.hpp
+[52.307s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__builder.hpp
+[52.307s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__traits.hpp
+[52.307s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__builder.hpp
+[52.307s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__struct.hpp
+[52.307s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__builder.hpp
+[52.307s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__traits.hpp
+[52.307s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__builder.hpp
+[52.307s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__builder.hpp
+[52.308s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__traits.hpp
+[52.308s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__struct.hpp
+[52.308s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__type_support.hpp
+[52.308s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/particle_cloud.hpp
+[52.308s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/particle.hpp
+[52.308s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv
+[52.308s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/load_map.hpp
+[52.308s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/manage_lifecycle_nodes.hpp
+[52.308s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/clear_costmap_except_region.hpp
+[52.309s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/save_map.hpp
+[52.309s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/clear_entire_costmap.hpp
+[52.309s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail
+[52.309s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__struct.hpp
+[52.309s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__traits.hpp
+[52.309s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__struct.hpp
+[52.309s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__builder.hpp
+[52.309s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__traits.hpp
+[52.309s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__struct.hpp
+[52.309s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__builder.hpp
+[52.310s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__builder.hpp
+[52.310s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__type_support.hpp
+[52.310s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__struct.hpp
+[52.310s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__type_support.hpp
+[52.310s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__type_support.hpp
+[52.310s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__struct.hpp
+[52.310s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__traits.hpp
+[52.310s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__struct.hpp
+[52.310s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__type_support.hpp
+[52.311s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__struct.hpp
+[52.311s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__traits.hpp
+[52.311s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__type_support.hpp
+[52.311s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__builder.hpp
+[52.311s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__type_support.hpp
+[52.311s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__builder.hpp
+[52.311s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__traits.hpp
+[52.311s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__builder.hpp
+[52.311s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__traits.hpp
+[52.312s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__traits.hpp
+[52.312s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__builder.hpp
+[52.312s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__type_support.hpp
+[52.312s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/clear_costmap_around_robot.hpp
+[52.312s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/get_costmap.hpp
+[52.312s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action
+[52.312s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/follow_waypoints.hpp
+[52.312s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/compute_path_to_pose.hpp
+[52.312s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/spin.hpp
+[52.313s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/wait.hpp
+[52.313s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/back_up.hpp
+[52.313s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/navigate_to_pose.hpp
+[52.313s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail
+[52.313s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__type_support.hpp
+[52.313s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__builder.hpp
+[52.313s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__traits.hpp
+[52.313s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__builder.hpp
+[52.314s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__type_support.hpp
+[52.314s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__builder.hpp
+[52.314s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__struct.hpp
+[52.314s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__struct.hpp
+[52.314s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__struct.hpp
+[52.314s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__builder.hpp
+[52.314s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__builder.hpp
+[52.314s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__traits.hpp
+[52.315s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__type_support.hpp
+[52.315s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__type_support.hpp
+[52.315s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__builder.hpp
+[52.315s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__traits.hpp
+[52.315s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__traits.hpp
+[52.315s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__type_support.hpp
+[52.315s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__struct.hpp
+[52.315s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__builder.hpp
+[52.315s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__type_support.hpp
+[52.316s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__type_support.hpp
+[52.316s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__traits.hpp
+[52.316s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__struct.hpp
+[52.316s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__struct.hpp
+[52.316s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__builder.hpp
+[52.316s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__traits.hpp
+[52.316s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__struct.hpp
+[52.316s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__traits.hpp
+[52.317s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__traits.hpp
+[52.317s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__struct.hpp
+[52.317s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__type_support.hpp
+[52.317s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/follow_path.hpp
+[52.317s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/dummy_recovery.hpp
+[52.317s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs
+[52.317s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg
+[52.318s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail
+[52.318s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__type_support.cpp
+[52.318s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__rosidl_typesupport_introspection_cpp.hpp
+[52.318s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__type_support.cpp
+[52.318s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__rosidl_typesupport_introspection_cpp.hpp
+[52.318s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__rosidl_typesupport_introspection_cpp.hpp
+[52.318s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__rosidl_typesupport_introspection_cpp.hpp
+[52.318s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/voxel_grid__type_support.cpp
+[52.318s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap__type_support.cpp
+[52.318s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle__rosidl_typesupport_introspection_cpp.hpp
+[52.319s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__type_support.cpp
+[52.319s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_status_change__rosidl_typesupport_introspection_cpp.hpp
+[52.319s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/costmap_meta_data__type_support.cpp
+[52.319s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/behavior_tree_log__rosidl_typesupport_introspection_cpp.hpp
+[52.319s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/msg/detail/particle_cloud__type_support.cpp
+[52.319s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv
+[52.319s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail
+[52.319s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__rosidl_typesupport_introspection_cpp.hpp
+[52.319s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__type_support.cpp
+[52.319s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__type_support.cpp
+[52.320s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__type_support.cpp
+[52.320s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__rosidl_typesupport_introspection_cpp.hpp
+[52.320s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/get_costmap__type_support.cpp
+[52.320s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__rosidl_typesupport_introspection_cpp.hpp
+[52.320s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__type_support.cpp
+[52.320s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_around_robot__rosidl_typesupport_introspection_cpp.hpp
+[52.320s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/load_map__type_support.cpp
+[52.320s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_costmap_except_region__rosidl_typesupport_introspection_cpp.hpp
+[52.321s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/clear_entire_costmap__rosidl_typesupport_introspection_cpp.hpp
+[52.321s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/manage_lifecycle_nodes__rosidl_typesupport_introspection_cpp.hpp
+[52.321s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/srv/detail/save_map__type_support.cpp
+[52.321s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action
+[52.321s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail
+[52.321s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__type_support.cpp
+[52.321s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__type_support.cpp
+[52.321s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__rosidl_typesupport_introspection_cpp.hpp
+[52.321s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/spin__type_support.cpp
+[52.322s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__rosidl_typesupport_introspection_cpp.hpp
+[52.322s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__type_support.cpp
+[52.322s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__type_support.cpp
+[52.322s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__type_support.cpp
+[52.322s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_path__type_support.cpp
+[52.322s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/dummy_recovery__rosidl_typesupport_introspection_cpp.hpp
+[52.322s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__type_support.cpp
+[52.323s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/wait__rosidl_typesupport_introspection_cpp.hpp
+[52.323s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/follow_waypoints__rosidl_typesupport_introspection_cpp.hpp
+[52.323s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/back_up__rosidl_typesupport_introspection_cpp.hpp
+[52.323s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/navigate_to_pose__rosidl_typesupport_introspection_cpp.hpp
+[52.323s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/include/nav2_msgs/action/detail/compute_path_to_pose__rosidl_typesupport_introspection_cpp.hpp
+[52.323s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_typesupport_introspection_cpp.so
+[52.324s] -- Set runtime path of "/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[52.324s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_typesupport_cpp.so
+[52.325s] -- Set runtime path of "/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__rosidl_typesupport_cpp.so" to ""
+[52.325s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/environment/pythonpath.sh
+[52.325s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/environment/pythonpath.dsv
+[52.326s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/__init__.py
+[52.358s] Compiling '/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/__init__.py'...
+[52.362s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg
+[52.362s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_costmap_s.c
+[52.362s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_costmap.py
+[52.363s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_particle_s.c
+[52.363s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_voxel_grid_s.c
+[52.363s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_costmap_meta_data.py
+[52.363s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_costmap_meta_data_s.c
+[52.363s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_behavior_tree_status_change_s.c
+[52.363s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_behavior_tree_status_change.py
+[52.363s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_behavior_tree_log.py
+[52.363s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_voxel_grid.py
+[52.363s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/__init__.py
+[52.363s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_particle.py
+[52.363s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_particle_cloud.py
+[52.364s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_behavior_tree_log_s.c
+[52.364s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/msg/_particle_cloud_s.c
+[52.364s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv
+[52.364s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_clear_costmap_except_region.py
+[52.364s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_load_map_s.c
+[52.364s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_clear_costmap_around_robot_s.c
+[52.364s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_clear_costmap_except_region_s.c
+[52.364s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_clear_costmap_around_robot.py
+[52.364s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_load_map.py
+[52.365s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_clear_entire_costmap.py
+[52.365s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_clear_entire_costmap_s.c
+[52.365s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/__init__.py
+[52.365s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_save_map_s.c
+[52.365s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_manage_lifecycle_nodes_s.c
+[52.365s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_save_map.py
+[52.365s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_manage_lifecycle_nodes.py
+[52.365s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_get_costmap.py
+[52.366s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/srv/_get_costmap_s.c
+[52.366s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action
+[52.366s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_follow_waypoints.py
+[52.366s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_spin_s.c
+[52.366s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_back_up_s.c
+[52.366s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_wait_s.c
+[52.366s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_follow_path.py
+[52.366s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_compute_path_to_pose_s.c
+[52.367s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_follow_waypoints_s.c
+[52.367s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_wait.py
+[52.367s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_navigate_to_pose_s.c
+[52.367s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_navigate_to_pose.py
+[52.367s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_back_up.py
+[52.367s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/__init__.py
+[52.367s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_follow_path_s.c
+[52.368s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_compute_path_to_pose.py
+[52.368s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_spin.py
+[52.368s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_dummy_recovery.py
+[52.368s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/action/_dummy_recovery_s.c
+[52.368s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/nav2_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[52.369s] -- Set runtime path of "/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/nav2_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so" to ""
+[52.369s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/nav2_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[52.370s] -- Set runtime path of "/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/nav2_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so" to ""
+[52.370s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/nav2_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[52.371s] -- Set runtime path of "/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages/nav2_msgs/nav2_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so" to ""
+[52.371s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__python.so
+[52.372s] -- Set runtime path of "/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/libnav2_msgs__python.so" to ""
+[52.372s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/Costmap.idl
+[52.372s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/CostmapMetaData.idl
+[52.372s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/VoxelGrid.idl
+[52.372s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/BehaviorTreeStatusChange.idl
+[52.372s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/BehaviorTreeLog.idl
+[52.372s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/Particle.idl
+[52.373s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/ParticleCloud.idl
+[52.373s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/GetCostmap.idl
+[52.373s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ClearCostmapExceptRegion.idl
+[52.373s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ClearCostmapAroundRobot.idl
+[52.373s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ClearEntireCostmap.idl
+[52.373s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ManageLifecycleNodes.idl
+[52.374s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/LoadMap.idl
+[52.374s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/SaveMap.idl
+[52.374s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/BackUp.idl
+[52.374s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/ComputePathToPose.idl
+[52.374s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/FollowPath.idl
+[52.374s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/NavigateToPose.idl
+[52.375s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/Wait.idl
+[52.375s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/Spin.idl
+[52.375s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/DummyRecovery.idl
+[52.375s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/FollowWaypoints.idl
+[52.375s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/Costmap.msg
+[52.375s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/CostmapMetaData.msg
+[52.375s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/VoxelGrid.msg
+[52.376s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/BehaviorTreeStatusChange.msg
+[52.376s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/BehaviorTreeLog.msg
+[52.376s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/Particle.msg
+[52.376s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/msg/ParticleCloud.msg
+[52.376s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/GetCostmap.srv
+[52.376s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/GetCostmap_Request.msg
+[52.377s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/GetCostmap_Response.msg
+[52.377s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ClearCostmapExceptRegion.srv
+[52.377s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ClearCostmapExceptRegion_Request.msg
+[52.377s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ClearCostmapExceptRegion_Response.msg
+[52.377s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ClearCostmapAroundRobot.srv
+[52.377s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ClearCostmapAroundRobot_Request.msg
+[52.378s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ClearCostmapAroundRobot_Response.msg
+[52.378s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ClearEntireCostmap.srv
+[52.378s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ClearEntireCostmap_Request.msg
+[52.378s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ClearEntireCostmap_Response.msg
+[52.378s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ManageLifecycleNodes.srv
+[52.378s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ManageLifecycleNodes_Request.msg
+[52.379s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/ManageLifecycleNodes_Response.msg
+[52.379s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/LoadMap.srv
+[52.379s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/LoadMap_Request.msg
+[52.379s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/LoadMap_Response.msg
+[52.379s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/SaveMap.srv
+[52.379s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/SaveMap_Request.msg
+[52.379s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/srv/SaveMap_Response.msg
+[52.380s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/BackUp.action
+[52.380s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/ComputePathToPose.action
+[52.380s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/FollowPath.action
+[52.380s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/NavigateToPose.action
+[52.380s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/Wait.action
+[52.380s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/Spin.action
+[52.381s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/DummyRecovery.action
+[52.381s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/action/FollowWaypoints.action
+[52.381s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/ament_index/resource_index/package_run_dependencies/nav2_msgs
+[52.381s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/ament_index/resource_index/parent_prefix_path/nav2_msgs
+[52.381s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/environment/ament_prefix_path.sh
+[52.382s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/environment/ament_prefix_path.dsv
+[52.382s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/environment/path.sh
+[52.382s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/environment/path.dsv
+[52.382s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/local_setup.bash
+[52.382s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/local_setup.sh
+[52.382s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/local_setup.zsh
+[52.382s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/local_setup.dsv
+[52.383s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/package.dsv
+[52.383s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/ament_index/resource_index/packages/nav2_msgs
+[52.383s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/nav2_msgs__rosidl_generator_cExport.cmake
+[52.383s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/nav2_msgs__rosidl_generator_cExport-release.cmake
+[52.383s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/nav2_msgs__rosidl_typesupport_introspection_cExport.cmake
+[52.384s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/nav2_msgs__rosidl_typesupport_introspection_cExport-release.cmake
+[52.384s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/nav2_msgs__rosidl_typesupport_cExport.cmake
+[52.384s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/nav2_msgs__rosidl_typesupport_cExport-release.cmake
+[52.384s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/nav2_msgs__rosidl_generator_cppExport.cmake
+[52.384s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/nav2_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[52.385s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/nav2_msgs__rosidl_typesupport_introspection_cppExport-release.cmake
+[52.385s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/nav2_msgs__rosidl_typesupport_cppExport.cmake
+[52.385s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/nav2_msgs__rosidl_typesupport_cppExport-release.cmake
+[52.385s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/rosidl_cmake-extras.cmake
+[52.385s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[52.386s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[52.386s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[52.386s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[52.386s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[52.386s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[52.386s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/nav2_msgsConfig.cmake
+[52.387s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/cmake/nav2_msgsConfig-version.cmake
+[52.387s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_msgs/share/nav2_msgs/package.xml
+[52.390s] Invoked command in '/home/jucy/ydlidar_ws_11_29/build/nav2_msgs' returned '0': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common:/home/jucy/ydlidar_ws_11_29/install/ydlidar_ros2_driver:/home/jucy/ydlidar_ws_11_29/install/myagv_navigation2:/home/jucy/ydlidar_ws_11_29/install/myagv_bringup:/home/jucy/ydlidar_ws_11_29/install/myagv_description:/home/jucy/new_ws/install/myagv_description:/home/jucy/new_ws/install/aseembly:/home/jucy/turtlebot3_ws/install/turtlebot3:/home/jucy/turtlebot3_ws/install/turtlebot3_simulations:/home/jucy/turtlebot3_ws/install/turtlebot3_bringup:/home/jucy/turtlebot3_ws/install/turtlebot3_node:/home/jucy/turtlebot3_ws/install/turtlebot3_navigation2:/home/jucy/turtlebot3_ws/install/turtlebot3_fake_node:/home/jucy/turtlebot3_ws/install/turtlebot3_msgs:/home/jucy/turtlebot3_ws/install/turtlebot3_gazebo:/home/jucy/turtlebot3_ws/install/turtlebot3_description:/home/jucy/turtlebot3_ws/install/turtlebot3_cartographer:/home/jucy/turtlebot3_ws/install/dynamixel_sdk_examples:/home/jucy/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/jucy/turtlebot3_ws/install/dynamixel_sdk:/home/jucy/ros2_ws/install/ps2_controller:/home/jucy/ydlidar_ros2_ws/install/ydlidar_ros2_driver:/home/jucy/ydlidar_ros2_ws/install/ps2_controller:/home/jucy/ydlidar_ros2_ws/install/myagv_navigation2:/home/jucy/ydlidar_ros2_ws/install/myagv_bringup:/home/jucy/ydlidar_ros2_ws/install/myagv_description:/home/jucy/ydlidar_ros2_wss/install/ydlidar_ros2_driver:/opt/ros/foxy:/opt/ros/foxy:/home/jucy/ydlidar_ws_11_29/install/jdamr200_node:/home/jucy/turtlebot3_ws/install/turtlebot3_teleop:/home/jucy/turtlebot3_ws/install/turtlebot3_example:/home/jucy/turtlebot3_ws/install/nav2_goal_pulisher_test:/home/jucy/turtlebot3_ws/install/nav2_goal_publisher:/home/jucy/ros2_ws/install/camera_udp_communication:/home/jucy/ros2_ws/install/agv_control_py:/home/jucy/ydlidar_ros2_ws/install/jdamr200_teleop:/home/jucy/ydlidar_ros2_ws/install/jdamr200_node PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/build/nav2_msgs

@@ -1,0 +1,279 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						5,
+						17
+					]
+				},
+				{
+					"build" : "src",
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						0,
+						3,
+						4
+					]
+				},
+				{
+					"build" : "test",
+					"childIndexes" : 
+					[
+						3
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16
+					]
+				},
+				{
+					"build" : "gtest",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 1,
+					"source" : "/opt/ros/foxy/src/gtest_vendor",
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "nav2_util",
+					"targetIndexes" : 
+					[
+						0,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "gtest",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "dump_params::@145eef247bfb46b6828c",
+					"jsonFile" : "target-dump_params-Release-6d958f491391d34070fc.json",
+					"name" : "dump_params",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "gtest::@0af4add9fe94340e763e",
+					"jsonFile" : "target-gtest-Release-8c22c15ab9ddbc677052.json",
+					"name" : "gtest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "gtest_main::@0af4add9fe94340e763e",
+					"jsonFile" : "target-gtest_main-Release-6cb3c765547ee895f541.json",
+					"name" : "gtest_main",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "lifecycle_bringup::@145eef247bfb46b6828c",
+					"jsonFile" : "target-lifecycle_bringup-Release-fe0cb8a08c33fb758bf6.json",
+					"name" : "lifecycle_bringup",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "nav2_util_core::@145eef247bfb46b6828c",
+					"jsonFile" : "target-nav2_util_core-Release-d09186e3b773aa49aff7.json",
+					"name" : "nav2_util_core",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nav2_util_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nav2_util_uninstall-Release-732fefbdfdaadebb117f.json",
+					"name" : "nav2_util_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_actions::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_actions-Release-7c8ff2d859cdc0dbf830.json",
+					"name" : "test_actions",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_execution_timer::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_execution_timer-Release-a9252565210bfb0c2274.json",
+					"name" : "test_execution_timer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_geometry_utils::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_geometry_utils-Release-fca2d3596e177384c17d.json",
+					"name" : "test_geometry_utils",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_lifecycle_cli_node::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_lifecycle_cli_node-Release-9052f2068919263a2b46.json",
+					"name" : "test_lifecycle_cli_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_lifecycle_node::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_lifecycle_node-Release-855ddc5d77d456943450.json",
+					"name" : "test_lifecycle_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_lifecycle_utils::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_lifecycle_utils-Release-2e128e1617465e3ac0db.json",
+					"name" : "test_lifecycle_utils",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_node_utils::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_node_utils-Release-c0dc80f5b24544c592ae.json",
+					"name" : "test_node_utils",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_odometry_utils::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_odometry_utils-Release-c054024863ea426d0645.json",
+					"name" : "test_odometry_utils",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_robot_utils::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_robot_utils-Release-1fc768007828cc75dd9c.json",
+					"name" : "test_robot_utils",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_service_client::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_service_client-Release-7b2d321d5d006db61fdd.json",
+					"name" : "test_service_client",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_string_utils::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_string_utils-Release-85f8ab8b1b8b4e6da2e0.json",
+					"name" : "test_string_utils",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Release-cb671696250260fc707d.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/jucy/ydlidar_ws_11_29/build/nav2_util",
+		"source" : "/home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/navigation2/nav2_util"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

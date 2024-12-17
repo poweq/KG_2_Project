@@ -1,0 +1,49 @@
+[0.051s] Invoking command in '/home/jucy/ydlidar_ws_11_29/build/nav2_map_server': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/build/nav2_map_server -- -j12 -l12
+[0.118s] [  6%] Built target gtest
+[0.118s] [ 12%] Built target gtest_main
+[0.150s] [ 22%] Built target map_io
+[0.177s] [ 32%] Built target test_map_saver_cli
+[0.217s] [ 41%] Built target map_server_core
+[0.223s] [ 51%] Built target test_map_io
+[0.224s] [ 61%] Built target test_map_saver_publisher
+[0.302s] [ 67%] Built target map_server
+[0.321s] [ 74%] Built target map_saver_server
+[0.322s] [ 80%] Built target map_saver_cli
+[0.331s] [ 90%] Built target test_map_server_node
+[0.332s] [100%] Built target test_map_saver_node
+[0.405s] Invoked command in '/home/jucy/ydlidar_ws_11_29/build/nav2_map_server' returned '0': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/build/nav2_map_server -- -j12 -l12
+[0.410s] Invoking command in '/home/jucy/ydlidar_ws_11_29/build/nav2_map_server': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/build/nav2_map_server
+[0.432s] -- Install configuration: "Release"
+[0.435s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/lib/libmap_server_core.so
+[0.435s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/lib/libmap_io.so
+[0.435s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/lib/nav2_map_server/map_server
+[0.435s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/lib/nav2_map_server/map_saver_cli
+[0.436s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/lib/nav2_map_server/map_saver_server
+[0.436s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/include/
+[0.436s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/include//nav2_map_server
+[0.436s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/include//nav2_map_server/map_io.hpp
+[0.436s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/include//nav2_map_server/map_server.hpp
+[0.436s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/include//nav2_map_server/map_saver.hpp
+[0.437s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/include//nav2_map_server/map_mode.hpp
+[0.437s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/launch
+[0.437s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/launch/map_saver_server.launch.py
+[0.437s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/environment/library_path.sh
+[0.437s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/environment/library_path.dsv
+[0.437s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/ament_index/resource_index/package_run_dependencies/nav2_map_server
+[0.437s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/ament_index/resource_index/parent_prefix_path/nav2_map_server
+[0.438s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/environment/ament_prefix_path.sh
+[0.438s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/environment/ament_prefix_path.dsv
+[0.438s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/environment/path.sh
+[0.438s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/environment/path.dsv
+[0.438s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/local_setup.bash
+[0.438s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/local_setup.sh
+[0.438s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/local_setup.zsh
+[0.439s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/local_setup.dsv
+[0.439s] -- Installing: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/package.dsv
+[0.439s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/ament_index/resource_index/packages/nav2_map_server
+[0.439s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.440s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/cmake/ament_cmake_export_libraries-extras.cmake
+[0.440s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/cmake/nav2_map_serverConfig.cmake
+[0.440s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/cmake/nav2_map_serverConfig-version.cmake
+[0.440s] -- Up-to-date: /home/jucy/ydlidar_ws_11_29/install/nav2_map_server/share/nav2_map_server/package.xml
+[0.501s] Invoked command in '/home/jucy/ydlidar_ws_11_29/build/nav2_map_server' returned '0': AMENT_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_util:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs:/home/jucy/ydlidar_ws_11_29/install/nav2_common:/opt/ros/foxy:/opt/ros/foxy LD_LIBRARY_PATH=/home/jucy/ydlidar_ws_11_29/install/nav2_util/lib:/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jucy/ydlidar_ws_11_29/install/nav2_msgs/lib/python3.8/site-packages:/home/jucy/ydlidar_ws_11_29/install/nav2_common/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/build/nav2_map_server

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Development Page</title>
+        
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.min.js"></script>
+        
+    </head>
+</head>
+<body>
+    <div class="navigation">
+        <button onclick="window.location.href='/case_page_a'">Go to Case A</button>
+        <button onclick="window.location.href='/case_page_b'">Go to Case B</button>
+    </div>
+
+    <h1>QPT Monitoring</h1>
+
+    <!-- Robot Arm Status -->
+    <h2>Robot Arm Status & buttons</h2>
+    <p id="robot_arm_status" class="status">{{ robot_arm_status }}</p>
+    
+    <div class="status-and-buttons">
+        <div class="button-group">
+            <button onclick="sendArmCommand('start')">Start arm</button>
+            <button onclick="sendArmCommand('stop')">Stop arm</button>
+        </div>
+    </div>
+    
+    <!-- AGV Status -->
+    <h2>AGV Status</h2>
+    <p id="agv_status" class="status">{{ agv_status }}</p>
+
+    <div class="button-group">
+        <button id="agv_start">Start AGV</button>
+        <button id="agv_stop">Stop AGV</button>
+    </div>
+
+    <!-- Pusher Status -->
+    <h2>Pusher_X Controls</h2>
+    <div class="status-and-buttons">
+        <p id="pusher_x_status" class="status">X: No Data</p>
+        <div class="button-group">
+            <button onclick="sendPusherCommand('x', 0)">0</button>
+            <button onclick="sendPusherCommand('x', 1)">1</button>
+            <button onclick="sendPusherCommand('x', 2)">2</button>
+            <button onclick="sendPusherCommand('x', 3)">3</button>
+        </div>
+    </div>
+
+    <h2>Pusher_Y Controls</h2>
+    <div class="status-and-buttons">
+        <p id="pusher_y_status" class="status">Y: No Data</p>
+        <div class="button-group">
+            <button onclick="sendPusherCommand('y', 0)">0</button>
+            <button onclick="sendPusherCommand('y', 1)">1</button>
+            <button onclick="sendPusherCommand('y', 2)">2</button>
+            <button onclick="sendPusherCommand('y', 3)">3</button>
+        </div>
+    </div>
+
+        <h2>Case A Controls</h2>
+    <div class="status-and-buttons">
+        <p id="case_a_status" class="status">A: No Data</p>
+        <div class="button-group">
+            <button onclick="sendCaseCommand('a', 1)">1</button>
+            <button onclick="sendCaseCommand('a', 2)">2</button>
+            <button onclick="sendCaseCommand('a', 3)">3</button>
+            <button onclick="sendCaseCommand('a', 'open')">Open</button>
+            <button onclick="sendCaseCommand('a', 'close')">Close</button>
+        </div>
+    </div>
+
+    <h2>Case B Controls</h2>
+    <div class="status-and-buttons">
+        <p id="case_b_status" class="status">B: No Data</p>
+        <div class="button-group">
+            <button onclick="sendCaseCommand('b', 1)">1</button>
+            <button onclick="sendCaseCommand('b', 2)">2</button>
+            <button onclick="sendCaseCommand('b', 3)">3</button>
+            <button onclick="sendCaseCommand('b', 'open')">Open</button>
+            <button onclick="sendCaseCommand('b', 'close')">Close</button>
+        </div>
+    </div>
+
+
+    <script>
+        const socket = io();
+    
+        // Update Robot Arm Status in Real-Time
+        socket.on("robot_arm_update", function(data) {
+            document.getElementById("robot_arm_status").textContent = data.status;
+        });
+    
+        // Update AGV Status in Real-Time
+        socket.on("update_agv", function(data) {
+            document.getElementById("agv_status").textContent = data.status;
+        });
+
+        // Pusher 상태 업데이트
+        // X축 상태 업데이트
+        socket.on("pusher_x_update", function(data) {
+            document.getElementById("pusher_x_status").textContent = `X: ${data.value}`;
+        });
+
+        // Y축 상태 업데이트
+        socket.on("pusher_y_update", function(data) {
+         document.getElementById("pusher_y_status").textContent = `Y: ${data.value}`;
+        });
+
+        // Case A 상태 업데이트
+        socket.on("case_a_update", function(data) {
+            document.getElementById("case_a_status").textContent = `A: ${data.value}`;
+        });
+
+        // Case B 상태 업데이트
+        socket.on("case_b_update", function(data) {
+            document.getElementById("case_b_status").textContent = `B: ${data.value}`;
+         });
+
+
+
+        // Button Click Event Handlers
+        document.getElementById("robot_arm_start").addEventListener("click", function() {
+            sendCommand("robot_arm_command", "start");
+        });
+    
+        document.getElementById("robot_arm_stop").addEventListener("click", function() {
+            sendCommand("robot_arm_command", "stop");
+        });
+    
+        document.getElementById("agv_start").addEventListener("click", function() {
+            sendCommand("agv_command", "start");
+        });
+    
+        document.getElementById("agv_stop").addEventListener("click", function() {
+            sendCommand("agv_command", "stop");
+        });
+
+
+            // 버튼 클릭 이벤트 처리
+    // 푸셔 명령 전송 함수
+    function sendPusherCommand(axis, value) {
+        if (['x', 'y'].includes(axis) && Number.isInteger(value)) {
+            const command = `${axis}:${value}`; // x:n 또는 y:n 형식 생성
+            sendCommand("pusher_command", command); // 기존 sendCommand 함수 재활용
+        } else {
+            console.error("Invalid Pusher Command:", axis, value);
+        }
+    }
+
+    
+    function sendArmCommand(command) {
+    if (command === "start" || command === "stop") {
+        sendCommand("robot_arm_command", command); // 기존 sendCommand 재활용
+    } else {
+        console.error("Invalid Robot Arm Command:", command);
+    }
+}
+
+        // Send Command to Flask Backend
+        // Flask로 명령 전송
+    function sendCommand(topic, command) {
+        fetch("/send_command", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ topic: topic, command: command }),
+        })
+        .then(response => response.json())
+        .then(data => console.log(`Command Sent: ${command} to ${topic}`, data))
+        .catch(err => console.error("Error sending command:", err));
+    }
+        // Case 명령 전송 함수
+    function sendCaseCommand(caseType, value) {
+        if (['a', 'b'].includes(caseType) && [1, 2, 3].includes(value)|| ['open', 'close'].includes(value)) {
+            const command = `${caseType}:${value}`;
+            sendCommand("case_command", command); // 기존 sendCommand 함수 재활용
+        } else {
+            console.error("Invalid Case Command:", caseType, value);
+        }
+    }
+
+
+    </script>
+    </body>
+</html>

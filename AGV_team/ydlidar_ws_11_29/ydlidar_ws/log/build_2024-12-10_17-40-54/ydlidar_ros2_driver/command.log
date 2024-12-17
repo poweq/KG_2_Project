@@ -1,0 +1,4 @@
+Invoking command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver': /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver -- -j12 -l12
+Invoked command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver' returned '0': /usr/bin/cmake --build /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver -- -j12 -l12
+Invoking command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver': /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver
+Invoked command in '/home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver' returned '0': /usr/bin/cmake --install /home/jucy/ydlidar_ws_11_29/ydlidar_ws/build/ydlidar_ros2_driver

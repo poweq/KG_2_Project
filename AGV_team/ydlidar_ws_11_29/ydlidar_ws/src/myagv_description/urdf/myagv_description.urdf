@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! -->
+<robot
+  name="myagv_description">
+
+  <!-- Base Footprint -->
+  <link name="base_footprint" />
+
+  <joint name="base_footprint_to_base_link" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_footprint" />
+    <child link="base_link" />
+  </joint>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.017042 -0.01085 0.13316"
+        rpy="0 0 0" />
+      <mass
+        value="3.1167" />
+      <inertia
+        ixx="0.019724"
+        ixy="9.6491E-20"
+        ixz="1.1485E-18"
+        iyy="0.024249"
+        iyz="-0.00081356"
+        izz="0.010726" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://myagv_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.62745 0.62745 0.62745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://myagv_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="wheele1_link">
+    <inertial>
+      <origin
+        xyz="0 -1.38777878078145E-17 -0.015"
+        rpy="0 0 0" />
+      <mass
+        value="0.0995492172106266" />
+      <inertia
+        ixx="3.37534064604781E-05"
+        ixy="1.6940658945086E-21"
+        ixz="-3.20773854273555E-38"
+        iyy="3.37534064604781E-05"
+        iyz="-1.33966404900482E-37"
+        izz="5.25744303393622E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://myagv_description/meshes/wheele1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://myagv_description/meshes/wheele1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel1_joint"
+    type="continuous">
+    <origin
+      xyz="0.10954 -0.24 -0.03337"
+      rpy="-1.5708 0.23502 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheele1_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0.142"
+      velocity="3.142" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+
+  <link
+    name="wheele2_link">
+    <inertial>
+      <origin
+        xyz="-8.04911692853238E-16 3.88578058618805E-16 -0.015"
+        rpy="0 0 0" />
+      <mass
+        value="0.0995492172106266" />
+      <inertia
+        ixx="3.37534064604781E-05"
+        ixy="0"
+        ixz="-1.18992894185612E-38"
+        iyy="3.37534064604781E-05"
+        iyz="-1.08493658669582E-37"
+        izz="5.25744303393622E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://myagv_description/meshes/wheele2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://myagv_description/meshes/wheele2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheele2_joint"
+    type="continuous">
+    <origin
+      xyz="-0.075458 -0.24 -0.03337"
+      rpy="-1.5708 -0.89065 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheele2_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0.142"
+      velocity="3.142" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+
+  <link
+    name="wheele3_link">
+    <inertial>
+      <origin
+        xyz="-5.27355936696949E-16 2.39391839684799E-16 -0.015"
+        rpy="0 0 0" />
+      <mass
+        value="0.0995492172106266" />
+      <inertia
+        ixx="3.37534064604781E-05"
+        ixy="8.470329472543E-22"
+        ixz="-8.44433631491167E-22"
+        iyy="3.37534064604781E-05"
+        iyz="6.63072827142367E-23"
+        izz="5.25744303393622E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://myagv_description/meshes/wheele3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://myagv_description/meshes/wheele3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheele3_joint"
+    type="continuous">
+    <origin
+      xyz="0.10954 -0.02 -0.03337"
+      rpy="-1.5708 -1.4924 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheele3_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0.142"
+      velocity="3.142" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+
+  <link
+    name="wheele4_link">
+    <inertial>
+      <origin
+        xyz="-2.0122792321331E-16 8.67361737988404E-17 -0.015"
+        rpy="0 0 0" />
+      <mass
+        value="0.0995492172106266" />
+      <inertia
+        ixx="3.37534064604781E-05"
+        ixy="0"
+        ixz="-2.2094462930222E-23"
+        iyy="3.37534064604781E-05"
+        iyz="5.98535079652797E-22"
+        izz="5.25744303393622E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://myagv_description/meshes/wheele4_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://myagv_description/meshes/wheele4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheele4_joint"
+    type="continuous">
+    <origin
+      xyz="-0.075458 -0.02 -0.03337"
+      rpy="1.5708 -0.7485 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheele4_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0.142"
+      velocity="3.142" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+
+  <link
+    name="lidar_link">
+    <inertial>
+      <origin
+        xyz="1.38777878078145E-17 2.77555756156289E-17 -0.00999999999999998"
+        rpy="0 0 0" />
+      <mass
+        value="0.0565486677646162" />
+      <inertia
+        ixx="1.46084058391925E-05"
+        ixy="0"
+        ixz="1.75682712935409E-21"
+        iyy="1.46084058391925E-05"
+        iyz="2.11526852188391E-21"
+        izz="2.54469004940773E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://myagv_description/meshes/lidar_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://myagv_description/meshes/lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="continuous">
+    <origin
+      xyz="0.017042 -0.16725 0.08863"
+      rpy="3.1416 0 -0.69048" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0"
+      velocity="2" />
+  </joint>
+</robot>

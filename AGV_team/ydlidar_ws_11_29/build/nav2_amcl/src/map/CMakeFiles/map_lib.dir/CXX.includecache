@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/navigation2/nav2_amcl/include/nav2_amcl/map/map.hpp
+stdint.h
+-
+
+/home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/navigation2/nav2_amcl/src/map/map_cspace.cpp
+math.h
+-
+stdlib.h
+-
+string.h
+-
+queue
+-
+nav2_amcl/map/map.hpp
+/home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/navigation2/nav2_amcl/src/map/nav2_amcl/map/map.hpp
+

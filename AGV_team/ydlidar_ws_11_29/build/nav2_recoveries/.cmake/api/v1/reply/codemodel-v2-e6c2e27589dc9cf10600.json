@@ -1,0 +1,191 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						9
+					]
+				},
+				{
+					"build" : "test",
+					"childIndexes" : 
+					[
+						2
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "gtest",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "/opt/ros/foxy/src/gtest_vendor",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "nav2_recoveries",
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "gtest",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "gtest::@0af4add9fe94340e763e",
+					"jsonFile" : "target-gtest-Release-42e0c98196539c82024e.json",
+					"name" : "gtest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gtest_main::@0af4add9fe94340e763e",
+					"jsonFile" : "target-gtest_main-Release-6e55aab3199c1731b4b3.json",
+					"name" : "gtest_main",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nav2_backup_recovery::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nav2_backup_recovery-Release-a4e20f01f78153e8d0cc.json",
+					"name" : "nav2_backup_recovery",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nav2_recoveries_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nav2_recoveries_uninstall-Release-cc150602848ee6efb2c0.json",
+					"name" : "nav2_recoveries_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nav2_spin_recovery::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nav2_spin_recovery-Release-aa4b2adf386a7cec1742.json",
+					"name" : "nav2_spin_recovery",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nav2_wait_recovery::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nav2_wait_recovery-Release-086bd7d06800aab45cd7.json",
+					"name" : "nav2_wait_recovery",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "recoveries_server::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-recoveries_server-Release-88240fb8d62799301b68.json",
+					"name" : "recoveries_server",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "recoveries_server_core::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-recoveries_server_core-Release-40e58789d3a1f932d9c1.json",
+					"name" : "recoveries_server_core",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_recoveries::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_recoveries-Release-638a6e36ec5c79be6ddd.json",
+					"name" : "test_recoveries",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Release-8a6f3362e16662549007.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/jucy/ydlidar_ws_11_29/build/nav2_recoveries",
+		"source" : "/home/jucy/ydlidar_ws_11_29/ydlidar_ws/src/navigation2/nav2_recoveries"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}
